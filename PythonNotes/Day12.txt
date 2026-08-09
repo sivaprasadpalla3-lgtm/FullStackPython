@@ -1,0 +1,223 @@
+# Day 12 — String Slicing in Python
+
+---
+
+# Complete Notes
+
+🔹 1. Basic Concept
+Definition:
+String slicing allows us to extract a portion (substring) of a string by specifying start, end, and step values.
+General Syntax:
+s[start:end:step]
+
+🔹 2. Step Value (Direction Control)
+
+🔹 3. Default Values Based on Step Direction
+✅ Summary:
+For +ve step → start defaults to 0, end defaults to len(s)
+For -ve step → start defaults to len(s)-1, end defaults to before index -1
+
+🔹 4. Rules of Slicing
+Start index is inclusive
+End index is exclusive
+If step is positive, slicing moves forward (left → right)
+Stops before end - 1
+If step is negative, slicing moves backward (right → left)
+Stops before end + 1
+If start and end indices don’t align with the step direction → result is an empty string
+
+🔹 5. Examples and Explanations
+Let’s use:
+s = "codegnan"
+# Indices:   0 1 2 3 4 5 6 7
+# Characters c o d e g n a n
+
+🔹 6. Detailed Behavior of Missing Parameters
+
+🔹 7. Understanding with Examples
+Example 1: Forward Direction (step = +1)
+s = "codegnan"
+print(s[:])     # 'codegnan'
+print(s[:4])    # 'code'
+print(s[:-2])   # 'codegn'
+🧠 Rule:
+For forward slicing → goes from start (default 0) to end (exclusive).
+
+Example 2: Reverse Direction (step = -1)
+print(s[::-1])        # 'nangedoc'
+print(s[7:3:-1])      # 'nang'
+print(s[len(s)-1::-1])# 'nangedoc'
+🧠 Rule:
+For reverse slicing → goes from end (default last index) backward until before the stop index.
+
+Example 3: Tricky Cases
+print(s[:3:-1])  # 'nang' (starts from end → stops before index 3)
+print(s[5:2:1])  # '' (empty, invalid direction)
+print(s[2:5:-1]) # '' (empty, invalid direction)
+
+🔹 8. Rule of Thumb
+
+🔹 9. Special Usage Patterns
+
+🔹 10. Quick Reference Table
+
+🔹 11. Important Takeaways
+✅ 1. When step = +1 → forward direction → stops before end - 1
+✅ 2. When step = -1 → reverse direction → stops before end + 1
+✅ 3. Missing start/end values depend on step’s direction.
+✅ 4. Negative indices count from the end (-1 = last char).
+✅ 5. Invalid direction (start > end with + step or start < end with - step) → gives empty string.
+✅ 6. Slicing never raises an error for out-of-bound indices.
+
+Parameter | Description
+start | The index where slicing begins (included).
+end | The index where slicing stops (excluded).
+step | The direction and jump size (difference between consecutive indices).
+
+Step | Direction | Meaning
++ve (positive) | Forward (left → right) | Goes from start to end normally
+-ve (negative) | Reverse (right → left) | Goes from end towards the start
+
+Case | Direction | Default Start | Default End | Example | Output
+Step = +1 | Forward | 0 | len(s) | s[:] | full string
+Step = +1 | Forward | 0 | len(s) | s[::1] | full string
+Step = -1 | Reverse | len(s)-1 | before index -1 (till beginning) | s[::-1] | reversed string
+Step = -1 | Reverse | len(s)-1 | before index -1 | s[len(s)-1::-1] | reversed string
+Step = -1 | Reverse | -1 | before index -1 | s[-1::-1] | reversed string
+
+Expression | start | end | step | Direction | Output | Explanation
+s[0:8:1] | 0 | 8 | +1 | Forward | codegnan | Takes all characters (0 → 7)
+s[:4] | 0 | 4 | +1 | Forward | code | Missing start → starts from 0
+s[4:] | 4 | len(s) | +1 | Forward | gnan | Missing end → till end of string
+s[0:8:2] | 0 | 8 | +2 | Forward | cdga | Takes every 2nd char
+s[-4:-1] | -4 | -1 | +1 | Forward | gna | From index -4 (‘g’) to before -1 (‘n’)
+s[::-1] | last | before -1 | -1 | Reverse | nangedoc | Full reverse
+s[7:3:-1] | 7 | 3 | -1 | Reverse | nang | From index 7→4 (stop before 3)
+s[:3:-1] | last | 3 | -1 | Reverse | nang | Start from last → stop before index 3
+s[5:2:1] | 5 | 2 | +1 | Forward | '' | Invalid (forward but start > end)
+s[2:5:-1] | 2 | 5 | -1 | Reverse | '' | Invalid (reverse but start < end)
+s[-3:] | -3 | len(s) | +1 | Forward | nan | Last 3 characters
+s[:-2] | 0 | -2 | +1 | Forward | codegn | Excludes last 2 characters
+s[:-3] | 0 | -3 | +1 | Forward | codeg | Excludes last 3 characters
+s[:] | 0 | len(s) | +1 | Forward | codegnan | Copy full string
+s[len(s)-1:-1:-1] | 7 | -1 | -1 | Reverse | n | Stops before end (-1) → only 1st char
+s[len(s)-1::-1] | 7 | default | -1 | Reverse | nangedoc | Full reverse (explicit)
+
+Missing | Step = +1 (Forward) | Step = -1 (Reverse)
+Start | defaults to 0 | defaults to last index (len(s)-1)
+End | defaults to len(s) | defaults to before -1 (i.e., goes till start)
+Step | defaults to +1 | defaults to -1 (if specified manually)
+
+Step | Direction | Stops At
++ve | Left → Right | end - 1
+-ve | Right → Left | end + 1
+
+Expression | Meaning | Output
+s[:] | Copy entire string | codegnan
+s[::-1] | Reverse string | nangedoc
+s[:-n] | Exclude last n chars | e.g. s[:-3] → codeg
+s[-n:] | Last n chars | e.g. s[-3:] → nan
+s[::2] | Take every 2nd char | cdga
+s[1::2] | Take every 2nd char starting from index 1 | oenn
+
+Case | step | start (if missing) | end (if missing) | Effect
+Forward (+ve) | +1 | 0 | len(s) | left → right
+Reverse (-ve) | -1 | len(s)-1 | before -1 | right → left
+
+---
+
+# Day 12 — Quick Revision
+
+## Basic Syntax
+
+```python
+s[start:end:step]
+```
+
+```text
+start → starting index, included
+end   → stopping boundary, excluded
+step  → direction and jump size
+```
+
+## Step Direction
+
+```text
+Positive step → Forward → Left to Right
+Negative step → Reverse → Right to Left
+```
+
+## Default Values
+
+```text
+Positive step:
+    start → 0
+    end   → len(s)
+
+Negative step:
+    start → len(s)-1
+    end   → before -1
+```
+
+## Most Important Examples
+
+```python
+s = "codegnan"
+
+s[:]       # codegnan
+s[:4]      # code
+s[4:]      # gnan
+s[::2]     # cdga
+s[-3:]     # nan
+s[:-2]     # codegn
+s[::-1]    # nangedoc
+s[7:3:-1]  # nang
+```
+
+## Invalid Direction
+
+```python
+s[5:2:1]   # ''
+s[2:5:-1]  # ''
+```
+
+## Special Patterns
+
+```text
+s[:]       → Copy entire string
+s[::-1]    → Reverse string
+s[:-n]     → Exclude last n characters
+s[-n:]     → Get last n characters
+s[::2]     → Every 2nd character
+s[1::2]    → Every 2nd character starting from index 1
+```
+
+## Negative Indexing
+
+```text
+-1 → last character
+-2 → second-last character
+-3 → third-last character
+```
+
+## Most Important Takeaways
+
+```text
+1. Start index is inclusive.
+2. End index is exclusive.
+3. Positive step moves left to right.
+4. Negative step moves right to left.
+5. Missing start/end values depend on step direction.
+6. Negative indices count from the end.
+7. Invalid direction produces an empty string.
+8. Slicing does not raise an error for out-of-bound indices.
+```
+
+---
+# ⭐ Day 12 Status
+
+```text
+DAY 12 — STRING SLICING IN PYTHON
+
+Status: COMPLETED ✅
+```
