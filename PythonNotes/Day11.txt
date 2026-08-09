@@ -1,0 +1,908 @@
+# Day 11 — Python Conditional Statements and Loops
+
+---
+
+# Complete Notes
+
+Python Conditional Statements and Loops
+1. if Statement
+The if statement is used to execute a block of code only when a condition is True.
+Syntax
+if condition:
+statement
+Example
+n = 10
+
+if n > 0:
+print("Positive number")
+Execution
+Python checks:
+n > 0
+10 > 0
+True
+Because the condition is True, Python executes the print() statement.
+Output:
+Positive number
+
+2. if-else Statement
+When we have two possible choices, we can use if-else.
+Syntax
+if condition:
+statement
+else:
+statement
+Example
+n = 10
+
+if n > 0:
+print("Positive")
+else:
+print("Not Positive")
+Execution
+10 > 0 → True
+Therefore:
+Positive
+If n = -10:
+-10 > 0 → False
+So the else block executes.
+
+3. if-elif-else Statement
+When we need to check multiple conditions, we use elif.
+elif means:
+else if
+Syntax
+if condition1:
+block1
+
+elif condition2:
+block2
+
+elif condition3:
+block3
+
+else:
+else_block
+Important Rule
+Python checks conditions from top to bottom.
+As soon as one condition becomes True:
+Its block is executed.
+The remaining elif conditions are skipped.
+Python moves to the statement after the complete if-elif-else structure.
+
+4. Example: Positive, Negative or Neutral
+n = int(input("Enter n value: "))
+
+if n > 0:
+print(f"{n} is positive")
+
+elif n < 0:
+print(f"{n} is negative")
+
+else:
+print(f"{n} is neutral")
+Example 1
+Input:
+Enter n value: 10
+Execution:
+10 > 0 → True
+Output:
+10 is positive
+Python does not check:
+n < 0
+because the first condition was already True.
+Example 2
+Input:
+-5
+
+-5 > 0 → False
+-5 < 0 → True
+Output:
+-5 is negative
+Example 3
+Input:
+0
+
+0 > 0 → False
+0 < 0 → False
+Therefore else executes:
+0 is neutral
+
+5. Finding the Largest Number Among Three Numbers
+Suppose:
+a = 3000
+b = 200
+c = 1000
+We need to determine which number is largest.
+Program
+a = 3000
+b = 200
+c = 1000
+
+if a > b and a > c:
+print(f"a = {a} is largest number")
+
+elif b > a and b > c:
+print(f"b = {b} is largest number")
+
+else:
+print(f"c = {c} is largest number")
+Execution
+First:
+a > b and a > c
+Substitute values:
+3000 > 200 and 3000 > 1000
+True and True
+True
+Therefore:
+a = 3000 is largest number
+The elif and else blocks are skipped.
+Logic
+        Start
+|
+a > b and
+a > c ?
+/      \
+Yes       No
+|         |
+a largest   b > a and
+b > c ?
+/     \
+Yes      No
+|        |
+b largest   c largest
+
+6. Stock Availability Example
+We can use if-elif-else to classify stock.
+Program
+stock = int(input("Enter stock quantity: "))
+
+if stock > 20:
+print("Full stock available")
+
+elif stock > 0:
+print("Limited stock available")
+
+else:
+print("Out of stock")
+Example 1
+stock = 50
+
+50 > 20 → True
+Output:
+Full stock available
+Example 2
+stock = 10
+
+10 > 20 → False
+10 > 0 → True
+Output:
+Limited stock available
+Example 3
+stock = 0
+
+0 > 20 → False
+0 > 0 → False
+Output:
+Out of stock
+
+7. Nested if
+An if statement written inside another if statement is called a nested if.
+Example
+Suppose a person is eligible only when:
+Age >= 18
+AND
+Weight >= 50
+We can write:
+age = int(input("Enter age: "))
+weight = int(input("Enter weight: "))
+
+if age >= 18:
+
+if weight >= 50:
+print("Eligible")
+else:
+print("Not eligible due to weight")
+
+else:
+print("Not eligible due to age")
+
+print("End")
+
+How Nested if Works
+Suppose:
+age = 20
+weight = 60
+Python first checks:
+age >= 18
+
+20 >= 18 → True
+Therefore Python enters the outer if.
+Now it checks:
+weight >= 50
+
+60 >= 50 → True
+Therefore:
+Eligible
+Then:
+End
+Output
+Eligible
+End
+
+Case 2: Correct Age but Low Weight
+age = 20
+weight = 40
+Outer condition:
+20 >= 18 → True
+Inner condition:
+40 >= 50 → False
+Output:
+Not eligible due to weight
+End
+
+Case 3: Age Below 18
+age = 17
+weight = 60
+Outer condition:
+17 >= 18 → False
+Python does not enter the inner if.
+Output:
+Not eligible due to age
+End
+
+8. What is a Loop?
+A loop is used to execute a block of code repeatedly.
+Why do we need loops?
+Without a loop:
+print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+This requires writing the same statement many times.
+Using a loop:
+for i in range(1, 6):
+print(i)
+Output:
+1
+2
+3
+4
+5
+Advantages of loops
+Reduces code repetition
+Saves development time
+Makes code shorter
+Improves code readability
+Makes repetitive tasks easier to automate
+
+9. Types of Loops in Python
+Python mainly provides two types of loops:
+1. for loop
+2. while loop
+In this lesson, we focus on the for loop.
+
+10. for Loop
+The for loop is used to iterate over a sequence or iterable.
+Examples of iterables include:
+list
+tuple
+string
+set
+dictionary
+range
+Syntax
+for variable in iterable:
+statements
+Example:
+numbers = [10, 20, 30, 40]
+
+for i in numbers:
+print(i)
+Output:
+10
+20
+30
+40
+
+11. How for Loop Works Internally
+This is very important for understanding Python.
+Consider:
+l = [1, 2, 3, 4]
+
+for i in l:
+print(i)
+Conceptually, Python performs something similar to:
+iterator = iter(l)
+
+while True:
+try:
+i = next(iterator)
+print(i)
+except StopIteration:
+break
+Important roles
+iter()
+↓
+creates iterator
+
+next()
+↓
+gets next value from iterator
+
+for loop
+↓
+automatically performs this process
+So the programmer does not need to manually call iter() and next() when using a for loop.
+Python's for machinery handles it internally.
+
+12. iter() Function
+The iter() function is used to obtain an iterator from an iterable.
+Example:
+l = [1, 2, 3, 4]
+
+i = iter(l)
+
+print(i)
+The list is an iterable.
+list
+↓
+iter(list)
+↓
+iterator
+
+13. next() Function
+The next() function gets the next value from an iterator.
+Example:
+l = [1, 2, 3, 4]
+
+i = iter(l)
+
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+Output:
+1
+2
+3
+4
+Every time next(i) is called, the iterator moves forward.
+Iterator
+|
+↓
+1 → 2 → 3 → 4
+
+14. What Happens After the Last Element?
+Consider:
+l = [1, 2, 3, 4]
+
+i = iter(l)
+
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+The first four calls return:
+1
+2
+3
+4
+But the fifth call has no value left.
+Therefore Python raises:
+StopIteration
+Example:
+1
+2
+3
+4
+StopIteration
+The for loop automatically handles this StopIteration internally and stops the loop.
+
+15. range() Function
+range() is used to generate a sequence of numbers.
+Syntax
+range(start, stop, step)
+There are three parameters:
+Important
+The stop value is not included.
+
+16. range(1, 10)
+r = range(1, 10)
+
+print(r)
+Output will look like:
+range(1, 10)
+It does not immediately display:
+1 2 3 4 5 6 7 8 9
+We can convert it to a list:
+r = range(1, 10)
+
+l = list(r)
+
+print(l)
+Output:
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+Notice that 10 is not included.
+
+17. range(10)
+If only one argument is provided:
+range(10)
+Python assumes:
+start = 0
+stop = 10
+step = 1
+Therefore:
+r = range(10)
+
+print(list(r))
+Output:
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+18. range() and iter()
+Consider:
+r = range(10)
+
+print(r)
+
+i = iter(r)
+
+print(i)
+
+print(next(i))
+Conceptually:
+range object
+|
+| iter()
+↓
+range iterator
+|
+| next()
+↓
+0
+Then another:
+print(next(i))
+gives:
+1
+Another:
+print(next(i))
+gives:
+2
+
+19. Important Difference: range() vs iter()
+Students often confuse these two.
+range()
+Creates a range object.
+r = range(1, 10)
+iter()
+Creates an iterator from the range object.
+i = iter(r)
+next()
+Gets the next value from the iterator.
+next(i)
+So:
+range()
+↓
+range object
+↓
+iter()
+↓
+iterator
+↓
+next()
+↓
+next value
+
+20. for Loop with range()
+Example:
+for i in range(1, 6):
+print(i)
+Output:
+1
+2
+3
+4
+5
+Conceptually:
+iterator = iter(range(1, 6))
+
+while True:
+try:
+i = next(iterator)
+print(i)
+except StopIteration:
+break
+Again, this is a conceptual explanation of what the for loop does; normally we simply write the for loop.
+
+21. Reverse Loop
+We can use a negative step to move backward.
+for i in range(10, 0, -1):
+print(i)
+Output:
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Here:
+start = 10
+stop = 0
+step = -1
+Remember:
+0 is excluded
+
+22. Different range() Examples
+Example 1
+range(1, 6)
+Values:
+1 2 3 4 5
+Example 2
+range(1, 11, 2)
+Values:
+1 3 5 7 9
+Example 3
+range(1, 20, 3)
+Values:
+1 4 7 10 13 16 19
+Example 4
+range(10, 0, -1)
+Values:
+10 9 8 7 6 5 4 3 2 1
+
+23. Printing Even Numbers
+An even number is divisible by 2.
+We can check this using the modulo operator:
+%
+For example:
+4 % 2 = 0
+6 % 2 = 0
+8 % 2 = 0
+Therefore, the condition for an even number is:
+i % 2 == 0
+
+24. Program to Print Even Numbers
+for i in range(1, 11):
+
+if i % 2 == 0:
+print(i)
+Output:
+2
+4
+6
+8
+10
+Execution
+For every value:
+i = 1 → 1 % 2 = 1 → False
+i = 2 → 2 % 2 = 0 → True → print 2
+i = 3 → 3 % 2 = 1 → False
+i = 4 → 4 % 2 = 0 → True → print 4
+...
+
+25. if Inside a for Loop
+This is an important combination:
+for i in range(1, 11):
+
+if i % 2 == 0:
+print(i)
+Here:
+for controls repetition
+if controls selection
+So the logic is:
+for each number
+↓
+check whether it is even
+↓
+if True → print
+if False → skip
+
+26. Example with Statements Outside the if
+Consider:
+for i in range(1, 6):
+
+if i % 2 == 0:
+print(i)
+
+print("end of if")
+
+print("end of loop")
+Output:
+end of if
+2
+end of if
+end of if
+4
+end of if
+end of if
+end of loop
+Why?
+print("end of if") is outside the if block but inside the for loop.
+Therefore it executes for every iteration.
+The structure is:
+for
+│
+├── if
+│   └── print(i)
+│
+└── print("end of if")
+Whereas:
+for i in range(1, 6):
+
+if i % 2 == 0:
+print(i)
+print("end of if")
+
+print("end of loop")
+Here "end of if" executes only when the number is even.
+
+27. Complete Concept Flow
+The students should remember these concepts in this order:
+CONDITIONAL STATEMENTS
+|
++---- if
+|
++---- if-else
+|
++---- if-elif-else
+|
++---- nested if
+
+LOOPS
+|
++---- for loop
+|
++---- while loop
+
+FOR LOOP
+|
+↓
+Iterable
+|
+↓
+iter()
+|
+↓
+Iterator
+|
+↓
+next()
+|
+↓
+Next value
+|
+↓
+Repeat until StopIteration
+
+28. Most Important Interview Questions
+Q1. What is an if statement?
+An if statement is used to execute a block of code when a specified condition is True.
+Q2. What is elif?
+elif means else if. It is used to check additional conditions when the previous condition is false.
+Q3. What happens when an if condition is true?
+Its corresponding block executes, and the remaining elif/else blocks in that chain are skipped.
+Q4. What is nested if?
+An if statement written inside another if statement is called a nested if.
+Q5. What is a loop?
+A loop is used to repeatedly execute a block of code.
+Q6. What are the two main loops in Python?
+1. for loop
+2. while loop
+Q7. What is range()?
+range() creates a range object representing a sequence of numbers.
+Q8. Is the stop value included in range()?
+No. The stop value is excluded.
+range(1, 5)
+produces:
+1 2 3 4
+Q9. What does iter() do?
+iter() obtains an iterator from an iterable.
+Q10. What does next() do?
+next() retrieves the next value from an iterator.
+Q11. What happens when an iterator has no more values?
+It raises:
+StopIteration
+Q12. Does the programmer manually call next() in a normal for loop?
+No. The for loop internally obtains an iterator and repeatedly requests the next value until the iterator is exhausted.
+
+Final Conclusion for Students
+The most important flow to remember is:
+Iterable
+↓
+iter()
+↓
+Iterator
+↓
+next()
+↓
+Value
+↓
+next()
+↓
+Next value
+↓
+...
+↓
+StopIteration
+↓
+for loop stops
+For a normal for loop:
+for i in range(1, 6):
+print(i)
+Python handles the iterator process automatically.
+So the simple conclusion is:
+range() creates a range object → for obtains an iterator from it → the for loop repeatedly gets values from that iterator → when there are no more values, iteration stops.
+
+Parameter | Meaning
+start | Starting value
+stop | Ending boundary
+step | Difference between values
+
+---
+
+# Day 11 — Quick Revision
+
+## Conditional Statements
+
+```text
+if
+    → Executes a block only when the condition is True
+
+if-else
+    → Handles two possible choices
+
+if-elif-else
+    → Checks multiple conditions from top to bottom
+
+Nested if
+    → An if statement inside another if statement
+```
+
+## Loops
+
+```text
+Loop
+    → Executes a block of code repeatedly
+
+Main Python loops
+    → for loop
+    → while loop
+```
+
+## for Loop
+
+```text
+for variable in iterable:
+    statements
+```
+
+Common iterables:
+
+```text
+list
+tuple
+string
+set
+dictionary
+range
+```
+
+## Internal for-loop Concept
+
+```text
+Iterable
+   ↓
+iter()
+   ↓
+Iterator
+   ↓
+next()
+   ↓
+Next value
+   ↓
+Repeat
+   ↓
+StopIteration
+   ↓
+for loop stops
+```
+
+## range()
+
+```text
+range(start, stop, step)
+
+start → starting value
+stop  → ending boundary, NOT included
+step  → difference between values
+```
+
+Examples:
+
+```python
+range(1, 6)
+# 1 2 3 4 5
+
+range(1, 11, 2)
+# 1 3 5 7 9
+
+range(10, 0, -1)
+# 10 9 8 7 6 5 4 3 2 1
+```
+
+## Important Difference
+
+```text
+range()
+    ↓
+Creates a range object
+
+iter()
+    ↓
+Creates an iterator from an iterable
+
+next()
+    ↓
+Gets the next value from the iterator
+```
+
+## for + if
+
+```python
+for i in range(1, 11):
+    if i % 2 == 0:
+        print(i)
+```
+
+Remember:
+
+```text
+for → controls repetition
+if  → controls selection
+```
+
+## Important Interview Points
+
+```text
+1. if executes code when a condition is True.
+
+2. elif means else if.
+
+3. In an if-elif-else chain, Python checks conditions from top to bottom.
+
+4. Once one condition is True, the remaining elif/else blocks are skipped.
+
+5. Nested if means an if statement inside another if statement.
+
+6. A loop repeatedly executes a block of code.
+
+7. Python has two main loops: for and while.
+
+8. A for loop iterates over an iterable.
+
+9. range() creates a range object representing a sequence of numbers.
+
+10. The stop value in range() is excluded.
+
+11. iter() obtains an iterator from an iterable.
+
+12. next() retrieves the next value from an iterator.
+
+13. When an iterator has no more values, StopIteration is raised.
+
+14. A normal for loop handles the iterator process automatically.
+```
+
+---
+# ⭐ Day 11 Status
+
+```text
+DAY 11 — PYTHON CONDITIONAL STATEMENTS AND LOOPS
+
+Status: COMPLETED ✅
+```
