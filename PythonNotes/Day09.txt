@@ -1,0 +1,2731 @@
+# Day 9 — Sets & Dictionaries in Python
+
+---
+
+# 1. Introduction to Sets
+
+A set is an unordered, mutable collection used to store unique values.
+
+Sets are created using the `set()` function.
+
+Sets automatically remove duplicate values.
+
+Examples:
+
+```python
+numbers = {10, 20, 30}
+names = {"Ravi", "Teja", "Ankit"}
+mixed = {10, "Python", 5.5, True}
+
+print(numbers)
+```
+
+---
+
+# 2. Set Properties
+
+According to the Day 9 source, sets have these properties:
+
+```text
+1. Unordered
+   Elements do not maintain insertion order.
+
+2. Mutable
+   Elements can be added and removed.
+
+3. Unindexed
+   Elements cannot be accessed using index positions.
+
+4. Iterable
+   Sets can be iterated using loops.
+
+5. Unique Elements
+   Duplicate values are automatically removed.
+
+6. Heterogeneous
+   Sets can store different datatypes.
+
+7. Dynamic Size
+   Elements can be added or removed anytime.
+
+8. Supports Nested Immutable Objects
+   Sets can contain tuples and frozensets.
+
+9. Mutable Objects Not Allowed
+   Lists, sets, and dictionaries cannot be stored directly.
+```
+
+---
+
+# 3. Creating Sets
+
+## Normal Set
+
+```python
+numbers = {10, 20, 30}
+```
+
+## Empty Set
+
+Important:
+
+```python
+s = set()
+```
+
+An empty `{}` creates an empty dictionary, not an empty set.
+
+## Set with Duplicate Values
+
+```python
+data = {10, 20, 30, 20, 10}
+
+print(data)
+```
+
+Output:
+
+```text
+{10, 20, 30}
+```
+
+Duplicates are removed automatically.
+
+---
+
+# 4. Set Operations
+
+The source covers these important set operations:
+
+```text
+1. Membership
+2. Union
+3. Intersection
+4. Difference
+5. Symmetric Difference
+6. Subset
+7. Superset
+```
+
+---
+
+# 5. Membership Operators
+
+Membership operators check whether an element exists in a set.
+
+Operators:
+
+```text
+in
+not in
+```
+
+Example:
+
+```python
+data = {10, 20, 30}
+
+print(20 in data)
+print(100 not in data)
+```
+
+Output:
+
+```text
+True
+True
+```
+
+---
+
+# 6. Union
+
+Union combines all unique elements from both sets.
+
+Operator:
+
+```text
+|
+```
+
+Example:
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a | b)
+```
+
+Output:
+
+```text
+{1, 2, 3, 4, 5}
+```
+
+Concept:
+
+```text
+A UNION B
+↓
+All elements from A and B
+↓
+Duplicates removed
+```
+
+Method form:
+
+```python
+print(a.union(b))
+```
+
+---
+
+# 7. Intersection
+
+Intersection returns common elements between sets.
+
+Operator:
+
+```text
+&
+```
+
+Example:
+
+```python
+a = {1, 2, 3}
+b = {2, 3, 4}
+
+print(a & b)
+```
+
+Output:
+
+```text
+{2, 3}
+```
+
+Method form:
+
+```python
+print(a.intersection(b))
+```
+
+---
+
+# 8. Difference
+
+Difference returns elements present in the first set but not in the second set.
+
+Operator:
+
+```text
+-
+```
+
+Example:
+
+```python
+a = {1, 2, 3}
+b = {2, 3, 4}
+
+print(a - b)
+```
+
+Output:
+
+```text
+{1}
+```
+
+Important:
+
+```text
+a - b
+```
+
+means:
+
+```text
+Elements in a but not in b
+```
+
+Method form:
+
+```python
+print(a.difference(b))
+```
+
+---
+
+# 9. Symmetric Difference
+
+Symmetric difference returns elements present in either set but not in both.
+
+Operator:
+
+```text
+^
+```
+
+Example:
+
+```python
+a = {1, 2, 3}
+b = {2, 3, 4}
+
+print(a ^ b)
+```
+
+Output:
+
+```text
+{1, 4}
+```
+
+The common elements `2` and `3` are removed.
+
+Method form:
+
+```python
+print(a.symmetric_difference(b))
+```
+
+---
+
+# 10. Subset
+
+A subset checks whether all elements of one set exist in another set.
+
+Operator:
+
+```text
+<=
+```
+
+Example:
+
+```python
+a = {1, 2}
+b = {1, 2, 3, 4}
+
+print(a <= b)
+```
+
+Output:
+
+```text
+True
+```
+
+Because every element of `a` exists in `b`.
+
+Method form:
+
+```python
+print(a.issubset(b))
+```
+
+---
+
+# 11. Superset
+
+A superset checks whether one set contains all elements of another set.
+
+Operator:
+
+```text
+>=
+```
+
+Example:
+
+```python
+a = {1, 2, 3, 4}
+b = {1, 2}
+
+print(a >= b)
+```
+
+Output:
+
+```text
+True
+```
+
+Because `a` contains every element of `b`.
+
+Method form:
+
+```python
+print(a.issuperset(b))
+```
+
+---
+
+# 12. Set Operations Quick Revision
+
+```text
+Union
+    |
+    ↓
+a | b
+a.union(b)
+
+Intersection
+    &
+    ↓
+a & b
+a.intersection(b)
+
+Difference
+    -
+    ↓
+a - b
+a.difference(b)
+
+Symmetric Difference
+    ^
+    ↓
+a ^ b
+a.symmetric_difference(b)
+
+Subset
+    <=
+    ↓
+a <= b
+a.issubset(b)
+
+Superset
+    >=
+    ↓
+a >= b
+a.issuperset(b)
+```
+
+---
+
+# 13. Built-in Set Functions
+
+The source covers:
+
+```text
+len()
+max()
+min()
+sum()
+sorted()
+set()
+any()
+all()
+```
+
+---
+
+# 14. len() with Set
+
+Returns the number of elements.
+
+```python
+print(len({1, 2, 3}))
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# 15. max() with Set
+
+Returns the largest element.
+
+```python
+print(max({10, 20, 5}))
+```
+
+Output:
+
+```text
+20
+```
+
+---
+
+# 16. min() with Set
+
+Returns the smallest element.
+
+```python
+print(min({10, 20, 5}))
+```
+
+Output:
+
+```text
+5
+```
+
+---
+
+# 17. sum() with Set
+
+Returns the sum of numeric elements.
+
+```python
+print(sum({1, 2, 3}))
+```
+
+Output:
+
+```text
+6
+```
+
+---
+
+# 18. sorted() with Set
+
+Returns a sorted list.
+
+```python
+print(sorted({3, 1, 2}))
+```
+
+Output:
+
+```text
+[1, 2, 3]
+```
+
+Important:
+
+```text
+Input  → set
+Output → list
+```
+
+---
+
+# 19. set() Function
+
+`set()` converts an iterable into a set.
+
+Example:
+
+```python
+print(set("hello"))
+```
+
+The result contains unique characters.
+
+Important:
+
+```text
+Duplicate characters are removed.
+```
+
+---
+
+# 20. any() with Set
+
+`any()` returns `True` if any element is considered true.
+
+Example from the source:
+
+```python
+print(any({0, 1}))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 21. all() with Set
+
+`all()` returns `True` if all elements are considered true.
+
+Example:
+
+```python
+print(all({1, 2, 3}))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 22. Set Methods
+
+The source organizes set methods into:
+
+```text
+1. Adding Methods
+2. Removing Methods
+3. Copying Method
+4. Set Relation Methods
+5. Subset & Superset Methods
+```
+
+---
+
+# 23. Adding Methods
+
+Methods:
+
+```text
+add()
+update()
+```
+
+---
+
+# 24. add()
+
+`add()` adds one element to a set.
+
+Example:
+
+```python
+s = {1, 2, 3}
+
+s.add(10)
+
+print(s)
+```
+
+Important:
+
+```text
+add() → adds one element
+```
+
+---
+
+# 25. update()
+
+`update()` adds multiple elements.
+
+Example:
+
+```python
+s = {1, 2, 3}
+
+s.update([20, 30])
+
+print(s)
+```
+
+The values from the iterable are added to the set.
+
+Important:
+
+```text
+update() → adds multiple elements
+```
+
+---
+
+# 26. Removing Methods
+
+The source covers:
+
+```text
+remove()
+discard()
+pop()
+clear()
+```
+
+---
+
+# 27. remove()
+
+`remove()` removes an element.
+
+According to the source, it raises an error if the element is absent.
+
+Example:
+
+```python
+s = {10, 20, 30}
+
+s.remove(10)
+
+print(s)
+```
+
+Important:
+
+```text
+remove(value)
+→ removes the specified value
+→ error if the value is absent
+```
+
+---
+
+# 28. discard()
+
+`discard()` removes an element.
+
+According to the source, it does not raise an error if the element is absent.
+
+Example:
+
+```python
+s = {10, 20, 30}
+
+s.discard(10)
+
+print(s)
+```
+
+Important:
+
+```text
+discard(value)
+→ removes the specified value
+→ no error if the value is absent
+```
+
+---
+
+# 29. remove() vs discard()
+
+This is an important interview question.
+
+```text
+remove()
+    ↓
+Element absent
+    ↓
+Error
+```
+
+```text
+discard()
+    ↓
+Element absent
+    ↓
+No error
+```
+
+---
+
+# 30. pop()
+
+The source describes set `pop()` as removing a random element.
+
+Example:
+
+```python
+s = {10, 20, 30}
+
+s.pop()
+
+print(s)
+```
+
+Important:
+
+```text
+Set has no index positions.
+Therefore, pop() does not accept an index.
+```
+
+---
+
+# 31. clear()
+
+`clear()` removes all elements from the set.
+
+```python
+s = {10, 20, 30}
+
+s.clear()
+
+print(s)
+```
+
+Output:
+
+```text
+set()
+```
+
+---
+
+# 32. Copying Method
+
+## copy()
+
+`copy()` creates a shallow copy of a set.
+
+```python
+s = {10, 20, 30}
+
+new_s = s.copy()
+
+print(new_s)
+```
+
+---
+
+# 33. Set Relation Methods
+
+The source covers:
+
+```text
+union()
+intersection()
+difference()
+symmetric_difference()
+```
+
+---
+
+# 34. union()
+
+Combines sets.
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a.union(b))
+```
+
+Result:
+
+```text
+{1, 2, 3, 4, 5}
+```
+
+---
+
+# 35. intersection()
+
+Returns common elements.
+
+```python
+a = {1, 2, 3}
+b = {2, 3, 4}
+
+print(a.intersection(b))
+```
+
+Result:
+
+```text
+{2, 3}
+```
+
+---
+
+# 36. difference()
+
+Returns elements in the first set only.
+
+```python
+a = {1, 2, 3}
+b = {2, 3, 4}
+
+print(a.difference(b))
+```
+
+Result:
+
+```text
+{1}
+```
+
+---
+
+# 37. symmetric_difference()
+
+Returns non-common elements.
+
+```python
+a = {1, 2, 3}
+b = {2, 3, 4}
+
+print(a.symmetric_difference(b))
+```
+
+Result:
+
+```text
+{1, 4}
+```
+
+---
+
+# 38. Subset & Superset Methods
+
+The source covers:
+
+```text
+issubset()
+issuperset()
+isdisjoint()
+```
+
+---
+
+# 39. issubset()
+
+Checks whether one set is a subset of another.
+
+```python
+a = {1, 2}
+b = {1, 2, 3, 4}
+
+print(a.issubset(b))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 40. issuperset()
+
+Checks whether one set is a superset of another.
+
+```python
+a = {1, 2, 3, 4}
+b = {1, 2}
+
+print(a.issuperset(b))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 41. isdisjoint()
+
+Checks whether two sets have no common elements.
+
+Example:
+
+```python
+a = {1, 2}
+b = {3, 4}
+
+print(a.isdisjoint(b))
+```
+
+Output:
+
+```text
+True
+```
+
+If the sets have a common element:
+
+```python
+a = {1, 2}
+b = {2, 3}
+
+print(a.isdisjoint(b))
+```
+
+Output:
+
+```text
+False
+```
+
+---
+
+# 42. Complete Set Methods Quick Reference
+
+```text
+Adding:
+    add()
+    update()
+
+Removing:
+    remove()
+    discard()
+    pop()
+    clear()
+
+Copying:
+    copy()
+
+Set Relations:
+    union()
+    intersection()
+    difference()
+    symmetric_difference()
+
+Subset / Superset:
+    issubset()
+    issuperset()
+    isdisjoint()
+```
+
+---
+
+# 43. Frozenset
+
+A frozenset is an immutable version of a set.
+
+According to the source:
+
+```python
+data = frozenset({10, 20, 30})
+
+print(data)
+```
+
+Once created, elements cannot be added or removed.
+
+---
+
+# 44. Frozenset Properties
+
+The source lists these properties:
+
+```text
+1. Immutable
+2. Unordered
+3. Unique Elements
+4. Hashable
+5. Can be used inside sets
+6. Can be used as dictionary keys
+```
+
+Important:
+
+```text
+set      → mutable
+frozenset → immutable
+```
+
+---
+
+# 45. Why Use Sets?
+
+According to the source, sets are useful for:
+
+```text
+1. Removing duplicate values.
+
+2. Performing mathematical set operations.
+
+3. Fast membership checking.
+
+4. Storing unique items.
+
+5. Comparing collections efficiently.
+```
+
+Examples:
+
+```python
+unique_ids = {101, 102, 103}
+
+available_sizes = {"S", "M", "L", "XL"}
+
+visited_pages = {"Home", "Products", "Cart"}
+```
+
+---
+
+# 46. Introduction to Dictionaries
+
+A dictionary is a collection of key-value pairs used to store related data.
+
+Dictionaries are created using:
+
+```text
+{ }
+```
+
+or:
+
+```text
+dict()
+```
+
+Example:
+
+```python
+student = {
+    "id": 101,
+    "name": "Ravi",
+    "course": "Python"
+}
+```
+
+---
+
+# 47. Dictionary Properties
+
+According to the source:
+
+```text
+1. Ordered
+   Maintains insertion order (Python 3.7+).
+
+2. Mutable
+   Items can be added, removed, and modified.
+
+3. Indexed by Keys
+   Values are accessed using keys, not numeric indexes.
+
+4. Iterable
+   Can iterate through keys, values, and items.
+
+5. Unique Keys
+   Duplicate keys are not allowed.
+
+6. Duplicate Values Allowed
+   Multiple keys can have the same value.
+
+7. Heterogeneous
+   Can store different datatypes.
+
+8. Dynamic Size
+   Can grow or shrink during execution.
+
+9. Nested Structures Supported
+   Can contain lists, tuples, sets, dictionaries, etc.
+
+10. Keys Must Be Hashable
+    Keys must be immutable/hashable objects.
+```
+
+---
+
+# 48. Creating Dictionaries
+
+## Empty Dictionary
+
+```python
+data = {}
+```
+
+or:
+
+```python
+data = dict()
+```
+
+---
+
+# 49. Dictionary with Values
+
+```python
+student = {
+    "id": 101,
+    "name": "Ravi",
+    "course": "Python"
+}
+```
+
+---
+
+# 50. Creating Dictionary Using dict()
+
+The source also demonstrates:
+
+```python
+student = dict(
+    id=101,
+    name="Ravi",
+    course="Python"
+)
+```
+
+---
+
+# 51. Dictionary Operations
+
+The source covers:
+
+```text
+1. Accessing Values
+2. Updating Values
+3. Adding New Key-Value Pairs
+4. Removing Items
+5. Membership Operators
+```
+
+---
+
+# 52. Accessing Dictionary Values
+
+Values are accessed using keys.
+
+Example:
+
+```python
+student = {
+    "name": "Ravi",
+    "age": 22
+}
+
+print(student["name"])
+print(student["age"])
+```
+
+Output:
+
+```text
+Ravi
+22
+```
+
+Important:
+
+```text
+Dictionary
+    ↓
+Key → Value
+```
+
+Example:
+
+```text
+"name" → "Ravi"
+"age"  → 22
+```
+
+---
+
+# 53. Updating Dictionary Values
+
+Dictionary values can be changed using their keys.
+
+```python
+student = {
+    "name": "Ravi",
+    "age": 22
+}
+
+student["age"] = 23
+
+print(student)
+```
+
+The value associated with `"age"` becomes `23`.
+
+---
+
+# 54. Adding New Key-Value Pairs
+
+A new key-value pair can be added by assigning a value to a new key.
+
+```python
+student = {
+    "name": "Ravi"
+}
+
+student["course"] = "Python"
+
+print(student)
+```
+
+Result:
+
+```text
+{
+    "name": "Ravi",
+    "course": "Python"
+}
+```
+
+---
+
+# 55. Removing Dictionary Items
+
+The source demonstrates `del`.
+
+```python
+student = {
+    "name": "Ravi",
+    "age": 22
+}
+
+del student["age"]
+
+print(student)
+```
+
+Result:
+
+```text
+{"name": "Ravi"}
+```
+
+---
+
+# 56. Dictionary Membership Operators
+
+The source specifically states:
+
+```text
+Membership checks only keys.
+```
+
+Example:
+
+```python
+student = {
+    "name": "Ravi",
+    "age": 22
+}
+
+print("name" in student)
+print("course" not in student)
+```
+
+Output:
+
+```text
+True
+True
+```
+
+Important:
+
+```text
+"name" in student
+```
+
+checks for the key `"name"`, not the value `"Ravi"`.
+
+---
+
+# 57. Built-in Dictionary Functions
+
+The source covers:
+
+```text
+len()
+max()
+min()
+sorted()
+dict()
+any()
+all()
+```
+
+---
+
+# 58. len() with Dictionary
+
+Returns the number of key-value pairs.
+
+```python
+student = {
+    "name": "Ravi",
+    "age": 22
+}
+
+print(len(student))
+```
+
+Result:
+
+```text
+2
+```
+
+---
+
+# 59. max() with Dictionary
+
+The source states that `max(d)` returns the maximum key.
+
+```python
+d = {
+    10: "A",
+    20: "B",
+    5: "C"
+}
+
+print(max(d))
+```
+
+Result:
+
+```text
+20
+```
+
+---
+
+# 60. min() with Dictionary
+
+The source states that `min(d)` returns the minimum key.
+
+```python
+d = {
+    10: "A",
+    20: "B",
+    5: "C"
+}
+
+print(min(d))
+```
+
+Result:
+
+```text
+5
+```
+
+---
+
+# 61. sorted() with Dictionary
+
+The source states that `sorted(d)` returns a sorted list of keys.
+
+```python
+d = {
+    3: "C",
+    1: "A",
+    2: "B"
+}
+
+print(sorted(d))
+```
+
+Output:
+
+```text
+[1, 2, 3]
+```
+
+Important:
+
+```text
+Input  → dictionary
+Output → list of sorted keys
+```
+
+---
+
+# 62. dict() Function
+
+`dict()` creates a dictionary.
+
+Example:
+
+```python
+data = dict()
+
+print(data)
+```
+
+Output:
+
+```text
+{}
+```
+
+---
+
+# 63. any() with Dictionary
+
+The source states that `any(d)` returns `True` if any key is true.
+
+```python
+d = {
+    0: "A",
+    1: "B"
+}
+
+print(any(d))
+```
+
+---
+
+# 64. all() with Dictionary
+
+The source states that `all(d)` returns `True` if all keys are true.
+
+```python
+d = {
+    1: "A",
+    2: "B"
+}
+
+print(all(d))
+```
+
+---
+
+# 65. Dictionary Methods
+
+The source organizes dictionary methods into:
+
+```text
+1. Access Methods
+2. Adding & Updating Methods
+3. Removing Methods
+4. Copying Methods
+5. Creation Methods
+```
+
+---
+
+# 66. Access Methods
+
+Methods:
+
+```text
+get()
+keys()
+values()
+items()
+```
+
+---
+
+# 67. get()
+
+`get()` returns the value associated with a key.
+
+Example:
+
+```python
+d = {
+    "name": "Ravi",
+    "age": 22
+}
+
+print(d.get("name"))
+```
+
+Output:
+
+```text
+Ravi
+```
+
+---
+
+# 68. keys()
+
+`keys()` returns all keys.
+
+```python
+d = {
+    "name": "Ravi",
+    "age": 22
+}
+
+print(d.keys())
+```
+
+Concept:
+
+```text
+keys()
+   ↓
+"name", "age"
+```
+
+---
+
+# 69. values()
+
+`values()` returns all values.
+
+```python
+d = {
+    "name": "Ravi",
+    "age": 22
+}
+
+print(d.values())
+```
+
+Concept:
+
+```text
+values()
+   ↓
+"Ravi", 22
+```
+
+---
+
+# 70. items()
+
+`items()` returns key-value pairs.
+
+```python
+d = {
+    "name": "Ravi",
+    "age": 22
+}
+
+print(d.items())
+```
+
+Concept:
+
+```text
+("name", "Ravi")
+("age", 22)
+```
+
+---
+
+# 71. Adding & Updating Methods
+
+The source covers:
+
+```text
+update()
+setdefault()
+```
+
+---
+
+# 72. update()
+
+`update()` updates a dictionary.
+
+Example:
+
+```python
+d = {
+    "name": "Ravi"
+}
+
+d.update({"age": 25})
+
+print(d)
+```
+
+Result:
+
+```text
+{
+    "name": "Ravi",
+    "age": 25
+}
+```
+
+---
+
+# 73. setdefault()
+
+`setdefault()` returns a value and creates the key if it is absent.
+
+Example:
+
+```python
+d = {
+    "name": "Ravi"
+}
+
+value = d.setdefault("city", "Hyd")
+
+print(d)
+print(value)
+```
+
+The key `"city"` is created because it was absent.
+
+Important:
+
+```text
+setdefault()
+    ↓
+Key exists
+    → returns existing value
+
+Key absent
+    → creates key with default value
+```
+
+---
+
+# 74. Removing Methods
+
+The source covers:
+
+```text
+pop()
+popitem()
+clear()
+```
+
+---
+
+# 75. pop()
+
+`pop()` removes a specified key.
+
+Example:
+
+```python
+d = {
+    "name": "Ravi",
+    "age": 22
+}
+
+d.pop("age")
+
+print(d)
+```
+
+Result:
+
+```text
+{"name": "Ravi"}
+```
+
+---
+
+# 76. popitem()
+
+The source states that `popitem()` removes the last inserted item.
+
+Example:
+
+```python
+d = {
+    "name": "Ravi",
+    "age": 22,
+    "course": "Python"
+}
+
+d.popitem()
+
+print(d)
+```
+
+---
+
+# 77. clear()
+
+`clear()` removes all items from a dictionary.
+
+```python
+d = {
+    "name": "Ravi",
+    "age": 22
+}
+
+d.clear()
+
+print(d)
+```
+
+Result:
+
+```text
+{}
+```
+
+---
+
+# 78. Copying Method
+
+## copy()
+
+`copy()` creates a shallow copy of a dictionary.
+
+```python
+d = {
+    "name": "Ravi",
+    "age": 22
+}
+
+new_d = d.copy()
+
+print(new_d)
+```
+
+---
+
+# 79. Creation Method — fromkeys()
+
+`fromkeys()` creates a dictionary from keys.
+
+Example from the source:
+
+```python
+data = dict.fromkeys(["a", "b"], 0)
+
+print(data)
+```
+
+Result:
+
+```text
+{
+    "a": 0,
+    "b": 0
+}
+```
+
+---
+
+# 80. Complete Dictionary Methods Quick Reference
+
+```text
+Access:
+    get()
+    keys()
+    values()
+    items()
+
+Adding / Updating:
+    update()
+    setdefault()
+
+Removing:
+    pop()
+    popitem()
+    clear()
+
+Copying:
+    copy()
+
+Creation:
+    fromkeys()
+```
+
+---
+
+# 81. Nested Dictionaries
+
+A dictionary inside another dictionary is called a nested dictionary.
+
+Example:
+
+```python
+students = {
+    "s1": {
+        "name": "Ravi",
+        "age": 22
+    },
+    "s2": {
+        "name": "Teja",
+        "age": 21
+    }
+}
+
+print(students["s1"]["name"])
+```
+
+Output:
+
+```text
+Ravi
+```
+
+Accessing nested data:
+
+```text
+students["s1"]
+       ↓
+{"name": "Ravi", "age": 22}
+
+students["s1"]["name"]
+       ↓
+"Ravi"
+```
+
+---
+
+# 82. Mutable Values Inside Dictionaries
+
+Dictionary values can be mutable objects.
+
+Example:
+
+```python
+student = {
+    "marks": [90, 85, 88]
+}
+
+student["marks"].append(95)
+
+print(student)
+```
+
+Output:
+
+```text
+{'marks': [90, 85, 88, 95]}
+```
+
+Important:
+
+```text
+Dictionary value
+      ↓
+Can be a mutable object
+      ↓
+Example: list
+```
+
+---
+
+# 83. Valid Dictionary Keys
+
+The source demonstrates these valid key types:
+
+```python
+data = {
+    101: "Ravi",
+    3.14: "Pi",
+    True: "Yes",
+    "name": "Python",
+    (1, 2): "Tuple Key"
+}
+```
+
+The source emphasizes:
+
+```text
+Dictionary keys must be immutable/hashable objects.
+```
+
+Examples shown:
+
+```text
+Integer key
+Float key
+Boolean key
+String key
+Tuple key
+```
+
+---
+
+# 84. Why Use Dictionaries?
+
+According to the source, dictionaries are useful to:
+
+```text
+1. Store related information together.
+
+2. Perform fast data retrieval using keys.
+
+3. Represent real-world objects.
+
+4. Create flexible data structures.
+
+5. Work with APIs, JSON, databases, and applications.
+```
+
+---
+
+# 85. Dictionary Example — Student
+
+```python
+student = {
+    "id": 101,
+    "name": "Ravi",
+    "course": "Python"
+}
+
+print(student)
+```
+
+---
+
+# 86. Dictionary Example — Product
+
+```python
+product = {
+    "name": "Laptop",
+    "price": 50000
+}
+
+print(product)
+```
+
+---
+
+# 87. Set vs Dictionary — Important Difference
+
+Both can use curly braces:
+
+```text
+Set:
+{10, 20, 30}
+
+Dictionary:
+{"name": "Ravi"}
+```
+
+The difference is:
+
+```text
+Set
+    ↓
+Stores individual unique values
+
+Dictionary
+    ↓
+Stores key-value pairs
+```
+
+Example:
+
+```python
+s = {10, 20, 30}
+
+d = {
+    "id": 101,
+    "name": "Ravi"
+}
+```
+
+---
+
+# 88. Set vs Dictionary — Quick Comparison
+
+```text
+SET
+    ↓
+Unique values
+Unordered
+Mutable
+Unindexed
+No duplicate values
+Uses set operations
+Created with set() for an empty set
+
+DICTIONARY
+    ↓
+Key-value pairs
+Ordered according to source (Python 3.7+)
+Mutable
+Accessed by keys
+Keys are unique
+Values can duplicate
+Dynamic size
+Keys must be hashable
+```
+
+---
+
+# 89. Important Set Interview Questions
+
+## 1. What is a set in Python?
+
+A set is an unordered, mutable collection used to store unique values.
+
+## 2. Why are sets used?
+
+They are used for removing duplicates, set operations, unique items, membership checking, and comparing collections.
+
+## 3. Does a set allow duplicates?
+
+No. Duplicate values are automatically removed.
+
+## 4. Can we access set elements using an index?
+
+No. Sets are unindexed.
+
+## 5. How do you create an empty set?
+
+```python
+s = set()
+```
+
+## 6. What is the difference between `{}` and `set()`?
+
+According to the source's creation examples:
+
+```text
+{}     → empty dictionary
+set()  → empty set
+```
+
+## 7. What is union?
+
+It combines all unique elements from two sets.
+
+```python
+a | b
+```
+
+## 8. What is intersection?
+
+It returns common elements.
+
+```python
+a & b
+```
+
+## 9. What is difference?
+
+It returns elements in the first set but not the second.
+
+```python
+a - b
+```
+
+## 10. What is symmetric difference?
+
+It returns elements present in either set but not both.
+
+```python
+a ^ b
+```
+
+## 11. What is a subset?
+
+A set whose every element exists in another set.
+
+## 12. What is a superset?
+
+A set that contains every element of another set.
+
+## 13. What is the difference between remove() and discard()?
+
+```text
+remove()  → error if absent
+discard() → no error if absent
+```
+
+## 14. What does set pop() do?
+
+The source describes it as removing a random element.
+
+## 15. What is frozenset?
+
+An immutable version of a set.
+
+## 16. Can a set contain a list?
+
+No. The source states mutable objects such as lists, sets, and dictionaries cannot be stored directly.
+
+## 17. Can a set contain a tuple?
+
+Yes, according to the source, tuples can be stored as nested immutable objects.
+
+---
+
+# 90. Important Dictionary Interview Questions
+
+## 1. What is a dictionary?
+
+A dictionary is a collection of key-value pairs used to store related data.
+
+## 2. How do you create a dictionary?
+
+Using:
+
+```python
+{}
+```
+
+or:
+
+```python
+dict()
+```
+
+## 3. Are dictionaries mutable?
+
+Yes.
+
+## 4. Are dictionary keys unique?
+
+Yes. Duplicate keys are not allowed.
+
+## 5. Can dictionary values be duplicated?
+
+Yes. Multiple keys can have the same value.
+
+## 6. How are dictionary values accessed?
+
+Using keys.
+
+```python
+student["name"]
+```
+
+## 7. Are dictionaries ordered?
+
+The source states dictionaries maintain insertion order in Python 3.7+.
+
+## 8. Can dictionary keys be lists?
+
+No. The source states keys must be immutable/hashable objects.
+
+## 9. Can dictionary values be lists?
+
+Yes.
+
+Example:
+
+```python
+student = {
+    "marks": [90, 85, 88]
+}
+```
+
+## 10. What does get() do?
+
+It returns the value for a key.
+
+## 11. What does keys() do?
+
+It returns all keys.
+
+## 12. What does values() do?
+
+It returns all values.
+
+## 13. What does items() do?
+
+It returns key-value pairs.
+
+## 14. What does update() do?
+
+It updates the dictionary.
+
+## 15. What does setdefault() do?
+
+It returns a value and creates the key if it is absent.
+
+## 16. What does pop() do?
+
+It removes a specified key.
+
+## 17. What does popitem() do?
+
+The source states it removes the last inserted item.
+
+## 18. What does clear() do?
+
+It removes all dictionary items.
+
+## 19. What does copy() do?
+
+It creates a shallow copy.
+
+## 20. What does fromkeys() do?
+
+It creates a dictionary from keys.
+
+## 21. What does membership checking do in a dictionary?
+
+According to the source, membership checks keys.
+
+---
+
+# 91. Set Operators — Memorize This Table
+
+```text
+Operation              Operator       Method
+
+Union                  |              union()
+
+Intersection           &              intersection()
+
+Difference             -              difference()
+
+Symmetric Difference   ^              symmetric_difference()
+
+Subset                 <=             issubset()
+
+Superset               >=             issuperset()
+```
+
+---
+
+# 92. Set Methods — Memorize This Table
+
+```text
+add()                    → Add one element
+update()                 → Add multiple elements
+
+remove()                 → Remove element, error if absent
+discard()                → Remove element, no error if absent
+pop()                    → Remove a random element
+clear()                  → Remove all elements
+
+copy()                   → Shallow copy
+
+union()                  → Combine sets
+intersection()           → Common elements
+difference()             → First-set-only elements
+symmetric_difference()   → Non-common elements
+
+issubset()               → Check subset
+issuperset()             → Check superset
+isdisjoint()             → Check no common elements
+```
+
+---
+
+# 93. Dictionary Methods — Memorize This Table
+
+```text
+get()          → Get value for a key
+keys()         → Get all keys
+values()       → Get all values
+items()        → Get key-value pairs
+
+update()       → Update dictionary
+setdefault()   → Return value / create key if absent
+
+pop()          → Remove specified key
+popitem()      → Remove last inserted item
+clear()        → Remove all items
+
+copy()         → Shallow copy
+
+fromkeys()     → Create dictionary from keys
+```
+
+---
+
+# 94. Important Difference — Set vs List
+
+```text
+LIST
+    ↓
+Ordered
+Mutable
+Indexed
+Allows duplicates
+Can contain mutable objects
+Uses [ ]
+
+SET
+    ↓
+Unordered according to source
+Mutable
+Unindexed
+Unique values only
+Mutable objects cannot be stored directly
+Uses { } for non-empty sets
+```
+
+---
+
+# 95. Important Difference — Set vs Frozenset
+
+```text
+SET
+    ↓
+Mutable
+Can add elements
+Can remove elements
+Not hashable as a set object
+
+FROZENSET
+    ↓
+Immutable
+Cannot add elements
+Cannot remove elements
+Hashable
+Can be used inside sets
+Can be used as dictionary keys
+```
+
+---
+
+# 96. Important Dictionary Concept — Keys vs Values
+
+```text
+Dictionary:
+
+{
+    "name": "Ravi",
+    "age": 22
+}
+   ↓       ↓
+  KEY    VALUE
+```
+
+Rules from the source:
+
+```text
+Keys:
+- Must be hashable
+- Must be unique
+
+Values:
+- Can be duplicated
+- Can contain different datatypes
+- Can be mutable objects
+```
+
+---
+
+# 97. Complete Set Revision Program
+
+```python
+# Creating a set
+data = {10, 20, 30, 20}
+
+print(data)
+
+# Membership
+print(20 in data)
+print(100 not in data)
+
+# Set operations
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a | b)
+print(a & b)
+print(a - b)
+print(a ^ b)
+
+# Subset and superset
+x = {1, 2}
+y = {1, 2, 3, 4}
+
+print(x <= y)
+print(y >= x)
+
+# Built-in functions
+print(len(data))
+print(max(data))
+print(min(data))
+print(sum(data))
+print(sorted(data))
+
+# Methods
+data.add(40)
+data.update([50, 60])
+
+print(data)
+
+data.remove(10)
+data.discard(100)
+data.pop()
+
+print(data)
+```
+
+---
+
+# 98. Complete Dictionary Revision Program
+
+```python
+# Creating dictionary
+student = {
+    "id": 101,
+    "name": "Ravi",
+    "course": "Python"
+}
+
+# Accessing values
+print(student["name"])
+print(student["course"])
+
+# Updating
+student["course"] = "Full Stack Python"
+
+# Adding
+student["age"] = 22
+
+# Membership
+print("name" in student)
+print("salary" not in student)
+
+# Access methods
+print(student.get("name"))
+print(student.keys())
+print(student.values())
+print(student.items())
+
+# Updating methods
+student.update({"city": "Hyd"})
+student.setdefault("phone", "Not Provided")
+
+# Removing
+student.pop("age")
+
+print(student)
+```
+
+---
+
+# 99. Nested Dictionary Revision Program
+
+```python
+students = {
+    "s1": {
+        "name": "Ravi",
+        "age": 22
+    },
+    "s2": {
+        "name": "Teja",
+        "age": 21
+    }
+}
+
+print(students["s1"]["name"])
+print(students["s2"]["age"])
+```
+
+Output:
+
+```text
+Ravi
+21
+```
+
+---
+
+# 100. Mutable Value Inside Dictionary
+
+```python
+student = {
+    "marks": [90, 85, 88]
+}
+
+student["marks"].append(95)
+
+print(student)
+```
+
+Output:
+
+```text
+{'marks': [90, 85, 88, 95]}
+```
+
+Remember:
+
+```text
+Dictionary itself → mutable
+Dictionary values → can also be mutable objects
+```
+
+---
+
+# 101. Valid Dictionary Key Examples
+
+```python
+data = {
+    101: "Ravi",
+    3.14: "Pi",
+    True: "Yes",
+    "name": "Python",
+    (1, 2): "Tuple Key"
+}
+
+print(data)
+```
+
+The source specifically shows integer, float, boolean, string, and tuple keys.
+
+---
+
+# 102. Day 9 Most Important Concepts
+
+```text
+SET
+  ↓
+Unique values
+Unordered according to source
+Mutable
+Unindexed
+Iterable
+Dynamic
+No direct mutable objects
+Supports tuples and frozensets
+```
+
+```text
+SET OPERATORS
+  ↓
+|   → Union
+&   → Intersection
+-   → Difference
+^   → Symmetric Difference
+<=  → Subset
+>=  → Superset
+```
+
+```text
+FROZENSET
+  ↓
+Immutable set
+Hashable
+Can be used inside sets
+Can be used as dictionary key
+```
+
+```text
+DICTIONARY
+  ↓
+Key-value pairs
+Ordered according to source (Python 3.7+)
+Mutable
+Accessed using keys
+Unique keys
+Duplicate values allowed
+Dynamic
+Keys must be hashable
+```
+
+---
+
+# 103. Final Revision Points
+
+```text
+1. A set stores unique values.
+
+2. Sets are mutable.
+
+3. Sets are unindexed.
+
+4. Sets automatically remove duplicates.
+
+5. Sets can store different datatypes.
+
+6. Sets can grow and shrink.
+
+7. An empty set is created using set().
+
+8. {} represents an empty dictionary.
+
+9. in checks membership.
+
+10. not in checks non-membership.
+
+11. | performs union.
+
+12. & performs intersection.
+
+13. - performs difference.
+
+14. ^ performs symmetric difference.
+
+15. <= checks subset.
+
+16. >= checks superset.
+
+17. union() combines sets.
+
+18. intersection() finds common elements.
+
+19. difference() finds first-set-only elements.
+
+20. symmetric_difference() finds non-common elements.
+
+21. issubset() checks subset.
+
+22. issuperset() checks superset.
+
+23. isdisjoint() checks whether there are no common elements.
+
+24. add() adds one element.
+
+25. update() adds multiple elements.
+
+26. remove() removes an element and raises an error if it is absent.
+
+27. discard() removes an element without an error if it is absent.
+
+28. pop() removes a random element according to the source.
+
+29. clear() removes all elements.
+
+30. copy() creates a shallow copy.
+
+31. A frozenset is an immutable version of a set.
+
+32. Frozensets are hashable according to the source.
+
+33. Frozensets can be used inside sets.
+
+34. Frozensets can be used as dictionary keys.
+
+35. Dictionaries store key-value pairs.
+
+36. Dictionaries are mutable.
+
+37. The source states dictionaries maintain insertion order in Python 3.7+.
+
+38. Dictionary values are accessed using keys.
+
+39. Dictionary keys are unique.
+
+40. Dictionary values can be duplicated.
+
+41. Dictionary keys must be hashable.
+
+42. Dictionaries can contain nested structures.
+
+43. Dictionary size can grow or shrink.
+
+44. A dictionary can contain lists as values.
+
+45. get() returns a value for a key.
+
+46. keys() returns all keys.
+
+47. values() returns all values.
+
+48. items() returns key-value pairs.
+
+49. update() updates a dictionary.
+
+50. setdefault() returns a value and creates the key if absent.
+
+51. pop() removes a specified key.
+
+52. popitem() removes the last inserted item according to the source.
+
+53. clear() removes all items.
+
+54. copy() creates a shallow copy.
+
+55. fromkeys() creates a dictionary from keys.
+
+56. Dictionary membership checks keys according to the source.
+
+57. Nested dictionaries contain dictionaries inside dictionaries.
+
+58. Dictionary values can be mutable objects.
+
+59. Integer, float, boolean, string, and tuple keys are shown as valid examples in the source.
+
+60. Dictionaries are commonly used with APIs, JSON, databases, and applications according to the source.
+```
+
+---
+# ⭐ Day 9 Status
+
+```text
+DAY 9 — SETS & DICTIONARIES IN PYTHON
+
+Status: COMPLETED ✅
+```
