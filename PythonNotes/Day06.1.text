@@ -1,0 +1,1329 @@
+# Day 6.1 — Input Formatting
+
+---
+
+# 1. Python input()
+
+Python's `input()` function is used to take input from the user during program execution.
+
+By default, `input()` returns a string.
+
+We often convert the input into:
+
+```text
+int
+float
+list
+tuple
+set
+dict
+```
+
+as needed.
+
+---
+
+# 2. String Input
+
+## Use Case
+
+String input is used for values such as:
+
+```text
+Name
+Email
+City
+```
+
+## Syntax
+
+```python
+name = input("Enter your full name: ")
+print(name)
+```
+
+## Example
+
+Input:
+
+```text
+Enter your full name: Ankit Sharma
+```
+
+Output:
+
+```text
+Ankit Sharma
+```
+
+## Important
+
+`input()` returns a string by default.
+
+Example:
+
+```python
+name = input("Enter your name: ")
+
+print(name)
+print(type(name))
+```
+
+The input is stored as a `str`.
+
+---
+
+# 3. Integer Input
+
+## Use Case
+
+Integer input can be used for:
+
+```text
+Age
+Quantity
+Mobile number
+Number of items in cart
+```
+
+## Syntax
+
+```python
+quantity = int(input("Enter the number of items: "))
+print(quantity)
+```
+
+## Example
+
+Input:
+
+```text
+Enter the number of items: 5
+```
+
+Output:
+
+```text
+5
+```
+
+## Important
+
+`int()` converts the string returned by `input()` into an integer.
+
+```python
+quantity = int(input())
+```
+
+---
+
+# 4. Float Input
+
+## Use Case
+
+Float input can be used for:
+
+```text
+Price
+Temperature
+Discount
+Rating
+```
+
+## Syntax
+
+```python
+price = float(input("Enter the product price: "))
+print(price)
+```
+
+## Example
+
+Input:
+
+```text
+Enter the product price: 299.99
+```
+
+Output:
+
+```text
+299.99
+```
+
+## Important
+
+`float()` converts the input into a floating-point number.
+
+---
+
+# 5. Input as List — Space-separated
+
+## Use Case
+
+Space-separated input can be used for:
+
+```text
+List of names
+Marks
+Product IDs
+```
+
+## Syntax
+
+```python
+names = input("Enter employee names (space-separated): ").split()
+print(names)
+```
+
+## Example
+
+Input:
+
+```text
+Enter employee names (space-separated): Ankit Ravi Sneha
+```
+
+Output:
+
+```text
+['Ankit', 'Ravi', 'Sneha']
+```
+
+## Important
+
+`split()` separates the input based on whitespace.
+
+Example:
+
+```python
+data = input().split()
+```
+
+If the input is:
+
+```text
+Ankit Ravi Sneha
+```
+
+the result is:
+
+```python
+['Ankit', 'Ravi', 'Sneha']
+```
+
+These values are strings.
+
+---
+
+# 6. Input as List — Comma-separated
+
+## Use Case
+
+Comma-separated input can be used for:
+
+```text
+Tags
+Emails
+Product categories
+```
+
+## Syntax
+
+```python
+tags = input("Enter tags (comma-separated): ").split(',')
+print(tags)
+```
+
+## Example
+
+Input:
+
+```text
+Enter tags (comma-separated): sale,discount,new
+```
+
+Output:
+
+```text
+['sale', 'discount', 'new']
+```
+
+## Important
+
+Here `split(',')` tells Python to separate the input wherever a comma occurs.
+
+```python
+input().split(',')
+```
+
+---
+
+# 7. List of Integers
+
+## Use Case
+
+A list of integers can be used for:
+
+```text
+Marks
+Product prices
+IDs
+```
+
+## Syntax
+
+```python
+marks = list(map(int, input("Enter marks: ").split()))
+print(marks)
+```
+
+## Example
+
+Input:
+
+```text
+Enter marks: 89 76 94 82
+```
+
+Output:
+
+```text
+[89, 76, 94, 82]
+```
+
+---
+
+# 8. Understanding List of Integers
+
+Consider:
+
+```python
+marks = list(map(int, input().split()))
+```
+
+This happens in steps.
+
+### Step 1 — input()
+
+```python
+input()
+```
+
+Suppose the user enters:
+
+```text
+89 76 94 82
+```
+
+`input()` returns:
+
+```text
+"89 76 94 82"
+```
+
+This is a string.
+
+### Step 2 — split()
+
+```python
+input().split()
+```
+
+Result:
+
+```python
+['89', '76', '94', '82']
+```
+
+These are still strings.
+
+### Step 3 — map(int, ...)
+
+```python
+map(int, input().split())
+```
+
+Each string is converted into an integer.
+
+Conceptually:
+
+```text
+'89' → 89
+'76' → 76
+'94' → 94
+'82' → 82
+```
+
+### Step 4 — list()
+
+```python
+list(map(int, input().split()))
+```
+
+Final result:
+
+```python
+[89, 76, 94, 82]
+```
+
+---
+
+# 9. List of Floats
+
+## Use Case
+
+A list of floats can be used for:
+
+```text
+Sensor readings
+Weights
+Product prices
+```
+
+## Syntax
+
+```python
+weights = list(map(float, input("Enter weights: ").split()))
+print(weights)
+```
+
+## Example
+
+Input:
+
+```text
+Enter weights: 55.6 62.1 70.3
+```
+
+Output:
+
+```text
+[55.6, 62.1, 70.3]
+```
+
+---
+
+# 10. Understanding List of Floats
+
+The main difference between integer and float lists is the conversion function.
+
+### List of integers
+
+```python
+list(map(int, input().split()))
+```
+
+### List of floats
+
+```python
+list(map(float, input().split()))
+```
+
+Example:
+
+```text
+55.6 62.1 70.3
+```
+
+becomes:
+
+```python
+[55.6, 62.1, 70.3]
+```
+
+---
+
+# 11. Tuple Input
+
+## Use Case
+
+Tuple input can be used for:
+
+```text
+Coordinates
+Dimensions
+Length
+Width
+Height
+```
+
+## Syntax
+
+```python
+dimensions = tuple(map(int, input("Enter length, width, height: ").split()))
+print(dimensions)
+```
+
+## Example
+
+Input:
+
+```text
+Enter length, width, height: 10 20 15
+```
+
+Output:
+
+```text
+(10, 20, 15)
+```
+
+---
+
+# 12. Understanding Tuple Input
+
+The general pattern is:
+
+```python
+tuple(map(int, input().split()))
+```
+
+For input:
+
+```text
+10 20 15
+```
+
+the result is:
+
+```python
+(10, 20, 15)
+```
+
+The final output is a tuple of integers.
+
+---
+
+# 13. Set Input
+
+## Use Case
+
+Set input can be used for selected image IDs where duplicates must be removed.
+
+Example use case:
+
+```text
+Photo-sharing application
+```
+
+## Syntax
+
+```python
+selected_ids = set(map(int, input("Enter selected image IDs: ").split()))
+print(selected_ids)
+```
+
+## Example
+
+Input:
+
+```text
+Enter selected image IDs: 101 102 103 101 104
+```
+
+Output:
+
+```text
+{101, 102, 103, 104}
+```
+
+## Important
+
+The duplicate value:
+
+```text
+101
+```
+
+appears more than once in the input, but the set keeps only one occurrence.
+
+---
+
+# 14. Understanding Set Input
+
+The pattern is:
+
+```python
+set(map(int, input().split()))
+```
+
+Steps:
+
+```text
+input()
+   ↓
+split()
+   ↓
+map(int, ...)
+   ↓
+set()
+```
+
+Example:
+
+```text
+101 102 103 101 104
+```
+
+becomes:
+
+```python
+{101, 102, 103, 104}
+```
+
+The duplicate is removed.
+
+---
+
+# 15. Dictionary Input Using eval()
+
+## Use Case
+
+Dictionary input can be used when entering structured data such as:
+
+```text
+Configuration settings
+User profiles
+```
+
+## Syntax
+
+```python
+profile = eval(input("Enter user profile as a dictionary: "))
+print(profile)
+```
+
+## Example
+
+Input:
+
+```text
+Enter user profile as a dictionary: {'name': 'Ravi', 'age': 30, 'role': 'admin'}
+```
+
+Output:
+
+```text
+{'name': 'Ravi', 'age': 30, 'role': 'admin'}
+```
+
+---
+
+# 16. Important Note About eval()
+
+Only use `eval()` when the input is trusted.
+
+```text
+eval() can execute Python expressions supplied as input.
+```
+
+Therefore:
+
+```text
+Do NOT use eval() with untrusted user input.
+```
+
+The source specifically notes:
+
+```text
+Only use eval() when input is trusted.
+```
+
+---
+
+# 17. Multiple Inputs with Unpacking
+
+Multiple inputs can be taken from one line and assigned to multiple variables.
+
+## Use Case
+
+This can be used for:
+
+```text
+Login form
+Payment details
+```
+
+## Syntax
+
+```python
+username, password = input("Enter username and password: ").split()
+
+print("Username:", username)
+print("Password:", password)
+```
+
+## Example
+
+Input:
+
+```text
+Enter username and password: user01 mypassword123
+```
+
+Output:
+
+```text
+Username: user01
+Password: mypassword123
+```
+
+---
+
+# 18. Understanding Unpacking
+
+Consider:
+
+```python
+username, password = input().split()
+```
+
+If the user enters:
+
+```text
+user01 mypassword123
+```
+
+then:
+
+```python
+input().split()
+```
+
+produces:
+
+```python
+['user01', 'mypassword123']
+```
+
+Python assigns the values:
+
+```text
+username → user01
+password → mypassword123
+```
+
+This is called unpacking.
+
+---
+
+# 19. Important Input Patterns
+
+## String
+
+```python
+name = input()
+```
+
+Type:
+
+```text
+str
+```
+
+---
+
+## Integer
+
+```python
+age = int(input())
+```
+
+Type:
+
+```text
+int
+```
+
+---
+
+## Float
+
+```python
+price = float(input())
+```
+
+Type:
+
+```text
+float
+```
+
+---
+
+## List of Strings
+
+```python
+names = input().split()
+```
+
+Type:
+
+```text
+list[str]
+```
+
+---
+
+## List of Integers
+
+```python
+numbers = list(map(int, input().split()))
+```
+
+Type:
+
+```text
+list[int]
+```
+
+---
+
+## List of Floats
+
+```python
+numbers = list(map(float, input().split()))
+```
+
+Type:
+
+```text
+list[float]
+```
+
+---
+
+## Tuple of Integers
+
+```python
+numbers = tuple(map(int, input().split()))
+```
+
+Type:
+
+```text
+tuple[int]
+```
+
+---
+
+## Set of Integers
+
+```python
+numbers = set(map(int, input().split()))
+```
+
+Type:
+
+```text
+set[int]
+```
+
+---
+
+## Dictionary
+
+```python
+data = eval(input())
+```
+
+Type:
+
+```text
+dict
+```
+
+Only use this when the input is trusted.
+
+---
+
+## Multiple Unpacked Values
+
+```python
+a, b = input().split()
+```
+
+Types:
+
+```text
+str, str
+```
+
+---
+
+# 20. Summary Table
+
+| Input Type | Example Input Format | Code Snippet | Output Type |
+| --- | --- | --- | --- |
+| String | `Ankit` | `input()` | `str` |
+| Integer | `23` | `int(input())` | `int` |
+| Float | `56.78` | `float(input())` | `float` |
+| List (space) | `1 2 3` | `input().split()` | `list[str]` |
+| List (int) | `10 20 30` | `list(map(int, input().split()))` | `list[int]` |
+| List (float) | `5.5 6.6` | `list(map(float, input().split()))` | `list[float]` |
+| Tuple | `100 200 300` | `tuple(map(int, input().split()))` | `tuple[int]` |
+| Set | `1 2 2 3 1` | `set(map(int, input().split()))` | `set[int]` |
+| Dictionary | `{'name':'Teja', 'age':25}` | `eval(input())` | `dict` |
+| Multiple Unpacked | `admin admin123` | `a, b = input().split()` | `str, str` |
+
+---
+
+# 21. Quick Revision
+
+```text
+input()
+   ↓
+Takes input from the user
+   ↓
+Returns string by default
+```
+
+To convert input:
+
+```text
+int(input())
+   ↓
+Integer
+
+float(input())
+   ↓
+Float
+```
+
+For multiple values:
+
+```python
+input().split()
+```
+
+For integer lists:
+
+```python
+list(map(int, input().split()))
+```
+
+For float lists:
+
+```python
+list(map(float, input().split()))
+```
+
+For integer tuples:
+
+```python
+tuple(map(int, input().split()))
+```
+
+For integer sets:
+
+```python
+set(map(int, input().split()))
+```
+
+For trusted dictionary input:
+
+```python
+eval(input())
+```
+
+For multiple variables:
+
+```python
+a, b = input().split()
+```
+
+---
+
+# 22. Complete Practice Program — String Input
+
+```python
+name = input("Enter your full name: ")
+print("Name:", name)
+```
+
+Example:
+
+```text
+Enter your full name: Ankit Sharma
+Name: Ankit Sharma
+```
+
+---
+
+# 23. Complete Practice Program — Integer Input
+
+```python
+quantity = int(input("Enter the number of items: "))
+print("Quantity:", quantity)
+```
+
+Example:
+
+```text
+Enter the number of items: 5
+Quantity: 5
+```
+
+---
+
+# 24. Complete Practice Program — Float Input
+
+```python
+price = float(input("Enter the product price: "))
+print("Price:", price)
+```
+
+Example:
+
+```text
+Enter the product price: 299.99
+Price: 299.99
+```
+
+---
+
+# 25. Complete Practice Program — List of Strings
+
+```python
+names = input("Enter employee names: ").split()
+print(names)
+```
+
+Input:
+
+```text
+Ankit Ravi Sneha
+```
+
+Output:
+
+```text
+['Ankit', 'Ravi', 'Sneha']
+```
+
+---
+
+# 26. Complete Practice Program — List of Integers
+
+```python
+marks = list(map(int, input("Enter marks: ").split()))
+print(marks)
+```
+
+Input:
+
+```text
+89 76 94 82
+```
+
+Output:
+
+```text
+[89, 76, 94, 82]
+```
+
+---
+
+# 27. Complete Practice Program — List of Floats
+
+```python
+weights = list(map(float, input("Enter weights: ").split()))
+print(weights)
+```
+
+Input:
+
+```text
+55.6 62.1 70.3
+```
+
+Output:
+
+```text
+[55.6, 62.1, 70.3]
+```
+
+---
+
+# 28. Complete Practice Program — Tuple
+
+```python
+dimensions = tuple(map(int, input("Enter length, width, height: ").split()))
+print(dimensions)
+```
+
+Input:
+
+```text
+10 20 15
+```
+
+Output:
+
+```text
+(10, 20, 15)
+```
+
+---
+
+# 29. Complete Practice Program — Set
+
+```python
+selected_ids = set(map(int, input("Enter selected image IDs: ").split()))
+print(selected_ids)
+```
+
+Input:
+
+```text
+101 102 103 101 104
+```
+
+Output:
+
+```text
+{101, 102, 103, 104}
+```
+
+---
+
+# 30. Complete Practice Program — Dictionary
+
+```python
+profile = eval(input("Enter user profile as a dictionary: "))
+print(profile)
+```
+
+Example:
+
+```text
+{'name': 'Ravi', 'age': 30, 'role': 'admin'}
+```
+
+Output:
+
+```text
+{'name': 'Ravi', 'age': 30, 'role': 'admin'}
+```
+
+IMPORTANT:
+
+```text
+Use eval() only when input is trusted.
+```
+
+---
+
+# 31. Complete Practice Program — Multiple Inputs
+
+```python
+username, password = input("Enter username and password: ").split()
+
+print("Username:", username)
+print("Password:", password)
+```
+
+Input:
+
+```text
+user01 mypassword123
+```
+
+Output:
+
+```text
+Username: user01
+Password: mypassword123
+```
+
+---
+
+# 32. Interview Questions
+
+## 1. What is input() in Python?
+
+`input()` is used to take input from the user during program execution.
+
+---
+
+## 2. What type does input() return by default?
+
+It returns a:
+
+```text
+str
+```
+
+---
+
+## 3. How do you take integer input?
+
+```python
+age = int(input())
+```
+
+---
+
+## 4. How do you take float input?
+
+```python
+price = float(input())
+```
+
+---
+
+## 5. How do you take multiple values in one line?
+
+Use:
+
+```python
+input().split()
+```
+
+Example:
+
+```python
+a, b = input().split()
+```
+
+---
+
+## 6. How do you take a list of integers?
+
+```python
+numbers = list(map(int, input().split()))
+```
+
+---
+
+## 7. How do you take a list of floats?
+
+```python
+numbers = list(map(float, input().split()))
+```
+
+---
+
+## 8. How do you take a tuple of integers?
+
+```python
+numbers = tuple(map(int, input().split()))
+```
+
+---
+
+## 9. How do you take a set of integers?
+
+```python
+numbers = set(map(int, input().split()))
+```
+
+---
+
+## 10. What does split() do?
+
+`split()` separates a string into multiple parts.
+
+Example:
+
+```python
+input().split()
+```
+
+Input:
+
+```text
+10 20 30
+```
+
+Result:
+
+```python
+['10', '20', '30']
+```
+
+---
+
+## 11. Why do we use map(int, input().split())?
+
+Because:
+
+```python
+input().split()
+```
+
+produces strings.
+
+`map(int, ...)` converts each string into an integer.
+
+Example:
+
+```python
+list(map(int, input().split()))
+```
+
+converts:
+
+```text
+10 20 30
+```
+
+into:
+
+```python
+[10, 20, 30]
+```
+
+---
+
+## 12. Why do we use list() with map()?
+
+`map()` produces an iterable of converted values.
+
+Using:
+
+```python
+list(map(int, input().split()))
+```
+
+creates a list containing those converted values.
+
+---
+
+## 13. How do you take dictionary input according to these notes?
+
+Using:
+
+```python
+profile = eval(input())
+```
+
+But `eval()` should only be used when the input is trusted.
+
+---
+
+## 14. What is unpacking?
+
+Unpacking means assigning multiple values from an iterable to multiple variables.
+
+Example:
+
+```python
+a, b = input().split()
+```
+
+Input:
+
+```text
+hello world
+```
+
+Then:
+
+```text
+a → hello
+b → world
+```
+
+---
