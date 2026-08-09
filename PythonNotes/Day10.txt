@@ -1,0 +1,1818 @@
+# Day 10 — Conditional Statements & Control Statements in Python
+
+---
+
+# 1. Control Statements
+
+Control statements are used to control the flow of execution of a program.
+
+Normally, Python executes statements one after another from top to bottom.
+
+Control statements allow the program to:
+
+- Make decisions
+- Repeat tasks
+- Alter the normal flow of execution
+- Execute code based on specific conditions
+- Decide when code should execute
+- Decide how many times code should execute
+- Decide whether execution should continue, stop, or skip
+
+---
+
+# 2. What Do Control Statements Help the Program Decide?
+
+Control statements help the program decide:
+
+```text
+1. Which code should execute
+2. When code should execute
+3. How many times code should execute
+4. Whether execution should continue, stop, or skip
+```
+
+---
+
+# 3. Types of Control Statements
+
+Python control statements are broadly classified into three categories:
+
+```text
+1. Conditional Statements
+   → Execute code based on conditions
+
+2. Looping Statements
+   → Execute code repeatedly
+
+3. Jump Statements
+   → Alter the normal flow of loops
+```
+
+---
+
+# 4. Why Control Statements Are Important
+
+Control statements help programs:
+
+```text
+1. Make decisions
+
+2. Repeat tasks efficiently
+
+3. Avoid unnecessary code repetition
+
+4. Handle different situations dynamically
+
+5. Control program execution flow
+```
+
+Without control statements, programs would execute sequentially and could not respond intelligently to different inputs or situations.
+
+---
+
+# 5. Conditional Statements
+
+## Definition
+
+Conditional statements are decision-making statements that execute different blocks of code depending on whether a specified condition evaluates to `True` or `False`.
+
+They allow programs to make decisions and perform different actions based on different situations.
+
+---
+
+# 6. Real-Time Examples of Conditional Statements
+
+Conditional statements can be used for:
+
+```text
+1. Checking stock availability
+2. Validating login credentials
+3. Determining grades
+4. Checking voting eligibility
+```
+
+---
+
+# 7. Types of Conditional Statements
+
+The source covers four types:
+
+```text
+1. if
+2. if-else
+3. if-elif-else
+4. Nested if
+```
+
+Quick comparison:
+
+```text
+if
+    → Executes code when a condition is True
+
+if-else
+    → Executes one block if True and another if False
+
+if-elif-else
+    → Checks multiple conditions
+
+Nested if
+    → Places one conditional statement inside another
+```
+
+---
+
+# 8. if Statement
+
+## Definition
+
+The `if` statement is the simplest conditional statement.
+
+It executes a block of code only when the specified condition evaluates to `True`.
+
+If the condition is `False`, the block is skipped.
+
+---
+
+# 9. if Statement Syntax
+
+```python
+if condition:
+    statements
+```
+
+Important:
+
+```text
+if
+↓
+condition
+↓
+:
+↓
+indented statements
+```
+
+Python uses indentation to identify the block of code belonging to the `if` statement.
+
+---
+
+# 10. if Statement Example — Product Stock Availability
+
+```python
+stock = 25
+
+if stock > 0:
+    print("Product is available in stock")
+```
+
+Here:
+
+```text
+stock = 25
+stock > 0
+    ↓
+True
+    ↓
+The print statement executes
+```
+
+Output:
+
+```text
+Product is available in stock
+```
+
+---
+
+# 11. How if Works
+
+Consider:
+
+```python
+stock = 25
+
+if stock > 0:
+    print("Product is available in stock")
+```
+
+Execution flow:
+
+```text
+Start
+  ↓
+stock = 25
+  ↓
+Check stock > 0
+  ↓
+Is condition True?
+  ↓
+YES
+  ↓
+Execute print()
+  ↓
+End
+```
+
+If:
+
+```python
+stock = 0
+```
+
+then:
+
+```python
+stock > 0
+```
+
+is `False`, so the print statement is skipped.
+
+---
+
+# 12. if-else Statement
+
+## Definition
+
+The `if-else` statement provides two possible execution paths.
+
+One block executes when the condition is `True`.
+
+Another block executes when the condition is `False`.
+
+---
+
+# 13. if-else Syntax
+
+```python
+if condition:
+    statements
+else:
+    statements
+```
+
+Concept:
+
+```text
+             condition
+                 ↓
+          ┌──────┴──────┐
+          ↓             ↓
+        True          False
+          ↓             ↓
+      if block      else block
+```
+
+---
+
+# 14. if-else Example — Stock Availability
+
+```python
+stock = 0
+
+if stock > 0:
+    print("Product is available")
+else:
+    print("Product is out of stock")
+```
+
+Since:
+
+```text
+stock = 0
+stock > 0
+   ↓
+False
+```
+
+The `else` block executes.
+
+Output:
+
+```text
+Product is out of stock
+```
+
+---
+
+# 15. Another if-else Example
+
+```python
+age = 20
+
+if age >= 18:
+    print("Eligible")
+else:
+    print("Not eligible")
+```
+
+Execution:
+
+```text
+age >= 18
+    ↓
+True
+    ↓
+Eligible
+```
+
+---
+
+# 16. if-elif-else Statement
+
+## Definition
+
+The `if-elif-else` statement is used when multiple conditions need to be checked.
+
+Python evaluates conditions from top to bottom.
+
+As soon as a condition becomes `True`, its corresponding block executes and the remaining conditions are skipped.
+
+---
+
+# 17. if-elif-else Syntax
+
+```python
+if condition1:
+    statements
+
+elif condition2:
+    statements
+
+elif condition3:
+    statements
+
+else:
+    statements
+```
+
+Important:
+
+```text
+if
+ ↓
+Check condition 1
+ ↓
+False
+ ↓
+elif
+ ↓
+Check condition 2
+ ↓
+False
+ ↓
+elif
+ ↓
+Check condition 3
+ ↓
+False
+ ↓
+else
+```
+
+If any condition becomes `True`, its block executes and the remaining conditions are skipped.
+
+---
+
+# 18. if-elif-else Example — Product Stock Levels
+
+```python
+stock = 5
+
+if stock > 20:
+    print("Stock is fully available")
+elif stock > 0:
+    print("Limited stock available")
+else:
+    print("Out of stock")
+```
+
+Execution:
+
+```text
+stock = 5
+
+stock > 20
+   ↓
+False
+
+stock > 0
+   ↓
+True
+
+"Limited stock available"
+```
+
+Output:
+
+```text
+Limited stock available
+```
+
+---
+
+# 19. How if-elif-else Works
+
+Example:
+
+```python
+marks = 75
+
+if marks >= 90:
+    print("A")
+elif marks >= 75:
+    print("B")
+elif marks >= 50:
+    print("C")
+else:
+    print("Fail")
+```
+
+Python checks from top to bottom.
+
+```text
+marks >= 90
+    ↓
+False
+
+marks >= 75
+    ↓
+True
+    ↓
+Print B
+    ↓
+Stop checking remaining conditions
+```
+
+Important:
+
+```text
+The first True condition is executed.
+Remaining conditions are skipped.
+```
+
+---
+
+# 20. Nested if Statement
+
+## Definition
+
+A Nested `if` is an `if` statement placed inside another `if` or `else` block.
+
+The inner condition is evaluated only when the outer condition is satisfied.
+
+Nested `if` statements are useful when multiple levels of validation are required.
+
+---
+
+# 21. Nested if Syntax
+
+```python
+if condition1:
+    if condition2:
+        statements
+    else:
+        statements
+else:
+    statements
+```
+
+Concept:
+
+```text
+Outer condition
+      ↓
+   True?
+   /   \
+ Yes    No
+  ↓      ↓
+Inner   Outer
+check   else
+  ↓
+True / False
+```
+
+---
+
+# 22. Nested if Example — Product Purchase Eligibility
+
+Source example:
+
+```python
+stock = 10
+premium_member = True
+
+if stock > 0:
+    print("Product is available")
+
+    if premium_member:
+        print("Priority delivery available")
+    else:
+        print("Standard delivery available")
+else:
+    print("Product is out of stock")
+```
+
+---
+
+# 23. Understanding the Nested if Example
+
+First condition:
+
+```python
+stock > 0
+```
+
+Since:
+
+```text
+stock = 10
+```
+
+the condition is:
+
+```text
+True
+```
+
+Therefore:
+
+```python
+print("Product is available")
+```
+
+executes.
+
+Then Python checks the inner condition:
+
+```python
+premium_member
+```
+
+Since:
+
+```python
+premium_member = True
+```
+
+the program executes:
+
+```python
+print("Priority delivery available")
+```
+
+Output:
+
+```text
+Product is available
+Priority delivery available
+```
+
+---
+
+# 24. Nested if Execution Flow
+
+```text
+START
+  ↓
+Check stock > 0
+  ↓
+ ┌───────────────┐
+ │               │
+True            False
+ │               │
+ ↓               ↓
+Product        Product
+available      out of stock
+ │
+ ↓
+Check premium_member
+ │
+ ┌───────────────┐
+ │               │
+True            False
+ │               │
+ ↓               ↓
+Priority       Standard
+delivery       delivery
+```
+
+---
+
+# 25. Comparison of Conditional Statements
+
+```text
+Statement       Purpose                         Use Case
+
+if              Execute code when              Single condition
+                condition is True
+
+if-else         Handle both True and           Two possible outcomes
+                False cases
+
+if-elif-else    Handle multiple conditions     Multiple outcomes
+
+Nested if       Multiple levels of checking    Complex decision-making
+```
+
+---
+
+# 26. if vs if-else
+
+## if
+
+Use `if` when you only need to execute something when a condition is `True`.
+
+```python
+age = 20
+
+if age >= 18:
+    print("Adult")
+```
+
+If the condition is false, nothing is executed.
+
+---
+
+## if-else
+
+Use `if-else` when you have two possible outcomes.
+
+```python
+age = 16
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")
+```
+
+---
+
+# 27. if-else vs if-elif-else
+
+```text
+if-else
+   ↓
+Two possible paths
+
+if-elif-else
+   ↓
+Multiple possible paths
+```
+
+Example:
+
+```python
+age = 25
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")
+```
+
+Two outcomes.
+
+Multiple conditions:
+
+```python
+marks = 85
+
+if marks >= 90:
+    print("A")
+elif marks >= 75:
+    print("B")
+elif marks >= 50:
+    print("C")
+else:
+    print("Fail")
+```
+
+Multiple outcomes.
+
+---
+
+# 28. if-elif-else vs Nested if
+
+## if-elif-else
+
+Used when checking multiple conditions at the same decision level.
+
+```python
+marks = 80
+
+if marks >= 90:
+    print("A")
+elif marks >= 75:
+    print("B")
+elif marks >= 50:
+    print("C")
+else:
+    print("Fail")
+```
+
+---
+
+## Nested if
+
+Used when one decision depends on another decision.
+
+```python
+stock = 10
+premium_member = True
+
+if stock > 0:
+    print("Product is available")
+
+    if premium_member:
+        print("Priority delivery available")
+    else:
+        print("Standard delivery available")
+else:
+    print("Product is out of stock")
+```
+
+---
+
+# 29. Conditional Statements — Simple Memory Trick
+
+Remember:
+
+```text
+if
+↓
+ONE condition
+
+if-else
+↓
+TWO possible outcomes
+
+if-elif-else
+↓
+MULTIPLE conditions
+
+Nested if
+↓
+CONDITION inside CONDITION
+```
+
+---
+
+# 30. Important Python Syntax Rules
+
+## Rule 1 — Use a colon
+
+Conditional statements require `:`.
+
+Correct:
+
+```python
+if age >= 18:
+    print("Eligible")
+```
+
+Incorrect:
+
+```python
+if age >= 18
+    print("Eligible")
+```
+
+---
+
+## Rule 2 — Use indentation
+
+Correct:
+
+```python
+if age >= 18:
+    print("Eligible")
+```
+
+The `print()` statement is indented.
+
+---
+
+## Rule 3 — else does not have a condition
+
+Correct:
+
+```python
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")
+```
+
+---
+
+## Rule 4 — elif is used for another condition
+
+Correct:
+
+```python
+if marks >= 90:
+    print("A")
+elif marks >= 75:
+    print("B")
+else:
+    print("C")
+```
+
+---
+
+# 31. Real-Time Example — Login Validation
+
+```python
+username = "admin"
+password = "1234"
+
+if username == "admin":
+    if password == "1234":
+        print("Login successful")
+    else:
+        print("Invalid password")
+else:
+    print("Invalid username")
+```
+
+This demonstrates nested decision-making.
+
+---
+
+# 32. Real-Time Example — Voting Eligibility
+
+```python
+age = 20
+
+if age >= 18:
+    print("Eligible to vote")
+else:
+    print("Not eligible to vote")
+```
+
+---
+
+# 33. Real-Time Example — Grade Determination
+
+```python
+marks = 82
+
+if marks >= 90:
+    print("Grade A")
+elif marks >= 75:
+    print("Grade B")
+elif marks >= 50:
+    print("Grade C")
+else:
+    print("Fail")
+```
+
+---
+
+# 34. Real-Time Example — Stock Availability
+
+```python
+stock = 25
+
+if stock > 20:
+    print("Stock is fully available")
+elif stock > 0:
+    print("Limited stock available")
+else:
+    print("Out of stock")
+```
+
+This follows the same stock-level concept from the source.
+
+---
+
+# 35. Real-Time Example — Product Purchase
+
+```python
+stock = 10
+premium_member = False
+
+if stock > 0:
+    print("Product is available")
+
+    if premium_member:
+        print("Priority delivery available")
+    else:
+        print("Standard delivery available")
+else:
+    print("Product is out of stock")
+```
+
+Output:
+
+```text
+Product is available
+Standard delivery available
+```
+
+---
+
+# 36. Multiple Conditions
+
+Conditional statements can use expressions that evaluate to `True` or `False`.
+
+Example:
+
+```python
+age = 25
+
+if age >= 18:
+    print("Eligible")
+```
+
+The condition:
+
+```python
+age >= 18
+```
+
+evaluates to:
+
+```text
+True
+```
+
+---
+
+# 37. Logical Conditions
+
+You can combine conditions using logical operators.
+
+Important operators:
+
+```text
+and
+or
+not
+```
+
+Example:
+
+```python
+age = 25
+has_id = True
+
+if age >= 18 and has_id:
+    print("Eligible")
+```
+
+---
+
+# 38. and
+
+`and` requires both conditions to be true.
+
+```python
+age = 25
+has_id = True
+
+if age >= 18 and has_id:
+    print("Allowed")
+```
+
+Concept:
+
+```text
+Condition 1 → True
+Condition 2 → True
+               ↓
+             True
+```
+
+---
+
+# 39. or
+
+`or` requires at least one condition to be true.
+
+```python
+has_email = True
+has_phone = False
+
+if has_email or has_phone:
+    print("Contact information available")
+```
+
+Concept:
+
+```text
+True OR False
+     ↓
+   True
+```
+
+---
+
+# 40. not
+
+`not` reverses a Boolean result.
+
+```python
+logged_in = False
+
+if not logged_in:
+    print("Please login")
+```
+
+Concept:
+
+```text
+False
+ ↓
+not
+ ↓
+True
+```
+
+---
+
+# 41. Conditional Statements with Input
+
+Example:
+
+```python
+age = int(input("Enter your age: "))
+
+if age >= 18:
+    print("Eligible to vote")
+else:
+    print("Not eligible to vote")
+```
+
+Execution:
+
+```text
+User enters age
+      ↓
+Convert input to int
+      ↓
+Check age >= 18
+      ↓
+True / False
+      ↓
+Print result
+```
+
+---
+
+# 42. Conditional Statements with Strings
+
+Example:
+
+```python
+username = input("Enter username: ")
+
+if username == "admin":
+    print("Welcome Admin")
+else:
+    print("Invalid username")
+```
+
+---
+
+# 43. Conditional Statements with Numbers
+
+Example:
+
+```python
+number = int(input("Enter a number: "))
+
+if number > 0:
+    print("Positive")
+elif number < 0:
+    print("Negative")
+else:
+    print("Zero")
+```
+
+This is an `if-elif-else` decision.
+
+---
+
+# 44. Conditional Statements — Positive / Negative / Zero
+
+```python
+number = 10
+
+if number > 0:
+    print("Positive")
+elif number < 0:
+    print("Negative")
+else:
+    print("Zero")
+```
+
+Possible outcomes:
+
+```text
+number > 0
+    → Positive
+
+number < 0
+    → Negative
+
+otherwise
+    → Zero
+```
+
+---
+
+# 45. Conditional Statements — Even / Odd
+
+```python
+number = 10
+
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+```
+
+Concept:
+
+```text
+number % 2 == 0
+       ↓
+     True
+       ↓
+     Even
+```
+
+---
+
+# 46. Conditional Statements — Largest of Two Numbers
+
+```python
+a = 10
+b = 20
+
+if a > b:
+    print("a is largest")
+else:
+    print("b is largest")
+```
+
+---
+
+# 47. Conditional Statements — Largest of Three Numbers
+
+```python
+a = 10
+b = 20
+c = 15
+
+if a > b and a > c:
+    print("a is largest")
+elif b > a and b > c:
+    print("b is largest")
+else:
+    print("c is largest")
+```
+
+---
+
+# 48. Conditional Statements — Simple Login
+
+```python
+username = input("Enter username: ")
+password = input("Enter password: ")
+
+if username == "admin" and password == "1234":
+    print("Login successful")
+else:
+    print("Invalid credentials")
+```
+
+---
+
+# 49. Important Difference — Condition vs Statement
+
+A condition is an expression that produces a Boolean result.
+
+Example:
+
+```python
+age >= 18
+```
+
+Result:
+
+```text
+True
+or
+False
+```
+
+A statement is an instruction executed by Python.
+
+Example:
+
+```python
+print("Eligible")
+```
+
+Together:
+
+```python
+if age >= 18:
+    print("Eligible")
+```
+
+---
+
+# 50. Truth and False Conditions
+
+Conditions evaluate to either:
+
+```text
+True
+False
+```
+
+Example:
+
+```python
+age = 20
+
+print(age >= 18)
+```
+
+Output:
+
+```text
+True
+```
+
+Example:
+
+```python
+age = 15
+
+print(age >= 18)
+```
+
+Output:
+
+```text
+False
+```
+
+---
+
+# 51. Day 10 Important Interview Questions
+
+## 1. What are control statements?
+
+Control statements are used to control the flow of execution of a program.
+
+They allow a program to make decisions, repeat tasks, and alter the normal execution flow.
+
+---
+
+## 2. What are the types of control statements?
+
+According to the source:
+
+```text
+1. Conditional Statements
+2. Looping Statements
+3. Jump Statements
+```
+
+---
+
+## 3. What is a conditional statement?
+
+A conditional statement executes different blocks of code depending on whether a condition evaluates to `True` or `False`.
+
+---
+
+## 4. What are the types of conditional statements?
+
+```text
+1. if
+2. if-else
+3. if-elif-else
+4. Nested if
+```
+
+---
+
+## 5. What is an if statement?
+
+It executes a block of code only when the specified condition is `True`.
+
+---
+
+## 6. What happens if an if condition is False?
+
+The `if` block is skipped.
+
+---
+
+## 7. What is if-else?
+
+It provides two execution paths:
+
+```text
+True  → if block
+False → else block
+```
+
+---
+
+## 8. When do we use if-elif-else?
+
+When multiple conditions need to be checked.
+
+---
+
+## 9. How does Python evaluate if-elif-else?
+
+Python evaluates conditions from top to bottom.
+
+As soon as a condition becomes `True`, its corresponding block executes and remaining conditions are skipped.
+
+---
+
+## 10. What is a nested if?
+
+A nested `if` is an `if` statement placed inside another `if` or `else` block.
+
+---
+
+## 11. Why do we use nested if?
+
+Nested `if` statements are useful when multiple levels of validation are required.
+
+---
+
+## 12. Difference between if and if-else?
+
+```text
+if
+→ Executes code only when condition is True.
+
+if-else
+→ Handles both True and False cases.
+```
+
+---
+
+## 13. Difference between if-else and if-elif-else?
+
+```text
+if-else
+→ Two possible outcomes.
+
+if-elif-else
+→ Multiple possible outcomes.
+```
+
+---
+
+## 14. Difference between if-elif-else and nested if?
+
+```text
+if-elif-else
+→ Checks multiple conditions at the same decision level.
+
+Nested if
+→ One condition is checked inside another condition.
+```
+
+---
+
+# 52. Important Interview Examples
+
+## Example 1 — Check Voting Eligibility
+
+```python
+age = 20
+
+if age >= 18:
+    print("Eligible to vote")
+else:
+    print("Not eligible to vote")
+```
+
+---
+
+## Example 2 — Check Positive/Negative
+
+```python
+number = -5
+
+if number > 0:
+    print("Positive")
+elif number < 0:
+    print("Negative")
+else:
+    print("Zero")
+```
+
+---
+
+## Example 3 — Check Even/Odd
+
+```python
+number = 7
+
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+```
+
+---
+
+## Example 4 — Grade
+
+```python
+marks = 85
+
+if marks >= 90:
+    print("A")
+elif marks >= 75:
+    print("B")
+elif marks >= 50:
+    print("C")
+else:
+    print("Fail")
+```
+
+---
+
+## Example 5 — Login
+
+```python
+username = "admin"
+password = "1234"
+
+if username == "admin":
+    if password == "1234":
+        print("Login successful")
+    else:
+        print("Invalid password")
+else:
+    print("Invalid username")
+```
+
+---
+
+# 53. Day 10 Quick Revision Table
+
+```text
+CONCEPT             MEANING
+
+Control Statements  Control program execution flow
+
+if                  Execute block when condition is True
+
+if-else             Handle True and False cases
+
+if-elif-else        Check multiple conditions
+
+Nested if           Condition inside another condition
+```
+
+---
+
+# 54. Conditional Statements Quick Memory
+
+```text
+                    CONDITIONAL STATEMENTS
+                             |
+             ┌───────────────┼───────────────┐
+             |               |               |
+             if          if-else       if-elif-else
+             |               |               |
+       One condition     Two paths      Multiple paths
+                                             |
+                                         Nested if
+                                             |
+                                    Multiple-level checking
+```
+
+---
+
+# 55. Day 10 Practice Programs
+
+Practice these programs without looking at the solution:
+
+```text
+1. Check whether a number is positive or negative.
+
+2. Check whether a number is even or odd.
+
+3. Check whether a person is eligible to vote.
+
+4. Find the largest of two numbers.
+
+5. Find the largest of three numbers.
+
+6. Check whether a number is zero, positive, or negative.
+
+7. Calculate grade based on marks.
+
+8. Check whether a product is in stock.
+
+9. Check login username and password.
+
+10. Check product purchase eligibility.
+
+11. Check whether a person is eligible for a discount.
+
+12. Check whether a student passed or failed.
+
+13. Check whether a number is divisible by 5.
+
+14. Check whether a number is divisible by both 3 and 5.
+
+15. Create a simple menu-based decision program.
+```
+
+---
+
+# 56. Practice Program 1 — Positive or Negative
+
+```python
+number = int(input("Enter a number: "))
+
+if number > 0:
+    print("Positive")
+else:
+    print("Negative")
+```
+
+Try improving it to handle zero.
+
+---
+
+# 57. Practice Program 2 — Even or Odd
+
+```python
+number = int(input("Enter a number: "))
+
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+```
+
+---
+
+# 58. Practice Program 3 — Voting Eligibility
+
+```python
+age = int(input("Enter your age: "))
+
+if age >= 18:
+    print("Eligible to vote")
+else:
+    print("Not eligible to vote")
+```
+
+---
+
+# 59. Practice Program 4 — Grade
+
+```python
+marks = int(input("Enter marks: "))
+
+if marks >= 90:
+    print("Grade A")
+elif marks >= 75:
+    print("Grade B")
+elif marks >= 50:
+    print("Grade C")
+else:
+    print("Fail")
+```
+
+---
+
+# 60. Practice Program 5 — Stock
+
+```python
+stock = int(input("Enter stock quantity: "))
+
+if stock > 20:
+    print("Stock is fully available")
+elif stock > 0:
+    print("Limited stock available")
+else:
+    print("Out of stock")
+```
+
+---
+
+# 61. Practice Program 6 — Nested Purchase Eligibility
+
+```python
+stock = int(input("Enter stock quantity: "))
+premium_member = input("Are you a premium member? ")
+
+if stock > 0:
+    print("Product is available")
+
+    if premium_member == "yes":
+        print("Priority delivery available")
+    else:
+        print("Standard delivery available")
+else:
+    print("Product is out of stock")
+```
+
+---
+
+# 62. Common Mistakes
+
+## Mistake 1 — Forgetting colon
+
+Wrong:
+
+```python
+if age >= 18
+    print("Eligible")
+```
+
+Correct:
+
+```python
+if age >= 18:
+    print("Eligible")
+```
+
+---
+
+## Mistake 2 — Incorrect indentation
+
+Wrong:
+
+```python
+if age >= 18:
+print("Eligible")
+```
+
+Correct:
+
+```python
+if age >= 18:
+    print("Eligible")
+```
+
+---
+
+## Mistake 3 — Using = instead of == for comparison
+
+For comparison:
+
+```python
+if age == 18:
+    print("Age is 18")
+```
+
+Remember:
+
+```text
+=   → assignment
+==  → comparison
+```
+
+---
+
+## Mistake 4 — Incorrect elif spelling
+
+Correct:
+
+```python
+elif
+```
+
+Not:
+
+```python
+else if
+```
+
+In Python, use `elif`.
+
+---
+
+## Mistake 5 — Writing condition after else
+
+Wrong:
+
+```python
+else age >= 18:
+```
+
+Correct:
+
+```python
+else:
+```
+
+---
+
+# 63. Day 10 Final Revision
+
+```text
+CONTROL STATEMENTS
+    ↓
+Control program execution flow
+
+Three categories:
+    ↓
+Conditional
+Looping
+Jump
+```
+
+```text
+CONDITIONAL STATEMENTS
+    ↓
+if
+if-else
+if-elif-else
+Nested if
+```
+
+```text
+if
+    ↓
+One condition
+```
+
+```text
+if-else
+    ↓
+Two possible outcomes
+```
+
+```text
+if-elif-else
+    ↓
+Multiple conditions
+```
+
+```text
+Nested if
+    ↓
+Multiple levels of checking
+```
+
+---
+
+# 64. Most Important Points to Remember
+
+```text
+1. Control statements control program execution flow.
+
+2. Python normally executes statements from top to bottom.
+
+3. Conditional statements are decision-making statements.
+
+4. An if statement executes only when its condition is True.
+
+5. if-else provides two execution paths.
+
+6. if-elif-else is used for multiple conditions.
+
+7. Python checks if-elif-else conditions from top to bottom.
+
+8. Once a condition becomes True, remaining conditions are skipped.
+
+9. A nested if places one conditional statement inside another.
+
+10. Nested if is useful for multiple levels of validation.
+
+11. Use a colon after if, elif, and else.
+
+12. Use indentation for the code block.
+
+13. Use == for comparison.
+
+14. Use = for assignment.
+
+15. Use logical operators such as and, or, and not when combining conditions.
+
+16. Control statements make programs dynamic and responsive to different inputs.
+```
+
+---
+# ⭐ Day 10 Status
+
+```text
+DAY 10 — CONDITIONAL STATEMENTS & CONTROL STATEMENTS IN PYTHON
+
+Status: COMPLETED ✅
+```
