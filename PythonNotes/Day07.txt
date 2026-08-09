@@ -1,0 +1,1683 @@
+# Day 7 — Strings in Python
+
+---
+
+# 1. Introduction to Strings
+
+A string is a sequence of characters enclosed within:
+
+```text
+Single quotes: ' '
+Double quotes: " "
+Triple single quotes: three single quotes
+Triple double quotes: three double quotes
+```
+
+Strings are immutable, meaning once created, they cannot be changed directly.
+
+---
+
+# 2. Defining Strings
+
+```python
+# Defining strings
+str1 = 'Hello'
+str2 = "World"
+str3 = '''This is a multi-line
+string example.'''
+
+print(str1)
+print(str2)
+print(str3)
+```
+
+Output:
+
+```text
+Hello
+World
+This is a multi-line
+string example.
+```
+
+---
+
+# 3. Operations on Strings
+
+```text
+1. Concatenation (+) - Joining two or more strings.
+2. Repetition (*) - Repeating a string multiple times.
+3. Indexing - Accessing individual characters using indices.
+4. Slicing - Extracting a part (substring) of the string.
+5. Membership (in, not in) - Checking if a substring exists within a string.
+```
+
+---
+
+# 4. Concatenation (+)
+
+Concatenation means joining two or more strings.
+
+```python
+str1 = "Hello"
+str2 = "World"
+
+result = str1 + " " + str2
+
+print(result)
+```
+
+Output:
+
+```text
+Hello World
+```
+
+---
+
+# 5. Repetition (*)
+
+The `*` operator repeats a string multiple times.
+
+```python
+print("Python! " * 3)
+```
+
+Output:
+
+```text
+Python! Python! Python!
+```
+
+---
+
+# 6. Indexing
+
+Indexing accesses individual characters using their indexes.
+
+Python uses zero-based indexing.
+
+```python
+text = "Python"
+
+print(text[0])
+```
+
+Output:
+
+```text
+P
+```
+
+---
+
+# 7. Negative Indexing
+
+Negative indexing accesses characters from the end.
+
+```python
+text = "Python"
+
+print(text[-1])
+```
+
+Output:
+
+```text
+n
+```
+
+For:
+
+```python
+text = "Python"
+```
+
+the indexes are:
+
+```text
+ P  y  t  h  o  n
+ 0  1  2  3  4  5
+-6 -5 -4 -3 -2 -1
+```
+
+---
+
+# 8. Slicing
+
+Slicing extracts a part (substring) of a string.
+
+Syntax:
+
+```python
+string[start:end]
+```
+
+The start index is included and the end index is excluded.
+
+```python
+text = "Python"
+
+print(text[0:3])
+```
+
+Output:
+
+```text
+Pyt
+```
+
+---
+
+# 9. Slicing with Default Start
+
+If start is omitted, Python uses 0.
+
+```python
+text = "Python"
+
+print(text[:4])
+```
+
+Output:
+
+```text
+Pyth
+```
+
+---
+
+# 10. Slicing with Default End
+
+If end is omitted, Python continues to the end.
+
+```python
+text = "Python"
+
+print(text[2:])
+```
+
+Output:
+
+```text
+thon
+```
+
+---
+
+# 11. Membership
+
+Membership operators:
+
+```text
+in
+not in
+```
+
+They check whether a substring exists inside a string.
+
+```python
+text = "Python"
+
+print("Pyt" in text)
+print("Java" not in text)
+```
+
+Output:
+
+```text
+True
+True
+```
+
+---
+
+# 12. Built-in String Functions
+
+The source covers:
+
+```text
+len()
+max()
+min()
+sorted()
+chr()
+ord()
+```
+
+---
+
+# 13. len()
+
+`len()` returns the length of a string.
+
+```python
+text = "Hello World"
+
+print(len(text))
+```
+
+Output:
+
+```text
+11
+```
+
+---
+
+# 14. max() and min()
+
+`max()` and `min()` return the maximum or minimum character based on ASCII values.
+
+```python
+print(max("abcXYZ"))
+print(min("abcXYZ"))
+```
+
+Output:
+
+```text
+c
+X
+```
+
+---
+
+# 15. sorted()
+
+`sorted()` returns a sorted list of characters.
+
+```python
+print(sorted("python"))
+```
+
+Output:
+
+```text
+['h', 'n', 'o', 'p', 't', 'y']
+```
+
+---
+
+# 16. ord() and chr()
+
+`ord()` converts a character to its ASCII code.
+
+```python
+print(ord('A'))
+```
+
+Output:
+
+```text
+65
+```
+
+`chr()` converts a numeric code into its corresponding character.
+
+```python
+print(chr(97))
+```
+
+Output:
+
+```text
+a
+```
+
+---
+
+# 17. Complete String Method Categories
+
+```text
+1. Case Conversion Methods
+2. Alignment & Formatting Methods
+3. Search & Find Methods
+4. String Testing Methods (Boolean Results)
+5. Replace & Modify Methods
+6. Splitting & Joining Methods
+7. Whitespace & Trimming Methods
+8. Encoding & Decoding Methods
+```
+
+---
+
+# 18. Case Conversion Methods
+
+Methods:
+
+```text
+upper()
+lower()
+capitalize()
+title()
+swapcase()
+casefold()
+```
+
+---
+
+# 19. upper()
+
+Converts all characters to uppercase.
+
+```python
+print("hello".upper())
+```
+
+Output:
+
+```text
+HELLO
+```
+
+---
+
+# 20. lower()
+
+Converts all characters to lowercase.
+
+```python
+print("HELLO".lower())
+```
+
+Output:
+
+```text
+hello
+```
+
+---
+
+# 21. capitalize()
+
+Capitalizes the first character.
+
+```python
+print("python".capitalize())
+```
+
+Output:
+
+```text
+Python
+```
+
+---
+
+# 22. title()
+
+Capitalizes the first letter of each word.
+
+```python
+print("hello world".title())
+```
+
+Output:
+
+```text
+Hello World
+```
+
+---
+
+# 23. swapcase()
+
+Swaps case:
+
+```text
+uppercase → lowercase
+lowercase → uppercase
+```
+
+```python
+print("PyThOn".swapcase())
+```
+
+Output:
+
+```text
+pYtHoN
+```
+
+---
+
+# 24. casefold()
+
+`casefold()` converts to lowercase and is more aggressive than `lower()`.
+
+The source example demonstrates stronger case normalization, including conversion of `ß` to `ss`.
+
+Example:
+
+```python
+print("STRAẞEMÁLAGAÅngströmCafé".casefold())
+```
+
+---
+
+# 25. Alignment & Formatting Methods
+
+Methods:
+
+```text
+center(width, fillchar)
+ljust(width, fillchar)
+rjust(width, fillchar)
+zfill(width)
+```
+
+---
+
+# 26. center()
+
+Centers the string within the specified width.
+
+```python
+print("python".center(10, "*"))
+```
+
+Output:
+
+```text
+**python**
+```
+
+---
+
+# 27. ljust()
+
+Left-aligns the string within the specified width.
+
+```python
+print("py".ljust(5, "-"))
+```
+
+Output:
+
+```text
+py---
+```
+
+---
+
+# 28. rjust()
+
+Right-aligns the string within the specified width.
+
+```python
+print("py".rjust(5, "-"))
+```
+
+Output:
+
+```text
+---py
+```
+
+---
+
+# 29. zfill()
+
+Pads the string with zeros on the left.
+
+```python
+print("42".zfill(5))
+```
+
+Output:
+
+```text
+00042
+```
+
+---
+
+# 30. Search & Find Methods
+
+Methods:
+
+```text
+find()
+rfind()
+index()
+rindex()
+count()
+```
+
+---
+
+# 31. find()
+
+Returns the index of the first occurrence.
+
+Returns `-1` if not found.
+
+```python
+print("hello".find("l"))
+```
+
+Output:
+
+```text
+2
+```
+
+---
+
+# 32. rfind()
+
+Returns the index of the last occurrence.
+
+```python
+print("hello".rfind("l"))
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# 33. index()
+
+Like `find()`, but raises an error if the substring is not found.
+
+```python
+print("hello".index("e"))
+```
+
+Output:
+
+```text
+1
+```
+
+---
+
+# 34. rindex()
+
+Like `rfind()`, but raises an error if the substring is not found.
+
+```python
+print("hello".rindex("l"))
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# 35. count()
+
+Counts how many times a substring appears.
+
+```python
+print("banana".count("a"))
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# 36. String Testing Methods
+
+These methods return Boolean results (`True` or `False`):
+
+```text
+startswith()
+endswith()
+isalpha()
+isalnum()
+islower()
+isupper()
+isspace()
+istitle()
+isidentifier()
+isdecimal()
+isdigit()
+isnumeric()
+```
+
+---
+
+# 37. startswith()
+
+Checks whether the string starts with the specified substring.
+
+```python
+print("python".startswith("py"))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 38. endswith()
+
+Checks whether the string ends with the specified substring.
+
+```python
+print("python".endswith("on"))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 39. isalpha()
+
+Returns `True` if all characters are alphabets.
+
+```python
+print("Hello".isalpha())
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 40. isalnum()
+
+Returns `True` if all characters are alphanumeric.
+
+```python
+print("abc123".isalnum())
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 41. islower()
+
+Returns `True` if all applicable characters are lowercase.
+
+```python
+print("hello".islower())
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 42. isupper()
+
+Returns `True` if all applicable characters are uppercase.
+
+```python
+print("HELLO".isupper())
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 43. isspace()
+
+Returns `True` if all characters are whitespace.
+
+```python
+print(" ".isspace())
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 44. istitle()
+
+Returns `True` if the string is in title case.
+
+```python
+print("Hello World".istitle())
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 45. isidentifier()
+
+Checks whether the string is a valid Python identifier.
+
+```python
+print("variable1".isidentifier())
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 46. isdecimal(), isdigit(), isnumeric()
+
+The source describes them as:
+
+```text
+isdecimal() → Most strict; only base-10 digits ('0'-'9' and equivalents)
+
+isdigit()   → Allows additional digit characters such as superscripts
+
+isnumeric() → Most flexible; includes digits, fractions, Roman numerals, etc.
+```
+
+---
+
+# 47. Numeric Character Examples from the Source
+
+```text
+'5'     → Standard decimal digit
+'٣'     → Arabic-Indic digit (3)
+'۵'     → Persian digit (5)
+'½'     → Unicode fraction one-half
+'⅓'     → Unicode fraction one-third
+'⅔'     → Unicode fraction two-thirds
+'1/2'   → Text-style fraction
+'2/3'   → Text-style fraction
+'VIII'  → Roman numeral 8
+'iv'    → Roman numeral 4
+'²'     → Superscript 2
+'⓫'     → Enclosed number 11 (not numeric)
+'١٢٣'   → Arabic-Indic number (123)
+'Ⅷ'     → Roman numeral 8 (Unicode)
+'10'    → Decimal number
+'0.5'   → Float with dot
+'⅕'     → Unicode fraction one-fifth
+```
+
+---
+
+# 48. isdecimal() vs isdigit() vs isnumeric()
+
+| String | isdecimal() | isdigit() | isnumeric() | Description |
+| --- | --- | --- | --- | --- |
+| '123' | True | True | True | ASCII decimal digits |
+| '٣' | True | True | True | Arabic-Indic digit |
+| '²' | False | True | True | Superscript 2 |
+| '⅓' | False | False | True | Fraction one-third |
+| '五' | False | False | True | Chinese numeral for five |
+| 'Ⅷ' | False | False | True | Roman numeral 8 |
+| 'abc' | False | False | False | Alphabetic characters |
+| '12.3' | False | False | False | Contains a dot |
+| '1a3' | False | False | False | Contains non-numeric character |
+
+Quick relationship:
+
+```text
+isdecimal() → strictest
+isdigit()   → broader
+isnumeric() → most flexible
+```
+
+---
+
+# 49. Replace & Modify Methods
+
+Methods:
+
+```text
+replace()
+translate()
+maketrans()
+```
+
+---
+
+# 50. replace()
+
+Replaces occurrences of `old` with `new`.
+
+```python
+print("apple".replace("p", "b"))
+```
+
+Output:
+
+```text
+abble
+```
+
+---
+
+# 51. translate()
+
+Replaces characters using a translation table.
+
+```python
+print("abc".translate(str.maketrans("a", "x")))
+```
+
+Output:
+
+```text
+xbc
+```
+
+---
+
+# 52. maketrans()
+
+Creates a translation table for `translate()`.
+
+Example from the source:
+
+```python
+print("python".maketrans("aon", "%#5"))
+```
+
+The source shows the resulting mapping as:
+
+```text
+{97: 37, 111: 35, 110: 53}
+```
+
+---
+
+# 53. Splitting & Joining Methods
+
+Methods:
+
+```text
+split()
+rsplit()
+splitlines()
+join()
+partition()
+rpartition()
+```
+
+---
+
+# 54. split()
+
+Splits the string into a list using a separator.
+
+```python
+print("a,b,c".split(","))
+```
+
+Output:
+
+```text
+['a', 'b', 'c']
+```
+
+---
+
+# 55. rsplit()
+
+Splits from the right side.
+
+```python
+print("a,b,c".rsplit(",", 1))
+```
+
+Output:
+
+```text
+['a,b', 'c']
+```
+
+---
+
+# 56. splitlines()
+
+Splits at line breaks (`
+`).
+
+```python
+print("Hello
+World".splitlines())
+```
+
+Output:
+
+```text
+['Hello', 'World']
+```
+
+---
+
+# 57. join()
+
+Joins elements using a separator.
+
+```python
+print(" ".join(["Hello", "World"]))
+```
+
+Output:
+
+```text
+Hello World
+```
+
+Important pattern:
+
+```text
+"separator".join(iterable)
+```
+
+---
+
+# 58. partition()
+
+Splits into a 3-part tuple at the first separator.
+
+```python
+print("apple-pie".partition("-"))
+```
+
+Output:
+
+```text
+('apple', '-', 'pie')
+```
+
+---
+
+# 59. rpartition()
+
+Splits into a 3-part tuple at the last separator.
+
+```python
+print("apple-pie".rpartition("-"))
+```
+
+Output:
+
+```text
+('apple', '-', 'pie')
+```
+
+---
+
+# 60. Whitespace & Trimming Methods
+
+Methods:
+
+```text
+strip()
+lstrip()
+rstrip()
+```
+
+---
+
+# 61. strip()
+
+Removes leading and trailing characters.
+
+Default behavior removes spaces.
+
+```python
+print(" hello ".strip())
+```
+
+Output:
+
+```text
+hello
+```
+
+---
+
+# 62. lstrip()
+
+Removes leading characters.
+
+```python
+print("---hello".lstrip("-"))
+```
+
+Output:
+
+```text
+hello
+```
+
+---
+
+# 63. rstrip()
+
+Removes trailing characters.
+
+```python
+print("hello---".rstrip("-"))
+```
+
+Output:
+
+```text
+hello
+```
+
+---
+
+# 64. Encoding & Decoding Methods
+
+Methods:
+
+```text
+encode()
+decode()
+```
+
+---
+
+# 65. encode()
+
+Converts a string to bytes.
+
+```python
+print("hello".encode("utf-8"))
+```
+
+Output:
+
+```text
+b'hello'
+```
+
+---
+
+# 66. decode()
+
+Converts bytes back to a string.
+
+```python
+print(b'hello'.decode("utf-8"))
+```
+
+Output:
+
+```text
+hello
+```
+
+---
+
+# 67. Unicode Encoding Example
+
+The source demonstrates UTF-8 with multiple languages and an emoji:
+
+```python
+text = "Hello नमस्ते你好 café 🙂"
+
+encoded = text.encode("utf-8")
+
+print(encoded)
+
+decoded = encoded.decode("utf-8")
+
+print(decoded)
+```
+
+The decoded result is:
+
+```text
+Hello नमस्ते你好 café 🙂
+```
+
+Concept:
+
+```text
+String
+   ↓ encode("utf-8")
+Bytes
+   ↓ decode("utf-8")
+String
+```
+
+---
+
+# 68. Important String Immutability Example
+
+Strings cannot be changed directly.
+
+String methods return a resulting string.
+
+```python
+text = "hello"
+
+new_text = text.upper()
+
+print(text)
+print(new_text)
+```
+
+Output:
+
+```text
+hello
+HELLO
+```
+
+The original `text` remains:
+
+```text
+hello
+```
+
+---
+
+# 69. Important String Patterns
+
+## Indexing
+
+```python
+text = "Python"
+
+print(text[0])
+print(text[-1])
+```
+
+Output:
+
+```text
+P
+n
+```
+
+## Slicing
+
+```python
+print(text[0:3])
+print(text[:4])
+print(text[2:])
+```
+
+Output:
+
+```text
+Pyt
+Pyth
+thon
+```
+
+## Membership
+
+```python
+print("Pyt" in text)
+print("Java" not in text)
+```
+
+---
+
+# 70. Search Pattern
+
+```python
+text = "hello"
+
+print(text.find("l"))
+print(text.rfind("l"))
+print(text.index("e"))
+print(text.rindex("l"))
+print(text.count("l"))
+```
+
+Remember:
+
+```text
+find()   → first occurrence, -1 if absent
+rfind()  → last occurrence, -1 if absent
+index()  → first occurrence, error if absent
+rindex() → last occurrence, error if absent
+count()  → number of occurrences
+```
+
+---
+
+# 71. Split and Join Pattern
+
+```python
+text = "a,b,c"
+
+result = text.split(",")
+
+print(result)
+```
+
+Output:
+
+```text
+['a', 'b', 'c']
+```
+
+Join:
+
+```python
+words = ["Hello", "World"]
+
+result = " ".join(words)
+
+print(result)
+```
+
+Output:
+
+```text
+Hello World
+```
+
+Remember:
+
+```text
+split() → String to List
+join()  → Iterable to String
+```
+
+---
+
+# 72. Strip Pattern
+
+```python
+text = "   hello   "
+
+print(text.strip())
+```
+
+Output:
+
+```text
+hello
+```
+
+---
+
+# 73. Complete String Methods Quick Reference
+
+## Case Conversion
+
+```text
+upper()
+lower()
+capitalize()
+title()
+swapcase()
+casefold()
+```
+
+## Alignment & Formatting
+
+```text
+center()
+ljust()
+rjust()
+zfill()
+```
+
+## Search & Find
+
+```text
+find()
+rfind()
+index()
+rindex()
+count()
+```
+
+## String Testing
+
+```text
+startswith()
+endswith()
+isalpha()
+isalnum()
+islower()
+isupper()
+isspace()
+istitle()
+isidentifier()
+isdecimal()
+isdigit()
+isnumeric()
+```
+
+## Replace & Modify
+
+```text
+replace()
+translate()
+maketrans()
+```
+
+## Splitting & Joining
+
+```text
+split()
+rsplit()
+splitlines()
+join()
+partition()
+rpartition()
+```
+
+## Whitespace & Trimming
+
+```text
+strip()
+lstrip()
+rstrip()
+```
+
+## Encoding & Decoding
+
+```text
+encode()
+decode()
+```
+
+---
+
+# 74. Complete Revision Program
+
+```python
+text = "Hello World"
+
+# Length
+print(len(text))
+
+# Indexing
+print(text[0])
+print(text[-1])
+
+# Slicing
+print(text[0:5])
+print(text[:5])
+print(text[6:])
+
+# Membership
+print("Hello" in text)
+print("Python" not in text)
+
+# Case conversion
+print(text.upper())
+print(text.lower())
+print(text.title())
+print(text.swapcase())
+
+# Search
+print(text.find("o"))
+print(text.rfind("o"))
+print(text.count("o"))
+
+# Testing
+print(text.startswith("Hello"))
+print(text.endswith("World"))
+print(text.isalpha())
+print(text.isalnum())
+
+# Replace
+print(text.replace("World", "Python"))
+
+# Split
+print(text.split())
+
+# Join
+print("-".join(["Hello", "World"]))
+
+# Strip
+print("  hello  ".strip())
+```
+
+---
+
+# 75. Interview Questions
+
+## 1. What is a string in Python?
+
+A string is a sequence of characters enclosed in single quotes, double quotes, or triple quotes.
+
+## 2. Are strings mutable or immutable?
+
+Strings are immutable.
+
+## 3. How can you create a multi-line string?
+
+Using triple single quotes or triple double quotes.
+
+## 4. What is concatenation?
+
+Joining strings using `+`.
+
+## 5. What is string repetition?
+
+Repeating a string using `*`.
+
+## 6. What is indexing?
+
+Accessing an individual character using its index.
+
+## 7. What is negative indexing?
+
+Accessing characters from the end using negative indexes.
+
+## 8. What is slicing?
+
+Extracting a portion of a string.
+
+## 9. What is the difference between find() and index()?
+
+```text
+find()  → returns -1 if not found
+index() → raises an error if not found
+```
+
+## 10. What is the difference between rfind() and rindex()?
+
+```text
+rfind()  → last occurrence; -1 if absent
+rindex() → last occurrence; error if absent
+```
+
+## 11. What does split() do?
+
+It splits a string into a list.
+
+## 12. What does join() do?
+
+It joins iterable elements using a separator.
+
+## 13. What does strip() do?
+
+It removes leading and trailing characters; by default, spaces.
+
+## 14. What is the difference between strip(), lstrip(), and rstrip()?
+
+```text
+strip()  → leading + trailing
+lstrip() → leading
+rstrip() → trailing
+```
+
+## 15. What is the difference between isdecimal(), isdigit(), and isnumeric()?
+
+```text
+isdecimal() → most strict
+isdigit()   → broader
+isnumeric() → most flexible
+```
+
+## 16. What does replace() do?
+
+It replaces occurrences of one substring with another.
+
+## 17. What does encode() do?
+
+It converts a string into bytes using an encoding.
+
+## 18. What does decode() do?
+
+It converts bytes back into a string.
+
+---
+
+# 76. Final Revision Points
+
+```text
+1. A string is a sequence of characters.
+
+2. Strings can use single quotes, double quotes, or triple quotes.
+
+3. Triple quotes can be used for multi-line strings.
+
+4. Strings are immutable.
+
+5. + performs string concatenation.
+
+6. * performs string repetition.
+
+7. Indexing accesses individual characters.
+
+8. Python uses zero-based indexing.
+
+9. Negative indexes access characters from the end.
+
+10. Slicing extracts a substring.
+
+11. In slicing, the start is included and the end is excluded.
+
+12. in and not in perform membership checks.
+
+13. len() returns string length.
+
+14. max() and min() compare characters based on ASCII values as described in the source.
+
+15. sorted() returns a sorted list of characters.
+
+16. ord() converts a character to its ASCII code.
+
+17. chr() converts a numeric code to a character.
+
+18. upper() converts text to uppercase.
+
+19. lower() converts text to lowercase.
+
+20. capitalize() capitalizes the first character.
+
+21. title() capitalizes the first letter of each word.
+
+22. swapcase() swaps character case.
+
+23. casefold() performs stronger lowercase normalization.
+
+24. center() centers a string.
+
+25. ljust() left-aligns a string.
+
+26. rjust() right-aligns a string.
+
+27. zfill() pads with zeros on the left.
+
+28. find() returns the first occurrence or -1.
+
+29. rfind() returns the last occurrence or -1.
+
+30. index() returns the first occurrence but raises an error if absent.
+
+31. rindex() returns the last occurrence but raises an error if absent.
+
+32. count() counts substring occurrences.
+
+33. startswith() checks the beginning of a string.
+
+34. endswith() checks the ending of a string.
+
+35. isalpha() checks alphabetic characters.
+
+36. isalnum() checks alphanumeric characters.
+
+37. islower() checks lowercase status.
+
+38. isupper() checks uppercase status.
+
+39. isspace() checks whitespace.
+
+40. istitle() checks title case.
+
+41. isidentifier() checks whether a string is a valid Python identifier.
+
+42. isdecimal(), isdigit(), and isnumeric() have different levels of numeric-character acceptance.
+
+43. replace() replaces occurrences of a substring.
+
+44. translate() replaces characters using a translation table.
+
+45. maketrans() creates a translation table.
+
+46. split() converts a string into a list using a separator.
+
+47. rsplit() splits from the right.
+
+48. splitlines() splits at line breaks.
+
+49. join() combines iterable elements using a separator.
+
+50. partition() returns a 3-part tuple at the first separator.
+
+51. rpartition() returns a 3-part tuple at the last separator.
+
+52. strip() removes leading and trailing characters.
+
+53. lstrip() removes leading characters.
+
+54. rstrip() removes trailing characters.
+
+55. encode() converts strings to bytes.
+
+56. decode() converts bytes back to strings.
+
+57. UTF-8 can represent text from multiple languages and symbols such as emojis.
+
+58. String methods return resulting strings because strings are immutable.
+
+59. split() and join() are especially important for coding problems.
+
+60. find() vs index() and isdecimal() vs isdigit() vs isnumeric() are important interview concepts.
+```
