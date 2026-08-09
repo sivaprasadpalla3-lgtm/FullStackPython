@@ -1,0 +1,1915 @@
+# Day 4.2 — Python Type Conversion (Type Casting)
+
+---
+
+# 1. What is Type Conversion?
+
+Type conversion in Python refers to converting the value of one data type to another using built-in functions.
+
+Common conversion functions are:
+
+```python
+int()
+float()
+str()
+bool()
+list()
+tuple()
+set()
+dict()
+```
+
+Each conversion depends on the source type and the target type.
+
+Some conversions are valid, while others produce an error.
+
+---
+
+# 2. Converting from `int`
+
+## Given
+
+```python
+int_a = 2
+```
+
+## Conversion Table
+
+| Target Type | Code | Output | Notes |
+| --- | --- | --- | --- |
+| `float` | `float(int_a)` | `2.0` | Valid |
+| `str` | `str(int_a)` | `'2'` | Valid |
+| `bool` | `bool(int_a)` | `True` | Non-zero ints are `True` |
+| `list` | `list(int_a)` | Error | `int` is not iterable |
+| `set` | `set(int_a)` | Error | `int` is not iterable |
+| `tuple` | `tuple(int_a)` | Error | `int` is not iterable |
+| `dict` | `dict(int_a)` | Error | `int` is not iterable |
+
+---
+
+# 3. Integer to Float
+
+```python
+int_a = 2
+
+print(float(int_a))
+```
+
+### Output
+
+```text
+2.0
+```
+
+This conversion is valid.
+
+---
+
+# 4. Integer to String
+
+```python
+int_a = 2
+
+print(str(int_a))
+```
+
+### Output
+
+```text
+'2'
+```
+
+This conversion is valid.
+
+---
+
+# 5. Integer to Boolean
+
+```python
+int_a = 2
+
+print(bool(int_a))
+```
+
+### Output
+
+```text
+True
+```
+
+A non-zero integer is `True`.
+
+---
+
+# 6. Integer to List / Set / Tuple / Dictionary
+
+These conversions are invalid:
+
+```python
+list(int_a)
+set(int_a)
+tuple(int_a)
+dict(int_a)
+```
+
+They produce an error because an integer is not iterable.
+
+---
+
+# 7. Converting from `float`
+
+## Given
+
+```python
+float_n = 3.1
+```
+
+## Conversion Table
+
+| Target Type | Code | Output | Notes |
+| --- | --- | --- | --- |
+| `int` | `int(float_n)` | `3` | Truncates decimal part |
+| `str` | `str(float_n)` | `'3.1'` | Valid |
+| `bool` | `bool(float_n)` | `True` | Non-zero float is `True` |
+| `list` | `list(float_n)` | Error | `float` is not iterable |
+| `set` | `set(float_n)` | Error | `float` is not iterable |
+| `tuple` | `tuple(float_n)` | Error | `float` is not iterable |
+| `dict` | `dict(float_n)` | Error | `float` is not iterable |
+
+---
+
+# 8. Float to Integer
+
+```python
+float_n = 3.1
+
+print(int(float_n))
+```
+
+### Output
+
+```text
+3
+```
+
+The decimal part is truncated.
+
+```text
+3.1 → 3
+```
+
+---
+
+# 9. Float to String
+
+```python
+float_n = 3.1
+
+print(str(float_n))
+```
+
+### Output
+
+```text
+'3.1'
+```
+
+---
+
+# 10. Float to Boolean
+
+```python
+float_n = 3.1
+
+print(bool(float_n))
+```
+
+### Output
+
+```text
+True
+```
+
+A non-zero float is `True`.
+
+---
+
+# 11. Float to List / Set / Tuple / Dictionary
+
+These conversions are invalid:
+
+```python
+list(float_n)
+set(float_n)
+tuple(float_n)
+dict(float_n)
+```
+
+They produce an error because a float is not iterable.
+
+---
+
+# 12. Converting from `str`
+
+## Given
+
+```python
+string_c = 'power'
+```
+
+A string can be converted to several other types depending on its contents.
+
+---
+
+# 13. String to Integer
+
+Only numeric strings can be converted directly to an integer.
+
+## Valid
+
+```python
+int('10')
+```
+
+### Output
+
+```text
+10
+```
+
+---
+
+## Invalid
+
+```python
+int('10.9')
+```
+
+### Result
+
+```text
+Error
+```
+
+Use `float()` first if the string represents a decimal number.
+
+Example:
+
+```python
+float('10.9')
+```
+
+---
+
+## Invalid
+
+```python
+int('power')
+```
+
+### Result
+
+```text
+Error
+```
+
+`'power'` is not a valid integer literal.
+
+---
+
+# 14. String to Float
+
+```python
+float('10.8')
+```
+
+### Output
+
+```text
+10.8
+```
+
+This is valid because `'10.8'` is a valid floating-point string.
+
+---
+
+## Invalid String to Float
+
+```python
+float('power')
+```
+
+### Result
+
+```text
+Error
+```
+
+The string is not a valid numeric value.
+
+---
+
+# 15. String to Boolean
+
+```python
+string_c = 'power'
+
+print(bool(string_c))
+```
+
+### Output
+
+```text
+True
+```
+
+A non-empty string is `True`.
+
+---
+
+# 16. String to List
+
+```python
+string_c = 'power'
+
+print(list(string_c))
+```
+
+### Output
+
+```text
+['p', 'o', 'w', 'e', 'r']
+```
+
+The string is converted into a list of characters.
+
+---
+
+# 17. String to Tuple
+
+```python
+string_c = 'power'
+
+print(tuple(string_c))
+```
+
+### Output
+
+```text
+('p', 'o', 'w', 'e', 'r')
+```
+
+This conversion is valid.
+
+---
+
+# 18. String to Set
+
+```python
+string_c = 'power'
+
+print(set(string_c))
+```
+
+### Possible Output
+
+```text
+{'w', 'o', 'e', 'p', 'r'}
+```
+
+A set removes duplicate characters if duplicates are present.
+
+The order may vary because a set is unordered.
+
+---
+
+# 19. String to Dictionary
+
+```python
+dict(string_c)
+```
+
+### Result
+
+```text
+Error
+```
+
+A dictionary conversion needs a key-value pair structure.
+
+---
+
+# 20. Converting from `list`
+
+## Given
+
+```python
+list_d = [1, 2, 3, 4]
+```
+
+## Conversion Table
+
+| Target Type | Code | Output | Notes |
+| --- | --- | --- | --- |
+| `int` | `int(list_d)` | Error | Not allowed |
+| `float` | `float(list_d)` | Error | Not allowed |
+| `str` | `str(list_d)` | `"[1, 2, 3, 4]"` | Converts entire list to string |
+| `bool` | `bool(list_d)` | `True` | Non-empty list |
+| `tuple` | `tuple(list_d)` | `(1, 2, 3, 4)` | Valid |
+| `set` | `set(list_d)` | `{1, 2, 3, 4}` | Removes duplicates if any |
+| `dict` | `dict(list_d)` | Error | Needs list of key-value pairs |
+
+---
+
+# 21. List to Integer
+
+```python
+int(list_d)
+```
+
+### Result
+
+```text
+Error
+```
+
+A list cannot be directly converted to an integer.
+
+---
+
+# 22. List to Float
+
+```python
+float(list_d)
+```
+
+### Result
+
+```text
+Error
+```
+
+A list cannot be directly converted to a float.
+
+---
+
+# 23. List to String
+
+```python
+list_d = [1, 2, 3, 4]
+
+print(str(list_d))
+```
+
+### Output
+
+```text
+"[1, 2, 3, 4]"
+```
+
+The entire list is converted to a string representation.
+
+---
+
+# 24. List to Boolean
+
+```python
+list_d = [1, 2, 3, 4]
+
+print(bool(list_d))
+```
+
+### Output
+
+```text
+True
+```
+
+A non-empty list is `True`.
+
+---
+
+# 25. List to Tuple
+
+```python
+list_d = [1, 2, 3, 4]
+
+print(tuple(list_d))
+```
+
+### Output
+
+```text
+(1, 2, 3, 4)
+```
+
+---
+
+# 26. List to Set
+
+```python
+list_d = [1, 2, 3, 4]
+
+print(set(list_d))
+```
+
+### Output
+
+```text
+{1, 2, 3, 4}
+```
+
+If duplicate values are present, the set removes them.
+
+---
+
+# 27. List to Dictionary
+
+```python
+dict(list_d)
+```
+
+### Result
+
+```text
+Error
+```
+
+A dictionary needs a list containing key-value pairs.
+
+For example:
+
+```python
+[("name", "teja"), ("batch", "22")]
+```
+
+---
+
+# 28. Converting from `tuple`
+
+## Given
+
+```python
+tuple_f = (1, 2, 3, 4)
+```
+
+## Conversion Table
+
+| Target Type | Code | Output | Notes |
+| --- | --- | --- | --- |
+| `int` | `int(tuple_f)` | Error | Not allowed |
+| `float` | `float(tuple_f)` | Error | Not allowed |
+| `str` | `str(tuple_f)` | `"(1, 2, 3, 4)"` | Converts whole tuple to string |
+| `bool` | `bool(tuple_f)` | `True` | Non-empty tuple |
+| `list` | `list(tuple_f)` | `[1, 2, 3, 4]` | Valid |
+| `set` | `set(tuple_f)` | `{1, 2, 3, 4}` | Valid |
+| `dict` | `dict(tuple_f)` | Error | Must be tuple of key-value pairs |
+
+---
+
+# 29. Tuple to Integer
+
+```python
+int(tuple_f)
+```
+
+### Result
+
+```text
+Error
+```
+
+Direct conversion is not allowed.
+
+---
+
+# 30. Tuple to Float
+
+```python
+float(tuple_f)
+```
+
+### Result
+
+```text
+Error
+```
+
+Direct conversion is not allowed.
+
+---
+
+# 31. Tuple to String
+
+```python
+tuple_f = (1, 2, 3, 4)
+
+print(str(tuple_f))
+```
+
+### Output
+
+```text
+"(1, 2, 3, 4)"
+```
+
+---
+
+# 32. Tuple to Boolean
+
+```python
+tuple_f = (1, 2, 3, 4)
+
+print(bool(tuple_f))
+```
+
+### Output
+
+```text
+True
+```
+
+A non-empty tuple is `True`.
+
+---
+
+# 33. Tuple to List
+
+```python
+tuple_f = (1, 2, 3, 4)
+
+print(list(tuple_f))
+```
+
+### Output
+
+```text
+[1, 2, 3, 4]
+```
+
+---
+
+# 34. Tuple to Set
+
+```python
+tuple_f = (1, 2, 3, 4)
+
+print(set(tuple_f))
+```
+
+### Output
+
+```text
+{1, 2, 3, 4}
+```
+
+---
+
+# 35. Tuple to Dictionary
+
+```python
+dict(tuple_f)
+```
+
+### Result
+
+```text
+Error
+```
+
+The tuple must contain key-value pairs.
+
+---
+
+# 36. Converting from `set`
+
+## Given
+
+```python
+set_e = {3, 4, 5, 6}
+```
+
+## Conversion Table
+
+| Target Type | Code | Output | Notes |
+| --- | --- | --- | --- |
+| `int` | `int(set_e)` | Error | Not allowed |
+| `float` | `float(set_e)` | Error | Not allowed |
+| `str` | `str(set_e)` | `"{3, 4, 5, 6}"` | Converts whole set |
+| `bool` | `bool(set_e)` | `True` | Non-empty set |
+| `list` | `list(set_e)` | `[3, 4, 5, 6]` | Order may vary |
+| `tuple` | `tuple(set_e)` | `(3, 4, 5, 6)` | Order may vary |
+| `dict` | `dict(set_e)` | Error | Must be iterable of key-value pairs |
+
+---
+
+# 37. Set to Integer
+
+```python
+int(set_e)
+```
+
+### Result
+
+```text
+Error
+```
+
+Direct conversion is not allowed.
+
+---
+
+# 38. Set to Float
+
+```python
+float(set_e)
+```
+
+### Result
+
+```text
+Error
+```
+
+Direct conversion is not allowed.
+
+---
+
+# 39. Set to String
+
+```python
+set_e = {3, 4, 5, 6}
+
+print(str(set_e))
+```
+
+### Output
+
+```text
+"{3, 4, 5, 6}"
+```
+
+The whole set is converted to a string.
+
+---
+
+# 40. Set to Boolean
+
+```python
+set_e = {3, 4, 5, 6}
+
+print(bool(set_e))
+```
+
+### Output
+
+```text
+True
+```
+
+A non-empty set is `True`.
+
+---
+
+# 41. Set to List
+
+```python
+set_e = {3, 4, 5, 6}
+
+print(list(set_e))
+```
+
+### Possible Output
+
+```text
+[3, 4, 5, 6]
+```
+
+The order may vary because the source is a set.
+
+---
+
+# 42. Set to Tuple
+
+```python
+set_e = {3, 4, 5, 6}
+
+print(tuple(set_e))
+```
+
+### Possible Output
+
+```text
+(3, 4, 5, 6)
+```
+
+The order may vary.
+
+---
+
+# 43. Set to Dictionary
+
+```python
+dict(set_e)
+```
+
+### Result
+
+```text
+Error
+```
+
+A dictionary must receive an iterable of key-value pairs.
+
+---
+
+# 44. Converting from `dict`
+
+## Given
+
+```python
+dict_g = {1: 1, 2: 4, 3: 9}
+```
+
+## Conversion Table
+
+| Target Type | Code | Output | Notes |
+| --- | --- | --- | --- |
+| `int` | `int(dict_g)` | Error | Not allowed |
+| `float` | `float(dict_g)` | Error | Not allowed |
+| `str` | `str(dict_g)` | `"{1: 1, 2: 4, 3: 9}"` | Valid |
+| `bool` | `bool(dict_g)` | `True` | Non-empty dictionary |
+| `list` | `list(dict_g)` | `[1, 2, 3]` | Keys only |
+| `tuple` | `tuple(dict_g)` | `(1, 2, 3)` | Keys only |
+| `set` | `set(dict_g)` | `{1, 2, 3}` | Keys only |
+
+---
+
+# 45. Dictionary to Integer
+
+```python
+int(dict_g)
+```
+
+### Result
+
+```text
+Error
+```
+
+Direct conversion is not allowed.
+
+---
+
+# 46. Dictionary to Float
+
+```python
+float(dict_g)
+```
+
+### Result
+
+```text
+Error
+```
+
+Direct conversion is not allowed.
+
+---
+
+# 47. Dictionary to String
+
+```python
+dict_g = {1: 1, 2: 4, 3: 9}
+
+print(str(dict_g))
+```
+
+### Output
+
+```text
+"{1: 1, 2: 4, 3: 9}"
+```
+
+---
+
+# 48. Dictionary to Boolean
+
+```python
+dict_g = {1: 1, 2: 4, 3: 9}
+
+print(bool(dict_g))
+```
+
+### Output
+
+```text
+True
+```
+
+A non-empty dictionary is `True`.
+
+---
+
+# 49. Dictionary to List
+
+```python
+dict_g = {1: 1, 2: 4, 3: 9}
+
+print(list(dict_g))
+```
+
+### Output
+
+```text
+[1, 2, 3]
+```
+
+Important:
+
+```text
+Dictionary → list()
+          ↓
+        Keys only
+```
+
+---
+
+# 50. Dictionary to Tuple
+
+```python
+dict_g = {1: 1, 2: 4, 3: 9}
+
+print(tuple(dict_g))
+```
+
+### Output
+
+```text
+(1, 2, 3)
+```
+
+Only the dictionary keys are converted.
+
+---
+
+# 51. Dictionary to Set
+
+```python
+dict_g = {1: 1, 2: 4, 3: 9}
+
+print(set(dict_g))
+```
+
+### Output
+
+```text
+{1, 2, 3}
+```
+
+Only the dictionary keys are converted.
+
+---
+
+# 52. Converting from `bool`
+
+## Given
+
+```python
+boolean = False
+```
+
+---
+
+# 53. Boolean to Integer
+
+```python
+print(int(False))
+print(int(True))
+```
+
+### Output
+
+```text
+0
+1
+```
+
+Remember:
+
+```text
+False → 0
+True  → 1
+```
+
+---
+
+# 54. Boolean to Float
+
+```python
+print(float(False))
+print(float(True))
+```
+
+### Output
+
+```text
+0.0
+1.0
+```
+
+---
+
+# 55. Boolean to String
+
+```python
+print(str(False))
+```
+
+### Output
+
+```text
+'False'
+```
+
+---
+
+# 56. Boolean to List / Tuple / Set / Dictionary
+
+These conversions are invalid:
+
+```python
+list(False)
+tuple(False)
+set(False)
+dict(False)
+```
+
+### Result
+
+```text
+Error
+```
+
+Reason:
+
+```text
+bool is not iterable
+```
+
+---
+
+# 57. Complete Boolean Conversion Table
+
+| Target Type | Code | Output | Notes |
+| --- | --- | --- | --- |
+| `int` | `int(False)` | `0` | Valid |
+| `int` | `int(True)` | `1` | Valid |
+| `float` | `float(False)` | `0.0` | Valid |
+| `float` | `float(True)` | `1.0` | Valid |
+| `str` | `str(False)` | `'False'` | Valid |
+| `list` | `list(False)` | Error | Not iterable |
+| `tuple` | `tuple(False)` | Error | Not iterable |
+| `set` | `set(False)` | Error | Not iterable |
+| `dict` | `dict(False)` | Error | Not iterable |
+
+---
+
+# 58. Dictionary Conversion
+
+To convert a list to a dictionary, it must be a list of key-value tuples.
+
+## Example
+
+```python
+d = [
+    ('name', 'teja'),
+    ('batch', '22'),
+    ('subject', 'python')
+]
+
+print(dict(d))
+```
+
+### Output
+
+```text
+{'name': 'teja', 'batch': '22', 'subject': 'python'}
+```
+
+---
+
+# 59. Understanding Dictionary Conversion
+
+The following list:
+
+```python
+d = [
+    ('name', 'teja'),
+    ('batch', '22'),
+    ('subject', 'python')
+]
+```
+
+contains three key-value pairs:
+
+```text
+name    → teja
+batch   → 22
+subject → python
+```
+
+Using:
+
+```python
+dict(d)
+```
+
+produces:
+
+```python
+{
+    'name': 'teja',
+    'batch': '22',
+    'subject': 'python'
+}
+```
+
+---
+
+# 60. Important Iterable Concept
+
+Functions such as:
+
+```python
+list()
+tuple()
+set()
+dict()
+```
+
+can consume iterable objects when the supplied data has the required structure.
+
+Examples of iterable types shown in these conversions:
+
+```text
+str
+list
+tuple
+set
+dict
+```
+
+An `int`, `float`, and `bool` are not iterable.
+
+Therefore:
+
+```python
+list(2)
+```
+
+gives an error.
+
+```python
+list(3.1)
+```
+
+gives an error.
+
+```python
+list(False)
+```
+
+gives an error.
+
+---
+
+# 61. Important String Conversion Rules
+
+## String to Integer
+
+```python
+int('10')
+```
+
+Valid.
+
+```python
+int('10.9')
+```
+
+Error.
+
+```python
+int('power')
+```
+
+Error.
+
+---
+
+## String to Float
+
+```python
+float('10.8')
+```
+
+Valid.
+
+```python
+float('power')
+```
+
+Error.
+
+---
+
+# 62. Important `int()` Rule
+
+When converting a float to an integer:
+
+```python
+int(3.1)
+```
+
+Output:
+
+```text
+3
+```
+
+The decimal part is truncated.
+
+It does not round the number.
+
+---
+
+# 63. Important Boolean Rules
+
+For the examples in these notes:
+
+```text
+Non-zero integer → True
+Zero integer → False
+
+Non-zero float → True
+Zero float → False
+
+Non-empty string → True
+Empty string → False
+
+Non-empty list → True
+Empty list → False
+
+Non-empty tuple → True
+Empty tuple → False
+
+Non-empty set → True
+Empty set → False
+
+Non-empty dictionary → True
+Empty dictionary → False
+```
+
+---
+
+# 64. Complete Type Conversion Map
+
+```text
+INT
+ |
+ ├── float  → Valid
+ ├── str    → Valid
+ ├── bool   → Valid
+ ├── list   → Error: not iterable
+ ├── set    → Error: not iterable
+ ├── tuple  → Error: not iterable
+ └── dict   → Error: not iterable
+
+
+FLOAT
+ |
+ ├── int    → Valid, truncates decimal
+ ├── str    → Valid
+ ├── bool   → Valid
+ ├── list   → Error: not iterable
+ ├── set    → Error: not iterable
+ ├── tuple  → Error: not iterable
+ └── dict   → Error: not iterable
+
+
+STR
+ |
+ ├── int    → Valid only for valid integer strings
+ ├── float  → Valid only for valid float strings
+ ├── bool   → Non-empty → True
+ ├── list   → List of characters
+ ├── tuple  → Tuple of characters
+ ├── set    → Set of characters
+ └── dict   → Error unless proper key-value structure
+
+
+LIST
+ |
+ ├── int    → Error
+ ├── float  → Error
+ ├── str    → Whole list becomes string
+ ├── bool   → Non-empty → True
+ ├── tuple  → Valid
+ ├── set    → Valid
+ └── dict   → Needs key-value pairs
+
+
+TUPLE
+ |
+ ├── int    → Error
+ ├── float  → Error
+ ├── str    → Whole tuple becomes string
+ ├── bool   → Non-empty → True
+ ├── list   → Valid
+ ├── set    → Valid
+ └── dict   → Needs key-value pairs
+
+
+SET
+ |
+ ├── int    → Error
+ ├── float  → Error
+ ├── str    → Whole set becomes string
+ ├── bool   → Non-empty → True
+ ├── list   → Valid, order may vary
+ ├── tuple  → Valid, order may vary
+ └── dict   → Needs key-value pairs
+
+
+DICT
+ |
+ ├── int    → Error
+ ├── float  → Error
+ ├── str    → Valid
+ ├── bool   → Non-empty → True
+ ├── list   → Keys only
+ ├── tuple  → Keys only
+ └── set    → Keys only
+
+
+BOOL
+ |
+ ├── int    → False = 0, True = 1
+ ├── float  → False = 0.0, True = 1.0
+ ├── str    → 'False' / 'True'
+ ├── list   → Error: not iterable
+ ├── tuple  → Error: not iterable
+ ├── set    → Error: not iterable
+ └── dict   → Error: not iterable
+```
+
+---
+
+# 65. Must-Practice Programs
+
+## Program 1 — Integer Conversions
+
+```python
+int_a = 2
+
+print(float(int_a))
+print(str(int_a))
+print(bool(int_a))
+```
+
+### Output
+
+```text
+2.0
+'2'
+True
+```
+
+---
+
+## Program 2 — Float Conversions
+
+```python
+float_n = 3.1
+
+print(int(float_n))
+print(str(float_n))
+print(bool(float_n))
+```
+
+### Output
+
+```text
+3
+'3.1'
+True
+```
+
+---
+
+## Program 3 — String Conversions
+
+```python
+print(int('10'))
+print(float('10.8'))
+print(bool('power'))
+print(list('power'))
+print(tuple('power'))
+print(set('power'))
+```
+
+---
+
+## Program 4 — List Conversions
+
+```python
+list_d = [1, 2, 3, 4]
+
+print(str(list_d))
+print(bool(list_d))
+print(tuple(list_d))
+print(set(list_d))
+```
+
+---
+
+## Program 5 — Tuple Conversions
+
+```python
+tuple_f = (1, 2, 3, 4)
+
+print(str(tuple_f))
+print(bool(tuple_f))
+print(list(tuple_f))
+print(set(tuple_f))
+```
+
+---
+
+## Program 6 — Set Conversions
+
+```python
+set_e = {3, 4, 5, 6}
+
+print(str(set_e))
+print(bool(set_e))
+print(list(set_e))
+print(tuple(set_e))
+```
+
+The order of list/tuple output may vary.
+
+---
+
+## Program 7 — Dictionary Conversions
+
+```python
+dict_g = {1: 1, 2: 4, 3: 9}
+
+print(str(dict_g))
+print(bool(dict_g))
+print(list(dict_g))
+print(tuple(dict_g))
+print(set(dict_g))
+```
+
+### Important
+
+The list, tuple, and set conversions contain dictionary keys.
+
+---
+
+## Program 8 — Boolean Conversions
+
+```python
+print(int(False))
+print(int(True))
+
+print(float(False))
+print(float(True))
+
+print(str(False))
+```
+
+### Output
+
+```text
+0
+1
+0.0
+1.0
+'False'
+```
+
+---
+
+## Program 9 — Dictionary from List of Tuples
+
+```python
+d = [
+    ('name', 'teja'),
+    ('batch', '22'),
+    ('subject', 'python')
+]
+
+print(dict(d))
+```
+
+### Output
+
+```text
+{'name': 'teja', 'batch': '22', 'subject': 'python'}
+```
+
+---
+
+# 66. Common Errors to Remember
+
+## Error 1 — Integer is Not Iterable
+
+```python
+list(2)
+```
+
+### Error
+
+```text
+TypeError
+```
+
+Reason:
+
+```text
+int is not iterable
+```
+
+---
+
+## Error 2 — Float is Not Iterable
+
+```python
+list(3.1)
+```
+
+### Error
+
+```text
+TypeError
+```
+
+Reason:
+
+```text
+float is not iterable
+```
+
+---
+
+## Error 3 — Boolean is Not Iterable
+
+```python
+list(False)
+```
+
+### Error
+
+```text
+TypeError
+```
+
+Reason:
+
+```text
+bool is not iterable
+```
+
+---
+
+## Error 4 — Invalid Integer String
+
+```python
+int('power')
+```
+
+### Error
+
+```text
+ValueError
+```
+
+Reason:
+
+```text
+'power' is not a valid integer literal
+```
+
+---
+
+## Error 5 — Decimal String to Integer
+
+```python
+int('10.9')
+```
+
+### Error
+
+Use:
+
+```python
+float('10.9')
+```
+
+first if a decimal value is intended.
+
+---
+
+## Error 6 — Invalid Float String
+
+```python
+float('power')
+```
+
+### Error
+
+```text
+ValueError
+```
+
+Reason:
+
+```text
+'power' is not a valid floating-point string
+```
+
+---
+
+## Error 7 — Incorrect Dictionary Conversion
+
+```python
+dict([1, 2])
+```
+
+### Error
+
+A dictionary requires key-value pair structure.
+
+Correct form:
+
+```python
+dict([
+    ('name', 'teja'),
+    ('batch', '22')
+])
+```
+
+---
+
+# 67. Quick Comparison Table
+
+| Source | Works Easily With | Important Error / Rule |
+| --- | --- | --- |
+| `int` | `float`, `str`, `bool` | Not iterable |
+| `float` | `int`, `str`, `bool` | Not iterable |
+| `str` | `int`, `float`, `bool`, `list`, `tuple`, `set` | Numeric conversion needs valid numeric text |
+| `list` | `str`, `bool`, `tuple`, `set` | `dict` needs key-value pairs |
+| `tuple` | `str`, `bool`, `list`, `set` | `dict` needs key-value pairs |
+| `set` | `str`, `bool`, `list`, `tuple` | Order may vary; `dict` needs pairs |
+| `dict` | `str`, `bool`, `list`, `tuple`, `set` | list/tuple/set contain keys |
+| `bool` | `int`, `float`, `str` | Not iterable |
+
+---
+
+# 68. Day 4.2 Final Revision
+
+```text
+What is Type Conversion?
+        ↓
+Converting a value from one data type to another
+
+Common functions?
+        ↓
+int()
+float()
+str()
+bool()
+list()
+tuple()
+set()
+dict()
+
+Can int be converted to float?
+        ↓
+Yes
+
+Can int be converted to str?
+        ↓
+Yes
+
+Can int be converted to bool?
+        ↓
+Yes
+
+Can int be directly converted to list?
+        ↓
+No, int is not iterable
+
+Can float be converted to int?
+        ↓
+Yes, decimal part is truncated
+
+Example:
+int(3.1)
+        ↓
+3
+
+Can a numeric string be converted to int?
+        ↓
+Yes
+
+Example:
+int('10')
+        ↓
+10
+
+Can '10.9' directly become int?
+        ↓
+No
+
+Can '10.8' become float?
+        ↓
+Yes
+
+Can a non-empty string become bool?
+        ↓
+Yes → True
+
+What does list('power') produce?
+        ↓
+['p', 'o', 'w', 'e', 'r']
+
+What does tuple('power') produce?
+        ↓
+('p', 'o', 'w', 'e', 'r')
+
+What does set('power') produce?
+        ↓
+A set of characters
+
+Can a list become a tuple?
+        ↓
+Yes
+
+Can a list become a set?
+        ↓
+Yes
+
+Can a tuple become a list?
+        ↓
+Yes
+
+Can a tuple become a set?
+        ↓
+Yes
+
+Can a dictionary become a list?
+        ↓
+Yes, keys only
+
+Can a dictionary become a tuple?
+        ↓
+Yes, keys only
+
+Can a dictionary become a set?
+        ↓
+Yes, keys only
+
+What does bool(False) produce?
+        ↓
+False
+
+What does int(False) produce?
+        ↓
+0
+
+What does int(True) produce?
+        ↓
+1
+
+Can bool be converted to list?
+        ↓
+No, bool is not iterable
+
+What is required to convert a list to a dictionary?
+        ↓
+A list of key-value pairs
+
+Example:
+[('name', 'teja'), ('batch', '22')]
+```
+
+---
+
+# 69. Important Points to Remember
+
+```text
+1. Type conversion means converting a value from one data type
+   to another.
+
+2. Common functions are int(), float(), str(), bool(),
+   list(), tuple(), set(), and dict().
+
+3. int(2) → float gives 2.0.
+
+4. int(2) → str gives '2'.
+
+5. A non-zero integer converts to True.
+
+6. int is not iterable, so list(int), set(int),
+   tuple(int), and dict(int) produce errors.
+
+7. float can be converted to int, but the decimal part
+   is truncated.
+
+8. A non-zero float converts to True.
+
+9. float is not iterable.
+
+10. Numeric strings can be converted to numeric types.
+
+11. int('10') is valid.
+
+12. int('10.9') is not valid directly.
+
+13. int('power') is invalid.
+
+14. float('10.8') is valid.
+
+15. float('power') is invalid.
+
+16. A non-empty string converts to True.
+
+17. list(string) creates a list of characters.
+
+18. tuple(string) creates a tuple of characters.
+
+19. set(string) creates a set of characters and removes
+    duplicate characters.
+
+20. dict(string) needs a proper key-value structure.
+
+21. A list can be converted to str, bool, tuple, and set.
+
+22. A list cannot directly become int or float.
+
+23. A list can become a dictionary only when its elements
+    are key-value pairs.
+
+24. A tuple can be converted to str, bool, list, and set.
+
+25. A tuple cannot directly become int or float.
+
+26. A tuple can become a dictionary only when it contains
+    key-value pairs.
+
+27. A set can be converted to str, bool, list, and tuple.
+
+28. When converting a set to a list or tuple, the order may vary.
+
+29. A set cannot directly become int or float.
+
+30. A dictionary converted to list, tuple, or set gives
+    its keys.
+
+31. A non-empty dictionary converts to True.
+
+32. bool(False) is False.
+
+33. int(False) is 0.
+
+34. int(True) is 1.
+
+35. float(False) is 0.0.
+
+36. float(True) is 1.0.
+
+37. bool values are not iterable.
+
+38. Dictionary conversion requires key-value pairs.
+
+39. A list of tuples can be converted into a dictionary.
+
+40. Always check whether the source value is iterable and
+    whether the target type requires a specific structure.
+```
+
+---
+
+# ⭐ Day 4.2 Status
+
+```text
+DAY 4.2 — PYTHON TYPE CONVERSION
+(TYPE CASTING)
+
+Status: COMPLETED ✅
+```
