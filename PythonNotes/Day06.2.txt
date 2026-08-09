@@ -1,0 +1,1188 @@
+# Day 6.2 — Output Formatting
+
+---
+
+# 1. Understanding the print() Function in Python
+
+Before learning output formatting, it is important to understand the basics of the `print()` function.
+
+The `print()` function is used to display information on the screen.
+
+---
+
+# 2. What is print()?
+
+The `print()` function in Python outputs:
+
+```text
+Text
+Numbers
+Variables
+Any other data type
+```
+
+to the console.
+
+It is one of the first functions every Python programmer learns.
+
+---
+
+# 3. Basic Syntax
+
+```python
+print(object, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+```
+
+## Parameters
+
+### object
+
+The data you want to display.
+
+It can be:
+
+```text
+Text
+Numbers
+Variables
+Other data
+```
+
+---
+
+### sep
+
+`sep` defines the separator between multiple items.
+
+Default:
+
+```text
+' '
+```
+
+That means Python normally places a space between multiple items.
+
+Example:
+
+```python
+print("Hello", "World")
+```
+
+Output:
+
+```text
+Hello World
+```
+
+---
+
+### end
+
+`end` specifies what Python prints at the end of the output.
+
+Default:
+
+```text
+'\n'
+```
+
+`'\n'` means a new line.
+
+---
+
+### file
+
+`file` specifies where the output is sent.
+
+By default, the output goes to the console.
+
+---
+
+### flush
+
+`flush` forces the output to be written immediately.
+
+---
+
+# 4. Basic Examples of print()
+
+## A. Printing Text
+
+```python
+print("Hello, World!")
+```
+
+### Output
+
+```text
+Hello, World!
+```
+
+---
+
+# 5. Printing Multiple Items
+
+```python
+name = "Alice"
+age = 25
+
+print("Name:", name, "Age:", age)
+```
+
+### Output
+
+```text
+Name: Alice Age: 25
+```
+
+Python automatically adds spaces between the items.
+
+---
+
+# 6. Using sep to Change the Separator
+
+The `sep` parameter can be used to change the separator between multiple items.
+
+```python
+print("2024", "02", "07", sep="-")
+```
+
+### Output
+
+```text
+2024-02-07
+```
+
+Instead of spaces, hyphens are used as separators.
+
+---
+
+# 7. Using end to Control Line Endings
+
+The `end` parameter controls what is printed at the end of the output.
+
+Example:
+
+```python
+print("Hello,", end=" ")
+print("World!")
+```
+
+### Output
+
+```text
+Hello, World!
+```
+
+Here:
+
+```python
+end=" "
+```
+
+prevents the default new line.
+
+The second `print()` continues on the same line.
+
+---
+
+# 8. Printing Special Characters
+
+Python output can contain special characters such as:
+
+```text
+\n
+\t
+```
+
+---
+
+# 9. New Line (\n)
+
+`\n` is used to create a new line.
+
+Example:
+
+```python
+print("Line 1\nLine 2")
+```
+
+### Output
+
+```text
+Line 1
+Line 2
+```
+
+---
+
+# 10. Tab (\t)
+
+`\t` is used to insert a tab space.
+
+Example:
+
+```python
+print("Name:\tAlice")
+```
+
+### Output
+
+```text
+Name:    Alice
+```
+
+---
+
+# 11. Output Formatting
+
+There are several ways to format output in Python.
+
+The methods covered in this note are:
+
+```text
+1. Using Commas
+2. Using Modulo Operator (%) Formatting
+3. Using f-strings
+4. Using str.format()
+```
+
+---
+
+# 12. Method 1 — Using Commas
+
+Using commas is the most basic way to print multiple items.
+
+When multiple items are separated by commas inside `print()`, Python automatically adds a space between them.
+
+Example:
+
+```python
+name = "Alice"
+age = 25
+score = 95.5
+
+print("Name:", name, "Age:", age, "Score:", score)
+```
+
+### Output
+
+```text
+Name: Alice Age: 25 Score: 95.5
+```
+
+---
+
+## Pros
+
+```text
+Simple
+Easy for beginners
+```
+
+## Cons
+
+```text
+Limited control over formatting
+Limited control over decimal places
+Limited control over alignment
+```
+
+---
+
+# 13. Method 2 — Using Modulo Operator (%) Formatting
+
+Modulo formatting is an older method of formatting output.
+
+It is similar to C-style formatting.
+
+You use `%` with format specifiers such as:
+
+```text
+%s → String
+%d → Integer
+%f → Float
+```
+
+Example:
+
+```python
+name = "Bob"
+age = 30
+score = 88.75
+
+print("Name: %s | Age: %d | Score: %.2f" % (name, age, score))
+```
+
+### Format Specifiers
+
+```text
+%s
+```
+
+String
+
+```text
+%d
+```
+
+Integer
+
+```text
+%.2f
+```
+
+Float with 2 decimal places
+
+### Output
+
+```text
+Name: Bob | Age: 30 | Score: 88.75
+```
+
+---
+
+## Pros
+
+```text
+Good control over formatting
+```
+
+## Cons
+
+```text
+Outdated
+Not recommended for new projects
+```
+
+---
+
+# 14. Method 3 — Using f-strings
+
+f-strings are formatted string literals.
+
+They were introduced in:
+
+```text
+Python 3.6+
+```
+
+This is the most modern and recommended method covered in the source.
+
+Add an `f` before the string and use curly braces `{}` to insert variables directly.
+
+Example:
+
+```python
+name = "Charlie"
+age = 28
+score = 92.389
+
+print(f"Name: {name} | Age: {age} | Score: {score:.2f}")
+```
+
+### Explanation
+
+```text
+{name}
+```
+
+inserts the value of `name`.
+
+```text
+{age}
+```
+
+inserts the value of `age`.
+
+```text
+{score:.2f}
+```
+
+displays the score with 2 decimal places.
+
+### Output
+
+```text
+Name: Charlie | Age: 28 | Score: 92.39
+```
+
+---
+
+## Pros
+
+```text
+Clean
+Concise
+Easy to read
+```
+
+## Cons
+
+```text
+Only works in Python 3.6 and above
+```
+
+---
+
+# 15. Method 4 — Using str.format()
+
+The `str.format()` method uses `{}` as placeholders and `.format()` to insert variables.
+
+The source notes that this method works in Python 2 and Python 3.
+
+Example:
+
+```python
+name = "Diana"
+age = 22
+score = 89.456
+
+print("Name: {} | Age: {} | Score: {:.1f}".format(name, age, score))
+```
+
+### Explanation
+
+```text
+{}
+```
+
+is a placeholder for variables.
+
+```text
+{:.1f}
+```
+
+formats the score with 1 decimal place.
+
+### Output
+
+```text
+Name: Diana | Age: 22 | Score: 89.5
+```
+
+---
+
+## Pros
+
+```text
+Flexible
+Supports complex formatting
+```
+
+## Cons
+
+```text
+Slightly more verbose compared to f-strings
+```
+
+---
+
+# 16. Output Formatting Comparison
+
+## Using Commas
+
+```python
+name = "Alice"
+age = 25
+score = 95.5
+
+print("Name:", name, "Age:", age, "Score:", score)
+```
+
+Output:
+
+```text
+Name: Alice Age: 25 Score: 95.5
+```
+
+---
+
+## Using Modulo Operator
+
+```python
+name = "Bob"
+age = 30
+score = 88.75
+
+print("Name: %s | Age: %d | Score: %.2f" % (name, age, score))
+```
+
+Output:
+
+```text
+Name: Bob | Age: 30 | Score: 88.75
+```
+
+---
+
+## Using f-strings
+
+```python
+name = "Charlie"
+age = 28
+score = 92.389
+
+print(f"Name: {name} | Age: {age} | Score: {score:.2f}")
+```
+
+Output:
+
+```text
+Name: Charlie | Age: 28 | Score: 92.39
+```
+
+---
+
+## Using str.format()
+
+```python
+name = "Diana"
+age = 22
+score = 89.456
+
+print("Name: {} | Age: {} | Score: {:.1f}".format(name, age, score))
+```
+
+Output:
+
+```text
+Name: Diana | Age: 22 | Score: 89.5
+```
+
+---
+
+# 17. Format Specifiers — Quick Revision
+
+## Modulo Formatting
+
+```text
+%s → String
+%d → Integer
+%f → Float
+```
+
+Example:
+
+```python
+score = 88.75
+
+print("%.2f" % score)
+```
+
+Output:
+
+```text
+88.75
+```
+
+---
+
+# 18. f-string Decimal Formatting
+
+Example:
+
+```python
+score = 92.389
+
+print(f"{score:.2f}")
+```
+
+Output:
+
+```text
+92.39
+```
+
+The part:
+
+```text
+:.2f
+```
+
+formats the value with 2 decimal places.
+
+---
+
+# 19. str.format() Decimal Formatting
+
+Example:
+
+```python
+score = 89.456
+
+print("{:.1f}".format(score))
+```
+
+Output:
+
+```text
+89.5
+```
+
+The part:
+
+```text
+:.1f
+```
+
+formats the score with 1 decimal place.
+
+---
+
+# 20. Summary Table
+
+| Method | Python Version | Pros | Cons |
+| --- | --- | --- | --- |
+| Commas | All | Simple, beginner-friendly | Limited formatting options |
+| Modulo Operator `%` | All | Good for basic formatting | Outdated, less readable |
+| f-strings | 3.6+ | Clean, fast, readable | Not available in Python < 3.6 |
+| str.format() | 2.7+, 3+ | Flexible, works in Python 2 & 3 | Slightly verbose |
+
+---
+
+# 21. Quick Revision — print()
+
+```text
+print()
+   ↓
+Displays information on the console
+```
+
+Basic:
+
+```python
+print("Hello")
+```
+
+Multiple values:
+
+```python
+print("Name:", name, "Age:", age)
+```
+
+Separator:
+
+```python
+print("2024", "02", "07", sep="-")
+```
+
+Custom line ending:
+
+```python
+print("Hello", end=" ")
+```
+
+New line:
+
+```text
+\n
+```
+
+Tab:
+
+```text
+\t
+```
+
+---
+
+# 22. Quick Revision — Output Formatting
+
+```text
+Commas
+   ↓
+Simple and beginner-friendly
+
+Modulo %
+   ↓
+Older formatting method
+
+f-strings
+   ↓
+Modern and recommended
+
+str.format()
+   ↓
+Flexible formatting method
+```
+
+---
+
+# 23. Important Differences
+
+## Commas vs f-strings
+
+### Commas
+
+```python
+print("Name:", name, "Age:", age)
+```
+
+Python automatically adds spaces between the items.
+
+### f-string
+
+```python
+print(f"Name: {name} | Age: {age}")
+```
+
+The values are inserted directly inside the formatted string.
+
+---
+
+# 24. Modulo Formatting vs f-strings
+
+### Modulo
+
+```python
+print("Score: %.2f" % score)
+```
+
+### f-string
+
+```python
+print(f"Score: {score:.2f}")
+```
+
+The source describes modulo formatting as an older method and f-strings as the modern recommended method.
+
+---
+
+# 25. f-strings vs str.format()
+
+### f-string
+
+```python
+print(f"Name: {name} | Age: {age} | Score: {score:.2f}")
+```
+
+### str.format()
+
+```python
+print("Name: {} | Age: {} | Score: {:.2f}".format(name, age, score))
+```
+
+The source describes f-strings as clean, concise, and easy to read, while `str.format()` is flexible but slightly more verbose.
+
+---
+
+# 26. Practice Program 1 — Basic Output
+
+```python
+name = "Alice"
+
+print("Hello", name)
+```
+
+Output:
+
+```text
+Hello Alice
+```
+
+---
+
+# 27. Practice Program 2 — Multiple Values
+
+```python
+name = "Alice"
+age = 25
+score = 95.5
+
+print("Name:", name, "Age:", age, "Score:", score)
+```
+
+Output:
+
+```text
+Name: Alice Age: 25 Score: 95.5
+```
+
+---
+
+# 28. Practice Program 3 — Custom Separator
+
+```python
+year = "2024"
+month = "02"
+day = "07"
+
+print(year, month, day, sep="-")
+```
+
+Output:
+
+```text
+2024-02-07
+```
+
+---
+
+# 29. Practice Program 4 — Same Line Output
+
+```python
+print("Hello,", end=" ")
+print("World!")
+```
+
+Output:
+
+```text
+Hello, World!
+```
+
+---
+
+# 30. Practice Program 5 — New Line
+
+```python
+print("Line 1\nLine 2")
+```
+
+Output:
+
+```text
+Line 1
+Line 2
+```
+
+---
+
+# 31. Practice Program 6 — Tab
+
+```python
+print("Name:\tAlice")
+```
+
+Output:
+
+```text
+Name:    Alice
+```
+
+---
+
+# 32. Practice Program 7 — Modulo Formatting
+
+```python
+name = "Bob"
+age = 30
+score = 88.75
+
+print("Name: %s | Age: %d | Score: %.2f" % (name, age, score))
+```
+
+Output:
+
+```text
+Name: Bob | Age: 30 | Score: 88.75
+```
+
+---
+
+# 33. Practice Program 8 — f-string
+
+```python
+name = "Charlie"
+age = 28
+score = 92.389
+
+print(f"Name: {name} | Age: {age} | Score: {score:.2f}")
+```
+
+Output:
+
+```text
+Name: Charlie | Age: 28 | Score: 92.39
+```
+
+---
+
+# 34. Practice Program 9 — str.format()
+
+```python
+name = "Diana"
+age = 22
+score = 89.456
+
+print("Name: {} | Age: {} | Score: {:.1f}".format(name, age, score))
+```
+
+Output:
+
+```text
+Name: Diana | Age: 22 | Score: 89.5
+```
+
+---
+
+# 35. Interview Questions
+
+## 1. What is print() in Python?
+
+`print()` is a Python function used to display text, numbers, variables, and other data on the console.
+
+---
+
+## 2. What is the default value of sep?
+
+The default separator is:
+
+```text
+' '
+```
+
+which is a space.
+
+---
+
+## 3. What is the default value of end?
+
+The default value is:
+
+```text
+'\n'
+```
+
+which creates a new line.
+
+---
+
+## 4. How do you change the separator in print()?
+
+Use the `sep` parameter.
+
+Example:
+
+```python
+print("2024", "02", "07", sep="-")
+```
+
+Output:
+
+```text
+2024-02-07
+```
+
+---
+
+## 5. How do you print two values on the same line?
+
+Use the `end` parameter.
+
+Example:
+
+```python
+print("Hello,", end=" ")
+print("World!")
+```
+
+Output:
+
+```text
+Hello, World!
+```
+
+---
+
+## 6. What is an f-string?
+
+An f-string is a formatted string literal.
+
+Example:
+
+```python
+name = "Charlie"
+
+print(f"Hello {name}")
+```
+
+The source describes f-strings as the modern and recommended formatting method.
+
+---
+
+## 7. From which Python version are f-strings available?
+
+According to the source:
+
+```text
+Python 3.6+
+```
+
+---
+
+## 8. What is modulo formatting?
+
+Modulo formatting uses `%` and format specifiers such as:
+
+```text
+%s
+%d
+%f
+```
+
+Example:
+
+```python
+print("Score: %.2f" % score)
+```
+
+---
+
+## 9. What does %s mean?
+
+```text
+%s → String
+```
+
+---
+
+## 10. What does %d mean?
+
+```text
+%d → Integer
+```
+
+---
+
+## 11. What does %.2f mean?
+
+```text
+%.2f
+```
+
+formats a floating-point value with 2 decimal places.
+
+---
+
+## 12. What is str.format()?
+
+`str.format()` uses `{}` placeholders and `.format()` to insert variables into a string.
+
+Example:
+
+```python
+print("Name: {} | Age: {}".format(name, age))
+```
+
+---
+
+# 36. Most Important Coding Patterns
+
+```python
+# Basic print
+print("Hello, World!")
+
+# Multiple values
+print("Name:", name, "Age:", age)
+
+# Custom separator
+print("2024", "02", "07", sep="-")
+
+# Custom ending
+print("Hello,", end=" ")
+print("World!")
+
+# New line
+print("Line 1\nLine 2")
+
+# Tab
+print("Name:\tAlice")
+
+# Modulo formatting
+print("Name: %s | Age: %d | Score: %.2f" % (name, age, score))
+
+# f-string
+print(f"Name: {name} | Age: {age} | Score: {score:.2f}")
+
+# str.format()
+print("Name: {} | Age: {} | Score: {:.1f}".format(name, age, score))
+```
+
+---
+
+# 37. Final Important Points
+
+```text
+1. print() is used to display information on the console.
+
+2. print() can display text, numbers, variables, and other data.
+
+3. sep controls the separator between multiple items.
+
+4. The default sep is a space.
+
+5. end controls what is printed at the end of the output.
+
+6. The default end is '\n'.
+
+7. file specifies where the output is sent.
+
+8. By default, output is sent to the console.
+
+9. flush forces the output to be written immediately.
+
+10. \n creates a new line.
+
+11. \t inserts a tab.
+
+12. Commas are a simple way to print multiple values.
+
+13. Comma-based formatting is beginner-friendly.
+
+14. Comma-based formatting has limited formatting control.
+
+15. Modulo formatting uses the % operator.
+
+16. %s represents a string.
+
+17. %d represents an integer.
+
+18. %f represents a float.
+
+19. %.2f formats a float with 2 decimal places.
+
+20. Modulo formatting is an older formatting method.
+
+21. The source does not recommend modulo formatting for new projects.
+
+22. f-strings are formatted string literals.
+
+23. f-strings are available from Python 3.6+.
+
+24. f-strings use an f before the string.
+
+25. f-strings use curly braces {} to insert values.
+
+26. {score:.2f} formats score with 2 decimal places.
+
+27. The source describes f-strings as clean, concise, and easy to read.
+
+28. str.format() uses {} as placeholders.
+
+29. Variables are inserted using .format().
+
+30. {:.1f} formats a float with 1 decimal place.
+
+31. str.format() is flexible.
+
+32. str.format() is slightly more verbose than f-strings.
+
+33. According to the source, str.format() works in Python 2.7+ and Python 3+.
+
+34. For modern Python code, the source recommends f-strings.
+
+35. Understanding print(), sep, end, special characters, and
+    formatting methods is important for producing readable output.
+```
+
+---
+
+# ⭐ Day 6.2 Status
+
+```text
+DAY 6.2 — OUTPUT FORMATTING
+
+Status: COMPLETED ✅
+```
