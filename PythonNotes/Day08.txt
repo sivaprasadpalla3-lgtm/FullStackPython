@@ -1,0 +1,2369 @@
+# Day 8 — Lists & Tuples in Python
+
+---
+
+# 1. Introduction to Lists
+
+A list is an ordered, mutable collection used to store multiple values in a single variable.
+
+Lists are created using:
+
+```text
+[] or list()
+```
+
+Examples:
+
+```python
+numbers = [10, 20, 30]
+names = ["Ravi", "Teja", "Ankit"]
+mixed = [10, "Python", 5.5, True]
+
+print(numbers)
+print(names)
+print(mixed)
+```
+
+---
+
+# 2. List Properties
+
+A Python list has the following properties:
+
+```text
+1. Ordered
+   Elements maintain insertion order.
+
+2. Mutable
+   Elements can be modified.
+
+3. Indexed
+   Elements can be accessed using index positions.
+
+4. Iterable
+   Lists can be iterated using loops.
+
+5. Allows Duplicates
+   Duplicate values are allowed.
+
+6. Dynamic Size
+   The size can grow or shrink.
+
+7. Heterogeneous
+   A list can store different datatypes.
+```
+
+Example:
+
+```python
+data = [10, "Python", 5.5, True, 10]
+
+print(data)
+```
+
+The list can contain integers, strings, floats, booleans, and duplicate values.
+
+---
+
+# 3. Creating Lists
+
+Using square brackets:
+
+```python
+numbers = [10, 20, 30]
+```
+
+Using the `list()` constructor:
+
+```python
+numbers = list([10, 20, 30])
+```
+
+Empty list:
+
+```python
+data = []
+```
+
+---
+
+# 4. List Operations
+
+The main list operations covered in the source are:
+
+```text
+1. Concatenation (+)
+2. Repetition (*)
+3. Indexing
+4. Slicing
+5. Membership Operators
+```
+
+---
+
+# 5. List Concatenation (+)
+
+Concatenation joins two lists.
+
+Example:
+
+```python
+a = [1, 2]
+b = [3, 4]
+
+print(a + b)
+```
+
+Output:
+
+```text
+[1, 2, 3, 4]
+```
+
+Important:
+
+```text
+[1, 2] + [3, 4]
+        ↓
+[1, 2, 3, 4]
+```
+
+---
+
+# 6. List Repetition (*)
+
+The `*` operator repeats list elements.
+
+Example:
+
+```python
+print([1, 2] * 3)
+```
+
+Output:
+
+```text
+[1, 2, 1, 2, 1, 2]
+```
+
+---
+
+# 7. List Indexing
+
+Indexing accesses elements using their index positions.
+
+Example:
+
+```python
+data = [10, 20, 30, 40]
+
+print(data[0])
+print(data[-1])
+```
+
+Output:
+
+```text
+10
+40
+```
+
+Python uses zero-based indexing.
+
+```text
+10  20  30  40
+0   1   2   3
+-4  -3  -2  -1
+```
+
+---
+
+# 8. List Slicing
+
+Slicing extracts part of a list.
+
+Syntax:
+
+```python
+list[start:end:step]
+```
+
+Example:
+
+```python
+data = [10, 20, 30, 40, 50]
+
+print(data[1:4])
+```
+
+Output:
+
+```text
+[20, 30, 40]
+```
+
+The start index is included and the end index is excluded.
+
+---
+
+# 9. Reverse a List Using Slicing
+
+The source demonstrates:
+
+```python
+data = [10, 20, 30, 40, 50]
+
+print(data[::-1])
+```
+
+Output:
+
+```text
+[50, 40, 30, 20, 10]
+```
+
+Important pattern:
+
+```text
+[::-1]
+```
+
+means traverse the list from the end to the beginning.
+
+---
+
+# 10. Membership Operators
+
+Membership operators check whether an element exists in a list.
+
+Operators:
+
+```text
+in
+not in
+```
+
+Example:
+
+```python
+data = [10, 20, 30]
+
+print(20 in data)
+print(100 not in data)
+```
+
+Output:
+
+```text
+True
+True
+```
+
+---
+
+# 11. Built-in List Functions
+
+The source covers:
+
+```text
+len()
+max()
+min()
+sum()
+sorted()
+list()
+```
+
+---
+
+# 12. len()
+
+`len()` returns the number of elements in a list.
+
+```python
+print(len([1, 2, 3]))
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# 13. max()
+
+`max()` returns the largest element.
+
+```python
+print(max([10, 20, 5]))
+```
+
+Output:
+
+```text
+20
+```
+
+---
+
+# 14. min()
+
+`min()` returns the smallest element.
+
+```python
+print(min([10, 20, 5]))
+```
+
+Output:
+
+```text
+5
+```
+
+---
+
+# 15. sum()
+
+`sum()` returns the sum of numeric elements.
+
+```python
+print(sum([1, 2, 3]))
+```
+
+Output:
+
+```text
+6
+```
+
+---
+
+# 16. sorted()
+
+`sorted()` returns a sorted list.
+
+```python
+print(sorted([3, 1, 2]))
+```
+
+Output:
+
+```text
+[1, 2, 3]
+```
+
+Important:
+
+```text
+sorted(list)
+```
+
+returns a new sorted list.
+
+---
+
+# 17. list()
+
+`list()` converts an iterable into a list.
+
+Example:
+
+```python
+print(list("abc"))
+```
+
+Output:
+
+```text
+['a', 'b', 'c']
+```
+
+---
+
+# 18. List Methods
+
+List methods are predefined functions used to perform operations on lists.
+
+The source organizes list methods into:
+
+```text
+1. Adding Element Methods
+2. Removing Element Methods
+3. Search Methods
+4. Sorting & Reversing Methods
+5. Copying Methods
+```
+
+---
+
+# 19. Adding Element Methods
+
+Methods:
+
+```text
+append()
+extend()
+insert()
+```
+
+---
+
+# 20. append()
+
+`append()` adds a single element at the end of the list.
+
+Example:
+
+```python
+lst = [1, 2, 3]
+
+lst.append(10)
+
+print(lst)
+```
+
+Output:
+
+```text
+[1, 2, 3, 10]
+```
+
+Important:
+
+```text
+append() → adds one element
+```
+
+---
+
+# 21. extend()
+
+`extend()` adds multiple elements to the list.
+
+Example:
+
+```python
+lst = [1, 2]
+
+lst.extend([3, 4])
+
+print(lst)
+```
+
+Output:
+
+```text
+[1, 2, 3, 4]
+```
+
+Important:
+
+```text
+extend() → adds elements from an iterable
+```
+
+---
+
+# 22. append() vs extend()
+
+This is an important interview concept.
+
+Using `append()`:
+
+```python
+lst = [1, 2]
+
+lst.append([3, 4])
+
+print(lst)
+```
+
+Output:
+
+```text
+[1, 2, [3, 4]]
+```
+
+Using `extend()`:
+
+```python
+lst = [1, 2]
+
+lst.extend([3, 4])
+
+print(lst)
+```
+
+Output:
+
+```text
+[1, 2, 3, 4]
+```
+
+Remember:
+
+```text
+append([3, 4])
+        ↓
+adds the list as ONE element
+
+extend([3, 4])
+        ↓
+adds 3 and 4 as separate elements
+```
+
+---
+
+# 23. insert()
+
+`insert()` inserts an element at a specified position.
+
+Example:
+
+```python
+lst = [1, 2, 3]
+
+lst.insert(1, 100)
+
+print(lst)
+```
+
+Output:
+
+```text
+[1, 100, 2, 3]
+```
+
+Syntax:
+
+```python
+list.insert(index, element)
+```
+
+---
+
+# 24. Removing Element Methods
+
+Methods:
+
+```text
+remove()
+pop()
+clear()
+del
+```
+
+---
+
+# 25. remove()
+
+`remove()` removes the first occurrence of a specified value.
+
+Example:
+
+```python
+lst = [10, 20, 10, 30]
+
+lst.remove(10)
+
+print(lst)
+```
+
+Output:
+
+```text
+[20, 10, 30]
+```
+
+Important:
+
+```text
+remove() → removes by VALUE
+```
+
+---
+
+# 26. pop()
+
+`pop()` removes an element using its index.
+
+Example:
+
+```python
+lst = [10, 20, 30]
+
+lst.pop()
+
+print(lst)
+```
+
+Output:
+
+```text
+[10, 20]
+```
+
+By default, `pop()` removes the last element.
+
+Example with an index:
+
+```python
+lst = [10, 20, 30]
+
+lst.pop(1)
+
+print(lst)
+```
+
+Output:
+
+```text
+[10, 30]
+```
+
+Important:
+
+```text
+pop() → removes by INDEX
+```
+
+---
+
+# 27. clear()
+
+`clear()` removes all elements from the list.
+
+```python
+lst = [10, 20, 30]
+
+lst.clear()
+
+print(lst)
+```
+
+Output:
+
+```text
+[]
+```
+
+---
+
+# 28. del
+
+`del` can delete an element or the entire list.
+
+Delete an element:
+
+```python
+lst = [10, 20, 30]
+
+del lst[0]
+
+print(lst)
+```
+
+Output:
+
+```text
+[20, 30]
+```
+
+Delete the entire list:
+
+```python
+lst = [10, 20, 30]
+
+del lst
+```
+
+Important:
+
+```text
+del → Python statement/keyword, not a list method
+```
+
+---
+
+# 29. Search Methods
+
+Methods:
+
+```text
+index()
+count()
+```
+
+---
+
+# 30. index()
+
+`index()` returns the index of an element.
+
+Example:
+
+```python
+lst = [10, 20, 30]
+
+print(lst.index(20))
+```
+
+Output:
+
+```text
+1
+```
+
+---
+
+# 31. count()
+
+`count()` counts how many times an element occurs.
+
+Example:
+
+```python
+lst = [10, 20, 10, 30, 10]
+
+print(lst.count(10))
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# 32. Sorting & Reversing Methods
+
+The source covers:
+
+```text
+sort()
+reverse()
+sorted()
+```
+
+---
+
+# 33. sort()
+
+`sort()` sorts the original list.
+
+Example:
+
+```python
+lst = [3, 1, 2]
+
+lst.sort()
+
+print(lst)
+```
+
+Output:
+
+```text
+[1, 2, 3]
+```
+
+Important:
+
+```text
+sort() → modifies the original list
+```
+
+---
+
+# 34. reverse()
+
+`reverse()` reverses the original list.
+
+```python
+lst = [1, 2, 3]
+
+lst.reverse()
+
+print(lst)
+```
+
+Output:
+
+```text
+[3, 2, 1]
+```
+
+---
+
+# 35. sort() vs sorted()
+
+`sort()`:
+
+```python
+lst = [3, 1, 2]
+
+lst.sort()
+
+print(lst)
+```
+
+The original list is modified.
+
+`sorted()`:
+
+```python
+lst = [3, 1, 2]
+
+new_lst = sorted(lst)
+
+print(lst)
+print(new_lst)
+```
+
+The source list remains unchanged and a sorted list is returned.
+
+Remember:
+
+```text
+sort()   → sorts original list
+sorted() → returns a sorted list
+```
+
+---
+
+# 36. Copying Methods
+
+The source covers:
+
+```text
+copy()
+```
+
+---
+
+# 37. copy()
+
+`copy()` creates a shallow copy of a list.
+
+Example:
+
+```python
+lst = [10, 20, 30]
+
+new_lst = lst.copy()
+
+print(new_lst)
+```
+
+Output:
+
+```text
+[10, 20, 30]
+```
+
+---
+
+# 38. Nested Lists
+
+A list inside another list is called a nested list.
+
+Example:
+
+```python
+data = [[1, 2], [3, 4]]
+
+print(data[0])
+print(data[1][1])
+```
+
+Output:
+
+```text
+[1, 2]
+4
+```
+
+Understanding:
+
+```text
+data
+│
+├── [1, 2]
+└── [3, 4]
+```
+
+Access:
+
+```text
+data[0]    → [1, 2]
+data[1][1] → 4
+```
+
+---
+
+# 39. Complete List Methods Quick Reference
+
+## Adding
+
+```text
+append()
+extend()
+insert()
+```
+
+## Removing
+
+```text
+remove()
+pop()
+clear()
+del
+```
+
+## Searching
+
+```text
+index()
+count()
+```
+
+## Sorting & Reversing
+
+```text
+sort()
+reverse()
+sorted()
+```
+
+## Copying
+
+```text
+copy()
+```
+
+---
+
+# 40. Introduction to Tuples
+
+A tuple is an ordered, immutable collection used to store multiple values in a single variable.
+
+Tuples are created using:
+
+```text
+( ) or tuple()
+```
+
+Examples:
+
+```python
+numbers = (10, 20, 30)
+names = ("Ravi", "Teja", "Ankit")
+mixed = (10, "Python", 5.5, True)
+```
+
+---
+
+# 41. Tuple Properties
+
+According to the source, tuples are:
+
+```text
+1. Ordered
+   Elements maintain insertion order.
+
+2. Immutable
+   Elements cannot be added, removed, or modified directly.
+
+3. Iterable
+   Can iterate through elements using loops.
+
+4. Allows Duplicates
+   Duplicate values are allowed.
+
+5. Heterogeneous
+   Can store different datatypes.
+
+6. Supports Nested Objects
+   Can contain tuples, lists, sets, dictionaries, etc.
+
+7. Mutable Objects Can Change
+   If a tuple contains mutable objects such as lists, those objects can be modified.
+
+8. Faster Than Lists
+   The source states that tuples generally consume less memory and provide faster access than lists.
+```
+
+---
+
+# 42. Creating Tuples
+
+## Normal Tuple
+
+```python
+numbers = (10, 20, 30)
+```
+
+## Empty Tuple
+
+```python
+t = ()
+```
+
+## Single Element Tuple
+
+A single-element tuple must contain a comma.
+
+```python
+t = (10,)
+```
+
+Important:
+
+```python
+t = (10)
+```
+
+is treated as an integer, not a tuple.
+
+Correct:
+
+```python
+t = (10,)
+```
+
+---
+
+# 43. tuple() Constructor
+
+The `tuple()` constructor can convert an iterable into a tuple.
+
+Example:
+
+```python
+print(tuple("abc"))
+```
+
+Output:
+
+```text
+('a', 'b', 'c')
+```
+
+---
+
+# 44. Tuple Operations
+
+The source covers:
+
+```text
+1. Concatenation (+)
+2. Repetition (*)
+3. Indexing
+4. Slicing
+5. Membership Operators
+```
+
+---
+
+# 45. Tuple Concatenation (+)
+
+Concatenation joins tuples.
+
+```python
+a = (1, 2)
+b = (3, 4)
+
+print(a + b)
+```
+
+Output:
+
+```text
+(1, 2, 3, 4)
+```
+
+---
+
+# 46. Tuple Repetition (*)
+
+The `*` operator repeats tuple elements.
+
+```python
+print((1, 2) * 3)
+```
+
+Output:
+
+```text
+(1, 2, 1, 2, 1, 2)
+```
+
+---
+
+# 47. Tuple Indexing
+
+Indexing accesses tuple elements.
+
+```python
+data = (10, 20, 30, 40)
+
+print(data[0])
+print(data[-1])
+```
+
+Output:
+
+```text
+10
+40
+```
+
+---
+
+# 48. Tuple Slicing
+
+Slicing extracts part of a tuple.
+
+Syntax:
+
+```python
+tuple[start:end:step]
+```
+
+Example:
+
+```python
+data = (10, 20, 30, 40, 50)
+
+print(data[1:4])
+print(data[::-1])
+```
+
+Output:
+
+```text
+(20, 30, 40)
+(50, 40, 30, 20, 10)
+```
+
+---
+
+# 49. Tuple Membership Operators
+
+Membership checks whether an element exists.
+
+```python
+data = (10, 20, 30)
+
+print(20 in data)
+print(100 not in data)
+```
+
+Output:
+
+```text
+True
+True
+```
+
+---
+
+# 50. Built-in Tuple Functions
+
+The source covers:
+
+```text
+len()
+max()
+min()
+sum()
+sorted()
+tuple()
+any()
+all()
+```
+
+---
+
+# 51. len() with Tuple
+
+Returns tuple length.
+
+```python
+print(len((1, 2, 3)))
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# 52. max() with Tuple
+
+Returns the largest element.
+
+```python
+print(max((10, 20, 5)))
+```
+
+Output:
+
+```text
+20
+```
+
+---
+
+# 53. min() with Tuple
+
+Returns the smallest element.
+
+```python
+print(min((10, 20, 5)))
+```
+
+Output:
+
+```text
+5
+```
+
+---
+
+# 54. sum() with Tuple
+
+Returns the sum of numeric elements.
+
+```python
+print(sum((1, 2, 3)))
+```
+
+Output:
+
+```text
+6
+```
+
+---
+
+# 55. sorted() with Tuple
+
+`sorted()` returns a sorted list.
+
+```python
+print(sorted((3, 1, 2)))
+```
+
+Output:
+
+```text
+[1, 2, 3]
+```
+
+Important:
+
+```text
+A tuple is passed in.
+The result is a LIST.
+```
+
+---
+
+# 56. tuple() with Tuple
+
+`tuple()` converts an iterable to a tuple.
+
+```python
+print(tuple("abc"))
+```
+
+Output:
+
+```text
+('a', 'b', 'c')
+```
+
+---
+
+# 57. any()
+
+`any()` returns `True` if at least one value is `True`.
+
+```python
+print(any((0, 0, 1)))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 58. all()
+
+`all()` returns `True` if all values are `True`.
+
+```python
+print(all((1, 2, 3)))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 59. Tuple Methods
+
+Since tuples are immutable, the source states that they provide only two built-in methods:
+
+```text
+count()
+index()
+```
+
+---
+
+# 60. count() with Tuple
+
+Counts occurrences of an element.
+
+```python
+data = (1, 2, 2, 3)
+
+print(data.count(2))
+```
+
+Output:
+
+```text
+2
+```
+
+---
+
+# 61. index() with Tuple
+
+Returns the index of the first occurrence.
+
+```python
+data = (10, 20, 30)
+
+print(data.index(20))
+```
+
+Output:
+
+```text
+1
+```
+
+---
+
+# 62. Tuple Packing
+
+Tuple packing means storing multiple values into a tuple automatically.
+
+Example:
+
+```python
+data = 10, 20, 30
+
+print(data)
+```
+
+Output:
+
+```text
+(10, 20, 30)
+```
+
+The parentheses are optional in this form.
+
+---
+
+# 63. Tuple Unpacking
+
+Tuple unpacking extracts tuple elements into separate variables.
+
+Example:
+
+```python
+data = (10, 20, 30)
+
+a, b, c = data
+
+print(a)
+print(b)
+print(c)
+```
+
+Output:
+
+```text
+10
+20
+30
+```
+
+Concept:
+
+```text
+(10, 20, 30)
+      ↓
+a = 10
+b = 20
+c = 30
+```
+
+---
+
+# 64. Nested Tuples
+
+A tuple inside another tuple is called a nested tuple.
+
+Example:
+
+```python
+data = ((1, 2), (3, 4))
+
+print(data[0])
+print(data[1][1])
+```
+
+Output:
+
+```text
+(1, 2)
+4
+```
+
+---
+
+# 65. Immutability of Tuples
+
+Tuple elements cannot be modified.
+
+Example:
+
+```python
+data = (10, 20, 30)
+
+data[0] = 100
+```
+
+This causes:
+
+```text
+TypeError
+```
+
+Important:
+
+```text
+Tuple → immutable
+```
+
+Therefore, direct modification is not allowed.
+
+---
+
+# 66. Mutable Objects Inside Tuples
+
+Although tuples are immutable, mutable objects stored inside them can still be modified.
+
+Example:
+
+```python
+data = (10, [20, 30], 40)
+
+data[1].append(50)
+
+print(data)
+```
+
+Output:
+
+```text
+(10, [20, 30, 50], 40)
+```
+
+Why is this allowed?
+
+Because:
+
+```text
+The tuple itself is immutable.
+The list inside the tuple is mutable.
+```
+
+Therefore:
+
+```python
+data[0] = 100
+```
+
+is not allowed.
+
+But:
+
+```python
+data[1].append(50)
+```
+
+is allowed.
+
+---
+
+# 67. Why Use Tuples?
+
+According to the source, tuples are useful when:
+
+```text
+1. Data should not be modified.
+
+2. Better memory efficiency is desired.
+
+3. Faster access than lists is desired.
+
+4. A fixed collection of values is needed.
+
+5. Working with coordinates.
+
+6. Working with dimensions.
+
+7. Working with database records.
+
+8. Packing and unpacking are useful.
+```
+
+Examples:
+
+```python
+location = (17.3850, 78.4867)
+
+dimensions = (10, 20, 5)
+```
+
+---
+
+# 68. List vs Tuple
+
+| Feature | List | Tuple |
+| --- | --- | --- |
+| Syntax | [ ] | ( ) |
+| Example | [10, 20, 30] | (10, 20, 30) |
+| Mutability | Mutable | Immutable |
+| Add Elements | Allowed | Not Allowed |
+| Remove Elements | Allowed | Not Allowed |
+| Modify Elements | Allowed | Not Allowed |
+| Ordered | Yes | Yes |
+| Indexed | Yes | Yes |
+| Iterable | Yes | Yes |
+| Allows Duplicates | Yes | Yes |
+| Heterogeneous Data | Yes | Yes |
+| Nested Structures | Yes | Yes |
+| Dynamic Size | Yes | No, fixed after creation |
+| Memory Usage | More Memory | Less Memory |
+| Performance | Slightly Slower | Faster |
+| Built-in Methods | Many Methods | Only 2 Methods |
+| Sorting | sort() available | No sort() method |
+| Copying | copy() available | No copy() method |
+| Suitable For | Frequently changing data | Fixed data that should not change |
+| Hashable | No | Yes, if all elements are immutable |
+| Dictionary Key | Cannot be used | Can be used if hashable |
+
+---
+
+# 69. List vs Tuple — Most Important Differences
+
+Remember these points for interviews:
+
+```text
+LIST
+  ↓
+Mutable
+  ↓
+[ ]
+  ↓
+Many methods
+  ↓
+Good for frequently changing data
+```
+
+```text
+TUPLE
+  ↓
+Immutable
+  ↓
+( )
+  ↓
+Only count() and index()
+  ↓
+Good for fixed data
+```
+
+---
+
+# 70. Important Interview Difference: Mutable vs Immutable
+
+## List
+
+```python
+data = [10, 20, 30]
+
+data[0] = 100
+
+print(data)
+```
+
+Output:
+
+```text
+[100, 20, 30]
+```
+
+The list can be modified.
+
+## Tuple
+
+```python
+data = (10, 20, 30)
+
+data[0] = 100
+```
+
+Result:
+
+```text
+TypeError
+```
+
+The tuple cannot be modified directly.
+
+---
+
+# 71. Important Interview Difference: sort() vs sorted()
+
+```text
+sort()
+  ↓
+List method
+  ↓
+Changes original list
+```
+
+```text
+sorted()
+  ↓
+Built-in function
+  ↓
+Returns a new sorted list
+```
+
+Example:
+
+```python
+data = [3, 1, 2]
+
+result = sorted(data)
+
+print(data)
+print(result)
+```
+
+Output:
+
+```text
+[3, 1, 2]
+[1, 2, 3]
+```
+
+---
+
+# 72. Important Interview Difference: remove() vs pop()
+
+```text
+remove(value)
+  ↓
+Removes by VALUE
+```
+
+```text
+pop(index)
+  ↓
+Removes by INDEX
+```
+
+Example:
+
+```python
+data = [10, 20, 30]
+
+data.remove(20)
+
+print(data)
+```
+
+Output:
+
+```text
+[10, 30]
+```
+
+Example:
+
+```python
+data = [10, 20, 30]
+
+data.pop(1)
+
+print(data)
+```
+
+Output:
+
+```text
+[10, 30]
+```
+
+---
+
+# 73. Important Interview Difference: append() vs extend()
+
+```text
+append()
+  ↓
+Adds one element
+```
+
+```text
+extend()
+  ↓
+Adds multiple elements from an iterable
+```
+
+Example:
+
+```python
+data = [1, 2]
+
+data.append([3, 4])
+
+print(data)
+```
+
+Output:
+
+```text
+[1, 2, [3, 4]]
+```
+
+Example:
+
+```python
+data = [1, 2]
+
+data.extend([3, 4])
+
+print(data)
+```
+
+Output:
+
+```text
+[1, 2, 3, 4]
+```
+
+---
+
+# 74. Complete List Revision Program
+
+```python
+# Creating a list
+data = [10, 20, 30, 40, 50]
+
+# Indexing
+print(data[0])
+print(data[-1])
+
+# Slicing
+print(data[1:4])
+print(data[::-1])
+
+# Membership
+print(20 in data)
+print(100 not in data)
+
+# Built-in functions
+print(len(data))
+print(max(data))
+print(min(data))
+print(sum(data))
+print(sorted(data))
+
+# Adding
+data.append(60)
+data.extend([70, 80])
+data.insert(1, 15)
+
+print(data)
+
+# Searching
+print(data.index(20))
+print(data.count(20))
+
+# Removing
+data.remove(20)
+data.pop()
+data.clear()
+
+print(data)
+```
+
+---
+
+# 75. Complete Tuple Revision Program
+
+```python
+# Creating a tuple
+data = (10, 20, 30, 40, 50)
+
+# Indexing
+print(data[0])
+print(data[-1])
+
+# Slicing
+print(data[1:4])
+print(data[::-1])
+
+# Membership
+print(20 in data)
+print(100 not in data)
+
+# Built-in functions
+print(len(data))
+print(max(data))
+print(min(data))
+print(sum(data))
+print(sorted(data))
+
+# Tuple methods
+print(data.count(20))
+print(data.index(20))
+
+# Packing
+packed = 10, 20, 30
+print(packed)
+
+# Unpacking
+a, b, c = packed
+
+print(a)
+print(b)
+print(c)
+```
+
+---
+
+# 76. Interview Questions — Lists
+
+## 1. What is a list in Python?
+
+A list is an ordered, mutable collection used to store multiple values in one variable.
+
+## 2. How do you create a list?
+
+Using square brackets:
+
+```python
+data = [10, 20, 30]
+```
+
+or the `list()` constructor.
+
+## 3. Are lists mutable?
+
+Yes. List elements can be modified.
+
+## 4. Can a list contain different datatypes?
+
+Yes.
+
+Example:
+
+```python
+data = [10, "Python", 5.5, True]
+```
+
+## 5. Can lists contain duplicate values?
+
+Yes.
+
+## 6. What is list indexing?
+
+Accessing an element using its index.
+
+```python
+data[0]
+```
+
+## 7. What is list slicing?
+
+Extracting part of a list using:
+
+```python
+list[start:end:step]
+```
+
+## 8. What does append() do?
+
+Adds one element at the end.
+
+## 9. What does extend() do?
+
+Adds multiple elements from an iterable.
+
+## 10. What does insert() do?
+
+Inserts an element at a specified position.
+
+## 11. What does remove() do?
+
+Removes the first occurrence of a specified value.
+
+## 12. What does pop() do?
+
+Removes an element using its index. With no index, it removes the last element.
+
+## 13. What does clear() do?
+
+Removes all elements from the list.
+
+## 14. What is the difference between remove() and pop()?
+
+```text
+remove() → removes by value
+pop()    → removes by index
+```
+
+## 15. What is the difference between append() and extend()?
+
+```text
+append() → adds one element
+extend() → adds elements from an iterable
+```
+
+## 16. What is the difference between sort() and sorted()?
+
+```text
+sort()   → modifies the original list
+sorted() → returns a sorted list
+```
+
+## 17. What is a nested list?
+
+A list inside another list.
+
+```python
+data = [[1, 2], [3, 4]]
+```
+
+## 18. What does copy() do?
+
+Creates a shallow copy of a list.
+
+---
+
+# 77. Interview Questions — Tuples
+
+## 1. What is a tuple?
+
+A tuple is an ordered, immutable collection used to store multiple values in a single variable.
+
+## 2. How do you create a tuple?
+
+Using parentheses:
+
+```python
+data = (10, 20, 30)
+```
+
+or the `tuple()` constructor.
+
+## 3. Are tuples mutable?
+
+No. Tuples are immutable.
+
+## 4. How do you create an empty tuple?
+
+```python
+t = ()
+```
+
+## 5. How do you create a single-element tuple?
+
+```python
+t = (10,)
+```
+
+The comma is important.
+
+## 6. Why is `(10)` not a tuple?
+
+Because:
+
+```python
+(10)
+```
+
+is treated as an integer expression.
+
+A single-element tuple requires:
+
+```python
+(10,)
+```
+
+## 7. How do tuples support indexing?
+
+Like lists:
+
+```python
+data[0]
+data[-1]
+```
+
+## 8. Can tuples be sliced?
+
+Yes.
+
+```python
+data[1:4]
+```
+
+## 9. How many built-in tuple methods are covered?
+
+Two:
+
+```text
+count()
+index()
+```
+
+## 10. What is tuple packing?
+
+Automatically storing multiple values in a tuple.
+
+```python
+data = 10, 20, 30
+```
+
+## 11. What is tuple unpacking?
+
+Extracting tuple elements into variables.
+
+```python
+a, b, c = (10, 20, 30)
+```
+
+## 12. Can a tuple contain a list?
+
+Yes.
+
+## 13. Can a list inside a tuple be modified?
+
+Yes, because the list itself is mutable.
+
+Example:
+
+```python
+data = (10, [20, 30], 40)
+
+data[1].append(50)
+
+print(data)
+```
+
+## 14. Why use tuples?
+
+The source lists fixed data, memory efficiency, faster access, coordinates, dimensions, database records, and packing/unpacking as use cases.
+
+---
+
+# 78. Most Important Concepts to Remember
+
+```text
+LIST
+  ↓
+Ordered
+Mutable
+Indexed
+Iterable
+Duplicates allowed
+Dynamic size
+Heterogeneous
+```
+
+```text
+LIST OPERATIONS
+  ↓
++       → Concatenation
+*       → Repetition
+[]      → Indexing
+[:]     → Slicing
+in      → Membership
+not in  → Membership
+```
+
+```text
+LIST FUNCTIONS
+  ↓
+len()
+max()
+min()
+sum()
+sorted()
+list()
+```
+
+```text
+LIST METHODS
+  ↓
+append()
+extend()
+insert()
+remove()
+pop()
+clear()
+index()
+count()
+sort()
+reverse()
+copy()
+```
+
+```text
+TUPLE
+  ↓
+Ordered
+Immutable
+Iterable
+Duplicates allowed
+Heterogeneous
+Supports nested objects
+```
+
+```text
+TUPLE OPERATIONS
+  ↓
++       → Concatenation
+*       → Repetition
+[]      → Indexing
+[:]     → Slicing
+in      → Membership
+not in  → Membership
+```
+
+```text
+TUPLE FUNCTIONS
+  ↓
+len()
+max()
+min()
+sum()
+sorted()
+tuple()
+any()
+all()
+```
+
+```text
+TUPLE METHODS
+  ↓
+count()
+index()
+```
+
+```text
+TUPLE CONCEPTS
+  ↓
+Packing
+Unpacking
+Nested Tuples
+Immutability
+Mutable Objects Inside Tuples
+```
+
+---
+
+# 79. Final Revision Points
+
+```text
+1. A list is an ordered, mutable collection.
+
+2. Lists are created using [] or list().
+
+3. Lists maintain insertion order.
+
+4. Lists are mutable.
+
+5. Lists support indexing.
+
+6. Lists are iterable.
+
+7. Lists allow duplicate values.
+
+8. Lists have dynamic size.
+
+9. Lists can contain different datatypes.
+
+10. + concatenates lists.
+
+11. * repeats lists.
+
+12. Indexing accesses individual elements.
+
+13. Slicing uses list[start:end:step].
+
+14. [::-1] reverses a list using slicing.
+
+15. in and not in perform membership checks.
+
+16. len() returns list length.
+
+17. max() returns the largest element.
+
+18. min() returns the smallest element.
+
+19. sum() returns the sum of numeric elements.
+
+20. sorted() returns a sorted list.
+
+21. list() converts an iterable to a list.
+
+22. append() adds one element at the end.
+
+23. extend() adds elements from an iterable.
+
+24. insert() adds an element at a specified position.
+
+25. remove() removes the first occurrence of a value.
+
+26. pop() removes an element using an index.
+
+27. clear() removes all elements.
+
+28. del can delete an element or the entire list.
+
+29. index() returns an element's index.
+
+30. count() counts occurrences.
+
+31. sort() sorts the original list.
+
+32. reverse() reverses the original list.
+
+33. sorted() returns a new sorted list.
+
+34. copy() creates a shallow copy.
+
+35. A nested list is a list inside another list.
+
+36. A tuple is an ordered, immutable collection.
+
+37. Tuples are created using () or tuple().
+
+38. An empty tuple is ().
+
+39. A single-element tuple requires a comma: (10,).
+
+40. (10) is an integer expression, not a tuple.
+
+41. Tuples are ordered.
+
+42. Tuples are immutable.
+
+43. Tuples are iterable.
+
+44. Tuples allow duplicate values.
+
+45. Tuples can contain different datatypes.
+
+46. Tuples can contain nested objects.
+
+47. Mutable objects inside tuples can still be modified.
+
+48. Tuples support concatenation.
+
+49. Tuples support repetition.
+
+50. Tuples support indexing.
+
+51. Tuples support slicing.
+
+52. Tuples support membership operators.
+
+53. Tuple built-in functions include len(), max(), min(), sum(), sorted(), tuple(), any(), and all().
+
+54. Tuples provide count() and index() methods.
+
+55. Tuple packing stores multiple values into a tuple automatically.
+
+56. Tuple unpacking extracts tuple elements into variables.
+
+57. Nested tuples are tuples inside other tuples.
+
+58. Tuple elements cannot be directly modified.
+
+59. A list inside a tuple can be modified because the list is mutable.
+
+60. Tuples are useful for fixed collections of values.
+
+61. The source identifies coordinates, dimensions, and database records as common tuple use cases.
+
+62. Lists are suitable for frequently changing data.
+
+63. Tuples are suitable for fixed data that should not change.
+
+64. Lists use more memory according to the source comparison.
+
+65. Tuples use less memory according to the source comparison.
+
+66. The source states tuples provide faster access than lists.
+
+67. Lists have many built-in methods.
+
+68. Tuples have only two built-in methods: count() and index().
+
+69. Lists provide sort().
+
+70. Tuples do not provide a sort() method.
+
+71. Lists provide copy().
+
+72. Tuples do not provide a copy() method.
+
+73. The source comparison states tuples can be hashable if all elements are immutable.
+
+74. A hashable tuple can be used as a dictionary key.
+```
+
+---
+# ⭐ Day 8 Status
+
+```text
+DAY 8 — LISTS & TUPLES IN PYTHON
+
+Status: COMPLETED ✅
+```
