@@ -1,0 +1,2028 @@
+# Day 5.2 — Python Operators
+
+---
+
+# 1. What are Operators?
+
+Operators in Python are special symbols or keywords that perform operations on variables and values.
+
+Example:
+
+```python
+a = 10
+b = 3
+
+print(a + b)
+```
+
+Operators perform operations such as:
+
+```text
+Addition
+Subtraction
+Multiplication
+Division
+Comparison
+Assignment
+Logical operations
+Membership checking
+Identity checking
+Bitwise operations
+```
+
+---
+
+# 2. Arithmetic Operators
+
+Arithmetic operators are used for basic mathematical calculations.
+
+| Operator | Symbol | Example | Explanation |
+| --- | --- | --- | --- |
+| Addition | `+` | `5 + 3 = 8` | Adds two numbers |
+| Subtraction | `-` | `10 - 4 = 6` | Subtracts the second number from the first |
+| Multiplication | `*` | `6 * 2 = 12` | Multiplies two numbers |
+| Division | `/` | `9 / 2 = 4.5` | Divides two numbers and gives a float |
+| Floor Division | `//` | `9 // 2 = 4` | Divides and returns the integer part |
+| Modulus | `%` | `10 % 3 = 1` | Returns the remainder |
+| Exponentiation | `**` | `2 ** 3 = 8` | Raises the first number to the power of the second |
+
+---
+
+# 3. Arithmetic Operators Example
+
+```python
+a = 10
+b = 3
+
+print(a + b)    # Output: 13
+print(a - b)    # Output: 7
+print(a * b)    # Output: 30
+print(a / b)    # Output: 3.3333
+print(a // b)   # Output: 3
+print(a % b)    # Output: 1
+print(a ** b)   # Output: 1000
+```
+
+### Important
+
+```text
++   → Addition
+-   → Subtraction
+*   → Multiplication
+/   → Division
+//  → Floor Division
+%   → Remainder
+**  → Exponentiation / Power
+```
+
+---
+
+# 4. Addition (+)
+
+The `+` operator adds two numbers.
+
+```python
+a = 5
+b = 3
+
+print(a + b)
+```
+
+### Output
+
+```text
+8
+```
+
+---
+
+# 5. Subtraction (-)
+
+The `-` operator subtracts the second value from the first value.
+
+```python
+a = 10
+b = 4
+
+print(a - b)
+```
+
+### Output
+
+```text
+6
+```
+
+---
+
+# 6. Multiplication (*)
+
+The `*` operator multiplies two numbers.
+
+```python
+a = 6
+b = 2
+
+print(a * b)
+```
+
+### Output
+
+```text
+12
+```
+
+---
+
+# 7. Division (/)
+
+The `/` operator divides two numbers and gives a float result.
+
+```python
+print(9 / 2)
+```
+
+### Output
+
+```text
+4.5
+```
+
+### Important
+
+Even when the division is exact:
+
+```python
+print(10 / 2)
+```
+
+the result is:
+
+```text
+5.0
+```
+
+---
+
+# 8. Floor Division (//)
+
+The `//` operator divides and returns the integer part according to floor division.
+
+```python
+print(9 // 2)
+```
+
+### Output
+
+```text
+4
+```
+
+Another example:
+
+```python
+print(10 // 3)
+```
+
+### Output
+
+```text
+3
+```
+
+---
+
+# 9. Modulus (%)
+
+The `%` operator returns the remainder of a division.
+
+```python
+print(10 % 3)
+```
+
+### Output
+
+```text
+1
+```
+
+Example:
+
+```python
+print(10 % 2)
+```
+
+### Output
+
+```text
+0
+```
+
+This is useful for checking whether a number is divisible by another number.
+
+---
+
+# 10. Exponentiation (**)
+
+The `**` operator raises the first number to the power of the second.
+
+```python
+print(2 ** 3)
+```
+
+### Output
+
+```text
+8
+```
+
+Because:
+
+```text
+2 × 2 × 2 = 8
+```
+
+Another example:
+
+```python
+print(10 ** 3)
+```
+
+### Output
+
+```text
+1000
+```
+
+---
+
+# 11. Comparison Operators
+
+Comparison operators compare two values and return either:
+
+```text
+True
+```
+
+or:
+
+```text
+False
+```
+
+| Operator | Symbol | Example | Explanation |
+| --- | --- | --- | --- |
+| Equal to | `==` | `5 == 5 → True` | Checks if both values are equal |
+| Not Equal to | `!=` | `5 != 3 → True` | Checks if values are not equal |
+| Greater than | `>` | `7 > 3 → True` | Checks if the first value is greater |
+| Less than | `<` | `3 < 7 → True` | Checks if the first value is smaller |
+| Greater than or Equal to | `>=` | `5 >= 5 → True` | Checks if the first value is greater or equal |
+| Less than or Equal to | `<=` | `3 <= 5 → True` | Checks if the first value is smaller or equal |
+
+---
+
+# 12. Comparison Operators Example
+
+```python
+x = 10
+y = 5
+
+print(x == y)    # Output: False
+print(x != y)    # Output: True
+print(x > y)     # Output: True
+print(x < y)     # Output: False
+print(x >= 10)   # Output: True
+print(y <= 5)    # Output: True
+```
+
+### Output
+
+```text
+False
+True
+True
+False
+True
+True
+```
+
+---
+
+# 13. Important Comparison Operators
+
+```text
+==  → Equal to
+!=  → Not equal to
+>   → Greater than
+<   → Less than
+>=  → Greater than or equal to
+<=  → Less than or equal to
+```
+
+All of these return:
+
+```text
+True
+```
+
+or:
+
+```text
+False
+```
+
+---
+
+# 14. Assignment Operators
+
+Assignment operators are used to assign or update the value of a variable.
+
+| Operator | Symbol | Example | Equivalent To |
+| --- | --- | --- | --- |
+| Assign | `=` | `x = 5` | Assigns value to a variable |
+| Add & Assign | `+=` | `x += 3` | `x = x + 3` |
+| Subtract & Assign | `-=` | `x -= 2` | `x = x - 2` |
+| Multiply & Assign | `*=` | `x *= 4` | `x = x * 4` |
+| Divide & Assign | `/=` | `x /= 2` | `x = x / 2` |
+| Floor Divide & Assign | `//=` | `x //= 3` | `x = x // 3` |
+| Modulus & Assign | `%=` | `x %= 2` | `x = x % 2` |
+| Exponentiate & Assign | `**=` | `x **= 3` | `x = x ** 3` |
+
+---
+
+# 15. Assignment Operators Example
+
+```python
+x = 10
+
+x += 5     # x = x + 5 → 15
+x *= 2     # x = x * 2 → 30
+x -= 10    # x = x - 10 → 20
+
+print(x)
+```
+
+### Output
+
+```text
+20
+```
+
+---
+
+# 16. Understanding Compound Assignment
+
+Instead of:
+
+```python
+x = x + 5
+```
+
+we can write:
+
+```python
+x += 5
+```
+
+Instead of:
+
+```python
+x = x - 2
+```
+
+we can write:
+
+```python
+x -= 2
+```
+
+Instead of:
+
+```python
+x = x * 4
+```
+
+we can write:
+
+```python
+x *= 4
+```
+
+Instead of:
+
+```python
+x = x / 2
+```
+
+we can write:
+
+```python
+x /= 2
+```
+
+---
+
+# 17. Logical Operators
+
+Logical operators are used to combine multiple conditions.
+
+They work similarly to:
+
+```text
+AND
+OR
+NOT
+```
+
+logic gates in digital electronics.
+
+| Operator | Symbol | Example | Explanation |
+| --- | --- | --- | --- |
+| AND | `and` | `x > 5 and y < 15` | Returns True if both conditions are true |
+| OR | `or` | `x < 5 or y > 15` | Returns True if at least one condition is true |
+| NOT | `not` | `not (x > 5)` | Reverses the condition |
+
+---
+
+# 18. AND Operator
+
+The `and` operator returns `True` only when both conditions are true.
+
+Example:
+
+```python
+x = 10
+y = 20
+
+print(x > 5 and y < 30)
+```
+
+### Output
+
+```text
+True
+```
+
+Both conditions are true:
+
+```text
+x > 5  → True
+y < 30 → True
+```
+
+Therefore:
+
+```text
+True and True → True
+```
+
+---
+
+# 19. AND Gate Truth Table
+
+| A | B | A and B |
+| --- | --- | --- |
+| True | True | True |
+| True | False | False |
+| False | True | False |
+| False | False | False |
+
+### Rule
+
+```text
+AND → Both conditions must be True.
+```
+
+---
+
+# 20. OR Operator
+
+The `or` operator returns `True` if at least one condition is true.
+
+Example:
+
+```python
+x = 10
+y = 20
+
+print(x > 15 or y < 30)
+```
+
+### Output
+
+```text
+True
+```
+
+Here:
+
+```text
+x > 15 → False
+y < 30 → True
+```
+
+Therefore:
+
+```text
+False or True → True
+```
+
+---
+
+# 21. OR Gate Truth Table
+
+| A | B | A or B |
+| --- | --- | --- |
+| True | True | True |
+| True | False | True |
+| False | True | True |
+| False | False | False |
+
+### Rule
+
+```text
+OR → At least one condition must be True.
+```
+
+---
+
+# 22. NOT Operator
+
+The `not` operator reverses the condition.
+
+Example:
+
+```python
+x = 10
+
+print(not (x > 5))
+```
+
+### Output
+
+```text
+False
+```
+
+Because:
+
+```text
+x > 5 → True
+not True → False
+```
+
+---
+
+# 23. NOT Gate Truth Table
+
+| A | not A |
+| --- | --- |
+| True | False |
+| False | True |
+
+### Rule
+
+```text
+NOT → Reverses True to False
+       and False to True.
+```
+
+---
+
+# 24. Logical Operators Example
+
+```python
+x = 10
+y = 20
+
+print(x > 5 and y < 30)
+# Output: True
+
+print(x > 15 or y < 30)
+# Output: True
+
+print(not (x > 5))
+# Output: False
+```
+
+---
+
+# 25. Membership Operators
+
+Membership operators check if a value exists within a sequence such as:
+
+```text
+List
+String
+Tuple
+```
+
+The operators are:
+
+```text
+in
+not in
+```
+
+| Operator | Symbol | Example | Explanation |
+| --- | --- | --- | --- |
+| In | `in` | `"a" in "apple"` | Returns True if the value exists in the sequence |
+| Not In | `not in` | `"x" not in "apple"` | Returns True if the value does NOT exist in the sequence |
+
+---
+
+# 26. Membership Example
+
+```python
+fruits = ["apple", "banana", "cherry"]
+
+print("apple" in fruits)
+print("grape" not in fruits)
+```
+
+### Output
+
+```text
+True
+True
+```
+
+Explanation:
+
+```text
+"apple" exists in fruits
+→ True
+
+"grape" does not exist in fruits
+→ True for not in
+```
+
+---
+
+# 27. Membership with String
+
+```python
+word = "apple"
+
+print("a" in word)
+print("x" not in word)
+```
+
+### Output
+
+```text
+True
+True
+```
+
+---
+
+# 28. Identity Operators
+
+Identity operators check whether two variables refer to the same object in memory.
+
+| Operator | Symbol | Example | Explanation |
+| --- | --- | --- | --- |
+| Is | `is` | `x is y` | Returns True if both refer to the same object |
+| Is Not | `is not` | `x is not y` | Returns True if they refer to different objects |
+
+---
+
+# 29. Identity Operators Example
+
+```python
+a = [1, 2, 3]
+b = a
+c = [1, 2, 3]
+
+print(a is b)
+print(a is c)
+print(a is not c)
+```
+
+### Output
+
+```text
+True
+False
+True
+```
+
+---
+
+# 30. Why is `a is b` True?
+
+```python
+a = [1, 2, 3]
+b = a
+```
+
+Here `b` refers to the same list object as `a`.
+
+Therefore:
+
+```python
+a is b
+```
+
+returns:
+
+```text
+True
+```
+
+---
+
+# 31. Why is `a is c` False?
+
+```python
+a = [1, 2, 3]
+c = [1, 2, 3]
+```
+
+Both lists have the same content, but they are different objects.
+
+Therefore:
+
+```python
+a is c
+```
+
+returns:
+
+```text
+False
+```
+
+### Important
+
+```text
+is → compares object identity
+== → compares values
+```
+
+---
+
+# 32. Bitwise Operators
+
+Bitwise operators perform operations on the binary representation of numbers.
+
+The operators are:
+
+```text
+&   → AND
+|   → OR
+^   → XOR
+~   → NOT
+<<  → Left Shift
+>>  → Right Shift
+```
+
+---
+
+# 33. Bitwise Operators Table
+
+| Operator | Symbol | Example | Explanation |
+| --- | --- | --- | --- |
+| AND | `&` | `5 & 3 = 1` | Performs bitwise AND |
+| OR | `|` | `5 \| 3 = 7` | Performs bitwise OR |
+| XOR | `^` | `5 ^ 3 = 6` | Performs bitwise XOR |
+| NOT | `~` | `~5 = -6` | Performs bitwise NOT |
+| Left Shift | `<<` | `5 << 1 = 10` | Shifts bits to the left |
+| Right Shift | `>>` | `5 >> 1 = 2` | Shifts bits to the right |
+
+---
+
+# 34. Binary Representation
+
+Example:
+
+```text
+5 = 0101
+3 = 0011
+```
+
+Bitwise operators operate on these binary bits.
+
+---
+
+# 35. Bitwise AND (&)
+
+Example:
+
+```python
+x = 5
+y = 3
+
+print(x & y)
+```
+
+Binary:
+
+```text
+  0101
+& 0011
+------
+  0001
+```
+
+### Output
+
+```text
+1
+```
+
+### Rule
+
+For AND:
+
+```text
+1 & 1 → 1
+Everything else → 0
+```
+
+---
+
+# 36. Bitwise OR (|)
+
+Example:
+
+```python
+x = 5
+y = 3
+
+print(x | y)
+```
+
+Binary:
+
+```text
+  0101
+| 0011
+------
+  0111
+```
+
+### Output
+
+```text
+7
+```
+
+### Rule
+
+For OR:
+
+```text
+If at least one bit is 1 → 1
+```
+
+---
+
+# 37. Bitwise XOR (^)
+
+Example:
+
+```python
+x = 5
+y = 3
+
+print(x ^ y)
+```
+
+Binary:
+
+```text
+  0101
+^ 0011
+------
+  0110
+```
+
+### Output
+
+```text
+6
+```
+
+### Rule
+
+For XOR:
+
+```text
+Same bits → 0
+Different bits → 1
+```
+
+---
+
+# 38. Bitwise NOT (~)
+
+Example:
+
+```python
+x = 5
+
+print(~x)
+```
+
+### Output
+
+```text
+-6
+```
+
+The `~` operator inverts the bits.
+
+### Important Python Rule
+
+```text
+~x = -(x + 1)
+```
+
+Therefore:
+
+```text
+~5
+= -(5 + 1)
+= -6
+```
+
+---
+
+# 39. Left Shift (<<)
+
+The left shift operator shifts bits to the left.
+
+```python
+x = 5
+
+print(x << 1)
+```
+
+### Output
+
+```text
+10
+```
+
+Binary:
+
+```text
+5  = 0101
+<< 1
+     ↓
+10 = 1010
+```
+
+For the example in the source:
+
+```text
+5 << 1 = 10
+```
+
+This is equivalent to multiplying by 2 for the shift shown.
+
+---
+
+# 40. Right Shift (>>)
+
+The right shift operator shifts bits to the right.
+
+```python
+x = 5
+
+print(x >> 1)
+```
+
+### Output
+
+```text
+2
+```
+
+Binary:
+
+```text
+5 = 0101
+>> 1
+     ↓
+2 = 0010
+```
+
+For the example in the source, shifting right by 1 is equivalent to dividing by 2 using integer-style bit shifting.
+
+---
+
+# 41. Logic Gates Truth Table for Bits
+
+| A | B | A AND B | A OR B | A XOR B | NOT A |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 | 1 |
+| 0 | 1 | 0 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 0 | 0 |
+
+---
+
+# 42. Understanding the Bitwise Truth Table
+
+## AND
+
+```text
+0 AND 0 = 0
+0 AND 1 = 0
+1 AND 0 = 0
+1 AND 1 = 1
+```
+
+## OR
+
+```text
+0 OR 0 = 0
+0 OR 1 = 1
+1 OR 0 = 1
+1 OR 1 = 1
+```
+
+## XOR
+
+```text
+0 XOR 0 = 0
+0 XOR 1 = 1
+1 XOR 0 = 1
+1 XOR 1 = 0
+```
+
+## NOT
+
+```text
+NOT 0 = 1
+NOT 1 = 0
+```
+
+---
+
+# 43. Complete Bitwise Example
+
+```python
+x = 5      # Binary: 0101
+y = 3      # Binary: 0011
+
+print(x & y)
+# Output: 1
+# Binary: 0001 → AND operation
+
+print(x | y)
+# Output: 7
+# Binary: 0111 → OR operation
+
+print(x ^ y)
+# Output: 6
+# Binary: 0110 → XOR operation
+
+print(~x)
+# Output: -6
+# Inverts bits of 5
+
+print(x << 1)
+# Output: 10
+# Binary: 1010 → Shifts left by 1
+
+print(x >> 1)
+# Output: 2
+# Binary: 0010 → Shifts right by 1
+```
+
+---
+
+# 44. All Operator Types in This Note
+
+```text
+1. Arithmetic Operators
+2. Comparison Operators
+3. Assignment Operators
+4. Logical Operators
+5. Membership Operators
+6. Identity Operators
+7. Bitwise Operators
+```
+
+---
+
+# 45. Operator Quick Reference
+
+```text
+ARITHMETIC
++    Addition
+-    Subtraction
+*    Multiplication
+/    Division
+//   Floor Division
+%    Modulus
+**   Exponentiation
+
+
+COMPARISON
+==   Equal
+!=   Not Equal
+>    Greater Than
+<    Less Than
+>=   Greater Than or Equal
+<=   Less Than or Equal
+
+
+ASSIGNMENT
+=    Assign
++=   Add & Assign
+-=   Subtract & Assign
+*=   Multiply & Assign
+/=   Divide & Assign
+//=  Floor Divide & Assign
+%=   Modulus & Assign
+**=  Exponentiate & Assign
+
+
+LOGICAL
+and  Both conditions must be True
+or   At least one condition must be True
+not  Reverses the condition
+
+
+MEMBERSHIP
+in       Value exists
+not in   Value does not exist
+
+
+IDENTITY
+is       Same object
+is not   Different object
+
+
+BITWISE
+&    AND
+|    OR
+^    XOR
+~    NOT
+<<   Left Shift
+>>   Right Shift
+```
+
+---
+
+# 46. Important Differences
+
+## `/` vs `//`
+
+```text
+/  → Normal division
+   → Gives float
+
+// → Floor division
+   → Returns floor quotient
+```
+
+Example:
+
+```python
+print(9 / 2)
+print(9 // 2)
+```
+
+Output:
+
+```text
+4.5
+4
+```
+
+---
+
+# 47. `%` vs `//`
+
+```text
+%  → Remainder
+// → Quotient after floor division
+```
+
+Example:
+
+```python
+print(10 % 3)
+print(10 // 3)
+```
+
+Output:
+
+```text
+1
+3
+```
+
+---
+
+# 48. `==` vs `is`
+
+```text
+== → Compares values
+
+is → Compares object identity
+```
+
+Example:
+
+```python
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)
+print(a is b)
+```
+
+The two lists have equal values but are different objects.
+
+---
+
+# 49. `in` vs `not in`
+
+```text
+in
+→ True when the value exists in the sequence.
+
+not in
+→ True when the value does not exist in the sequence.
+```
+
+Example:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+
+print("apple" in fruits)
+print("grape" not in fruits)
+```
+
+Output:
+
+```text
+True
+True
+```
+
+---
+
+# 50. AND vs OR
+
+## AND
+
+```text
+Both conditions must be True.
+```
+
+Example:
+
+```python
+True and True
+```
+
+Result:
+
+```text
+True
+```
+
+But:
+
+```python
+True and False
+```
+
+Result:
+
+```text
+False
+```
+
+## OR
+
+```text
+At least one condition must be True.
+```
+
+Example:
+
+```python
+True or False
+```
+
+Result:
+
+```text
+True
+```
+
+---
+
+# 51. NOT
+
+The `not` operator reverses the Boolean result.
+
+```python
+not True
+```
+
+Result:
+
+```text
+False
+```
+
+```python
+not False
+```
+
+Result:
+
+```text
+True
+```
+
+---
+
+# 52. Bitwise AND vs Logical AND
+
+These are different operators.
+
+## Logical AND
+
+```python
+and
+```
+
+Works with Boolean conditions.
+
+Example:
+
+```python
+x > 5 and y < 30
+```
+
+## Bitwise AND
+
+```python
+&
+```
+
+Works on binary representations of integers.
+
+Example:
+
+```python
+5 & 3
+```
+
+Result:
+
+```text
+1
+```
+
+---
+
+# 53. Bitwise OR vs Logical OR
+
+## Logical OR
+
+```python
+or
+```
+
+Example:
+
+```python
+x > 15 or y < 30
+```
+
+## Bitwise OR
+
+```python
+|
+```
+
+Example:
+
+```python
+5 | 3
+```
+
+Result:
+
+```text
+7
+```
+
+---
+
+# 54. Practice Program 1 — Arithmetic
+
+```python
+a = 10
+b = 3
+
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Floor Division:", a // b)
+print("Modulus:", a % b)
+print("Power:", a ** b)
+```
+
+---
+
+# 55. Practice Program 2 — Comparison
+
+```python
+x = 10
+y = 5
+
+print(x == y)
+print(x != y)
+print(x > y)
+print(x < y)
+print(x >= y)
+print(y <= 5)
+```
+
+---
+
+# 56. Practice Program 3 — Assignment
+
+```python
+x = 10
+
+x += 5
+print(x)
+
+x *= 2
+print(x)
+
+x -= 10
+print(x)
+```
+
+### Output
+
+```text
+15
+30
+20
+```
+
+---
+
+# 57. Practice Program 4 — Logical
+
+```python
+x = 10
+y = 20
+
+print(x > 5 and y < 30)
+print(x > 15 or y < 30)
+print(not (x > 5))
+```
+
+### Output
+
+```text
+True
+True
+False
+```
+
+---
+
+# 58. Practice Program 5 — Membership
+
+```python
+fruits = ["apple", "banana", "cherry"]
+
+print("apple" in fruits)
+print("grape" not in fruits)
+```
+
+### Output
+
+```text
+True
+True
+```
+
+---
+
+# 59. Practice Program 6 — Identity
+
+```python
+a = [1, 2, 3]
+b = a
+c = [1, 2, 3]
+
+print(a is b)
+print(a is c)
+print(a is not c)
+```
+
+### Output
+
+```text
+True
+False
+True
+```
+
+---
+
+# 60. Practice Program 7 — Bitwise
+
+```python
+x = 5
+y = 3
+
+print(x & y)
+print(x | y)
+print(x ^ y)
+print(~x)
+print(x << 1)
+print(x >> 1)
+```
+
+### Output
+
+```text
+1
+7
+6
+-6
+10
+2
+```
+
+---
+
+# 61. Interview Questions
+
+## 1. What are operators in Python?
+
+Operators are special symbols or keywords that perform operations on variables and values.
+
+---
+
+## 2. What are arithmetic operators?
+
+Arithmetic operators are used for mathematical calculations.
+
+```text
++
+-
+*
+/
+//
+%
+**
+```
+
+---
+
+## 3. What is the difference between `/` and `//`?
+
+```text
+/  → Division and gives a float.
+
+/ / → Floor division and returns the integer/floor part.
+```
+
+Example:
+
+```python
+9 / 2
+```
+
+Output:
+
+```text
+4.5
+```
+
+```python
+9 // 2
+```
+
+Output:
+
+```text
+4
+```
+
+---
+
+## 4. What does `%` do?
+
+The modulus operator `%` returns the remainder of a division.
+
+Example:
+
+```python
+10 % 3
+```
+
+Output:
+
+```text
+1
+```
+
+---
+
+## 5. What does `**` do?
+
+It performs exponentiation.
+
+Example:
+
+```python
+2 ** 3
+```
+
+Output:
+
+```text
+8
+```
+
+---
+
+## 6. What are comparison operators?
+
+They compare values and return `True` or `False`.
+
+```text
+==
+!=
+>
+<
+>=
+<=
+```
+
+---
+
+## 7. What are assignment operators?
+
+They assign or update variable values.
+
+Examples:
+
+```text
+=
++=
+-=
+*=
+/=
+```
+
+and:
+
+```text
+//=
+%=
+**=
+```
+
+---
+
+## 8. What does `and` do?
+
+It returns `True` if both conditions are true.
+
+---
+
+## 9. What does `or` do?
+
+It returns `True` if at least one condition is true.
+
+---
+
+## 10. What does `not` do?
+
+It reverses a condition.
+
+```text
+True  → False
+False → True
+```
+
+---
+
+## 11. What are membership operators?
+
+They check whether a value exists in a sequence.
+
+```text
+in
+not in
+```
+
+---
+
+## 12. What are identity operators?
+
+They check whether two variables refer to the same object in memory.
+
+```text
+is
+is not
+```
+
+---
+
+## 13. Difference between `==` and `is`?
+
+```text
+== → compares values
+
+is → compares object identity
+```
+
+---
+
+## 14. What are bitwise operators?
+
+Bitwise operators perform operations on the binary representation of numbers.
+
+```text
+&
+|
+^
+~
+<<
+>>
+```
+
+---
+
+## 15. What is bitwise AND?
+
+It compares corresponding bits and returns `1` only when both bits are `1`.
+
+Example:
+
+```python
+5 & 3
+```
+
+Output:
+
+```text
+1
+```
+
+---
+
+## 16. What is bitwise OR?
+
+It returns `1` when at least one corresponding bit is `1`.
+
+Example:
+
+```python
+5 | 3
+```
+
+Output:
+
+```text
+7
+```
+
+---
+
+## 17. What is bitwise XOR?
+
+It returns `1` when corresponding bits are different.
+
+Example:
+
+```python
+5 ^ 3
+```
+
+Output:
+
+```text
+6
+```
+
+---
+
+## 18. What is bitwise NOT?
+
+It inverts the bits.
+
+Example:
+
+```python
+~5
+```
+
+Output:
+
+```text
+-6
+```
+
+Python rule:
+
+```text
+~x = -(x + 1)
+```
+
+---
+
+## 19. What is left shift?
+
+Left shift moves bits to the left.
+
+Example:
+
+```python
+5 << 1
+```
+
+Output:
+
+```text
+10
+```
+
+---
+
+## 20. What is right shift?
+
+Right shift moves bits to the right.
+
+Example:
+
+```python
+5 >> 1
+```
+
+Output:
+
+```text
+2
+```
+
+---
+
+# 62. Quick Revision
+
+```text
+Operator
+   ↓
+Special symbol or keyword used to perform an operation.
+
+
+Arithmetic
+   ↓
++  -  *  /  //  %  **
+
+
+Comparison
+   ↓
+==  !=  >  <  >=  <=
+
+
+Assignment
+   ↓
+=  +=  -=  *=  /=  //=  %=  **=
+
+
+Logical
+   ↓
+and  or  not
+
+
+Membership
+   ↓
+in  not in
+
+
+Identity
+   ↓
+is  is not
+
+
+Bitwise
+   ↓
+&  |  ^  ~  <<  >>
+```
+
+---
+
+# 63. Final Important Points
+
+```text
+1. Operators perform operations on values and variables.
+
+2. Arithmetic operators are used for mathematical calculations.
+
+3. / returns a float result.
+
+4. // performs floor division.
+
+5. % returns the remainder.
+
+6. ** performs exponentiation.
+
+7. Comparison operators return True or False.
+
+8. Assignment operators assign or update variable values.
+
+9. += means add and assign.
+
+10. -= means subtract and assign.
+
+11. *= means multiply and assign.
+
+12. /= means divide and assign.
+
+13. //= means floor divide and assign.
+
+14. %= means modulus and assign.
+
+15. **= means exponentiate and assign.
+
+16. and requires both conditions to be true.
+
+17. or requires at least one condition to be true.
+
+18. not reverses the condition.
+
+19. Membership operators are in and not in.
+
+20. Identity operators are is and is not.
+
+21. is checks object identity.
+
+22. == checks value equality.
+
+23. Bitwise operators work on binary representations.
+
+24. & is Bitwise AND.
+
+25. | is Bitwise OR.
+
+26. ^ is Bitwise XOR.
+
+27. ~ is Bitwise NOT.
+
+28. << is Left Shift.
+
+29. >> is Right Shift.
+
+30. 5 << 1 gives 10 in the example.
+
+31. 5 >> 1 gives 2 in the example.
+
+32. 5 & 3 gives 1.
+
+33. 5 | 3 gives 7.
+
+34. 5 ^ 3 gives 6.
+
+35. ~5 gives -6.
+
+36. Logical AND, OR, NOT and bitwise AND, OR, NOT
+    are different concepts and use different operators.
+
+37. Membership operators are useful for checking whether
+    values exist inside sequences.
+
+38. Identity operators are useful for checking whether
+    variables refer to the same object.
+
+39. Logical operators are closely related to AND, OR,
+    and NOT logic gates.
+
+40. Bitwise operators work at the binary-bit level.
+```
+
+---
+
+# ⭐ Day 5.2 Status
+
+```text
+DAY 5.2 — PYTHON OPERATORS
+
+Status: COMPLETED ✅
+```
