@@ -1,0 +1,1246 @@
+# Day 1 — Introduction to Programming & Python
+
+---
+
+# 1. What is Programming?
+
+Programming is the process of writing instructions that tell a computer what to do.
+
+A computer cannot understand human language directly. It only understands machine-level instructions.
+
+Programming languages act as a bridge between humans and computers.
+
+A set of instructions written to perform a specific task is called a **Program**.
+
+---
+
+## Real-Time Examples
+
+Programming is used in many real-world applications:
+
+- ATM Withdrawal
+- Online Shopping
+- Food Delivery Apps
+- Instagram Feed Loading
+- YouTube Video Recommendations
+- Uber Ride Booking
+
+All these applications work because programmers write instructions that computers can execute.
+
+---
+
+# 2. What is a Programming Language?
+
+A **Programming Language** is a language used to communicate with computers and create software applications.
+
+## Examples
+
+- Python
+- Java
+- C
+- C++
+- JavaScript
+- C#
+- Go
+- Rust
+
+---
+
+# 3. Types of Programming Paradigms
+
+Programming languages generally follow different programming styles called **paradigms**.
+
+The two most common paradigms are:
+
+1. Procedural Programming
+2. Object-Oriented Programming (OOP)
+
+---
+
+# 4. Procedural Programming Language
+
+Procedural Programming focuses on **Functions and Procedures**.
+
+The program is divided into small functions, and execution happens step-by-step.
+
+## Main Focus
+
+- Functions
+- Logic
+- Sequence of Steps
+
+## Examples
+
+- C
+- Pascal
+- BASIC
+
+---
+
+## Real-Time Example — Food Ordering Process
+
+Consider a food ordering application.
+
+The food ordering process can be divided into the following steps:
+
+```text
+Step 1 → Login
+Step 2 → Select Restaurant
+Step 3 → Select Food
+Step 4 → Payment
+Step 5 → Order Confirmation
+```
+
+Each step can be written as a separate function.
+
+```python
+login()
+select_restaurant()
+select_food()
+payment()
+confirm_order()
+```
+
+This is Procedural Programming because execution happens step by step.
+
+---
+
+# 5. Characteristics of Procedural Programming
+
+The main characteristics of Procedural Programming are:
+
+- Function Based
+- Top to Bottom Execution
+- Easier for Small Applications
+- Less Code Reusability
+- Data is less secure
+- Difficult to manage large projects
+
+---
+
+# 6. Advantages of Procedural Programming
+
+The advantages of Procedural Programming are:
+
+- Easy to Learn
+- Easy to Write
+- Fast Execution
+- Suitable for Small Programs
+
+---
+
+# 7. Disadvantages of Procedural Programming
+
+The disadvantages of Procedural Programming are:
+
+- Difficult for Large Projects
+- Data Security Issues
+- Less Reusability
+- Hard to Maintain
+
+---
+
+# 8. Object-Oriented Programming (OOP)
+
+Object-Oriented Programming organizes code using **Objects and Classes**.
+
+Instead of focusing only on functions, OOP focuses on real-world entities.
+
+## Examples
+
+- Customer
+- Product
+- Employee
+- Bank Account
+
+Everything is represented as an **Object**.
+
+---
+
+# 9. Real-Time Example — Amazon Product
+
+Consider a product in an online shopping application.
+
+## Product Properties
+
+A product can have the following properties:
+
+- Product Name
+- Price
+- Rating
+- Stock
+
+## Product Behaviors
+
+A product can perform the following behaviors:
+
+- Add to Cart
+- Buy Now
+- Add Review
+
+In OOP, the product can be represented as a **Product Object**.
+
+---
+
+## Product Object
+
+### Attributes
+
+```text
+name
+price
+rating
+```
+
+### Methods
+
+```text
+add_to_cart()
+buy_now()
+add_review()
+```
+
+---
+
+# 10. Characteristics of OOP
+
+The main characteristics of Object-Oriented Programming are:
+
+- Class Based
+- Object Based
+- Encapsulation
+- Inheritance
+- Polymorphism
+- Abstraction
+- Reusability
+- Security
+
+---
+
+# 11. Advantages of OOP
+
+The advantages of OOP are:
+
+- Reusable Code
+- Better Security
+- Easy Maintenance
+- Easy Scalability
+- Suitable for Large Applications
+
+---
+
+# 12. Disadvantages of OOP
+
+The disadvantages of OOP are:
+
+- More Memory Usage
+- Slightly Slower Execution
+- More Complex for Beginners
+
+---
+
+# 13. Procedural Programming vs Object-Oriented Programming
+
+| Feature | Procedural Programming | OOP |
+|---|---|---|
+| Focus | Functions | Objects |
+| Structure | Function Based | Class Based |
+| Reusability | Low | High |
+| Security | Low | High |
+| Maintenance | Difficult | Easy |
+| Scalability | Low | High |
+| Memory Usage | Less | More |
+| Suitable For | Small Applications | Large Applications |
+
+---
+
+# 14. What is Python?
+
+Python is a **high-level, interpreted, general-purpose programming language** created to make programming simple and readable.
+
+Python emphasizes:
+
+- Simplicity
+- Readability
+- Productivity
+
+Python code often looks similar to English sentences.
+
+---
+
+## Example
+
+```python
+name = "Ravi"
+print(name)
+```
+
+### Output
+
+```text
+Ravi
+```
+
+---
+
+# 15. Features of Python
+
+Python has the following features:
+
+- Easy Syntax
+- High Level Language
+- Interpreted Language
+- Object-Oriented
+- Open Source
+- Portable
+- Dynamically Typed
+- Large Community Support
+- Huge Library Ecosystem
+
+---
+
+# 16. Why Python?
+
+Python is one of the most popular programming languages because it requires fewer lines of code and is easy to learn.
+
+Python provides:
+
+- Simple Syntax
+- Readable Code
+- Fewer Lines of Code
+- Easy Learning
+- Faster Development
+- Large Ecosystem
+- Strong Community Support
+
+---
+
+## Example — Printing Hello World
+
+```python
+print("Hello World")
+```
+
+### Output
+
+```text
+Hello World
+```
+
+---
+
+# 17. Why Companies Use Python
+
+Companies use Python because of:
+
+- Faster Development
+- Less Code
+- Easy Maintenance
+- Large Ecosystem
+- Strong Community
+
+---
+
+## Companies Using Python
+
+The notes mention the following companies:
+
+- Google
+- Netflix
+- Instagram
+- Spotify
+- Dropbox
+
+---
+
+# 18. History of Python
+
+## Created By
+
+Python was created by:
+
+**Guido van Rossum**
+
+---
+
+## Development Started
+
+Python development started in:
+
+**1989**
+
+---
+
+## First Release
+
+Python was first released in:
+
+**1991**
+
+---
+
+## Name Origin
+
+The name **Python** was inspired by the comedy show:
+
+**Monty Python's Flying Circus**
+
+Python was not named after the snake.
+
+---
+
+# 19. Python Version Timeline
+
+| Version | Year |
+|---|---:|
+| Python 1.0 | 1994 |
+| Python 2.0 | 2000 |
+| Python 3.0 | 2008 |
+| Python 3.x | Current Series |
+
+Python 3 is currently the standard version.
+
+---
+
+# 20. Applications of Python
+
+Python is used in many different areas, including:
+
+- Web Development
+- Data Science
+- Artificial Intelligence
+- Automation
+- Cyber Security
+- Game Development
+- Desktop Applications
+
+---
+
+# 21. Web Development
+
+Python is used for Web Development.
+
+## Frameworks
+
+The notes mention:
+
+- Django
+- Flask
+- FastAPI
+
+## Used For
+
+Python can be used for:
+
+- Websites
+- APIs
+- Backend Systems
+
+---
+
+# 22. Data Science
+
+Python is widely used in Data Science.
+
+## Used For
+
+- Data Analysis
+- Data Visualization
+- Business Analytics
+
+## Libraries
+
+The notes mention:
+
+- NumPy
+- Pandas
+- Matplotlib
+
+---
+
+# 23. Artificial Intelligence
+
+Python is used in Artificial Intelligence.
+
+## Used For
+
+- Machine Learning
+- Deep Learning
+- Computer Vision
+- NLP
+
+## Libraries
+
+The notes mention:
+
+- TensorFlow
+- PyTorch
+- Scikit-Learn
+
+---
+
+# 24. Automation
+
+Python can be used for Automation.
+
+## Used For
+
+- Excel Automation
+- Email Automation
+- Web Scraping
+- File Handling
+
+---
+
+# 25. Cyber Security
+
+Python can be used in Cyber Security.
+
+## Used For
+
+- Network Scanning
+- Penetration Testing
+- Security Automation
+
+---
+
+# 26. Game Development
+
+Python can be used for Game Development.
+
+## Library
+
+- Pygame
+
+## Examples
+
+- 2D Games
+- Educational Games
+
+---
+
+# 27. Desktop Applications
+
+Python can also be used to develop Desktop Applications.
+
+## Libraries
+
+- Tkinter
+- PyQt
+
+## Examples
+
+- Calculator
+- Billing Software
+- Management Systems
+
+---
+
+# 28. Memory Allocation — Procedural vs OOP
+
+Understanding memory allocation is important because it explains how data is stored and managed.
+
+---
+
+# 29. Procedural Programming Memory Allocation
+
+In Procedural Programming:
+
+- Memory mainly stores variables and functions.
+- Functions are called one after another.
+- Data is usually shared globally or passed between functions.
+- Memory usage is relatively low.
+
+---
+
+## Example
+
+```python
+name = "Ravi"
+price = 500
+
+calculate_bill()
+print_bill()
+```
+
+---
+
+## Simplified Memory Representation
+
+```text
+Stack Memory
+
+name
+price
+
+Function Memory
+
+calculate_bill()
+print_bill()
+```
+
+Since there are only variables and functions, memory consumption is less.
+
+---
+
+# 30. OOP Memory Allocation
+
+In OOP:
+
+- Objects are created in Heap Memory.
+- Each object stores attributes.
+- Each object also stores a methods reference.
+
+---
+
+## Example — Product Object
+
+```text
+Product Object
+
+name = Laptop
+price = 50000
+rating = 4.5
+```
+
+---
+
+## Heap Memory
+
+```text
+Heap Memory
+
+Product Object
+    |
+    ├── name
+    ├── price
+    └── rating
+```
+
+---
+
+## Stack Memory
+
+The stack can contain the reference to the object.
+
+```text
+Stack Memory
+
+product1 → Object Reference
+```
+
+Objects consume more memory because every object stores its own state (attributes).
+
+---
+
+# 31. Procedural vs OOP Memory Allocation
+
+| Feature | Procedural | OOP |
+|---|---|---|
+| Memory Usage | Less | More |
+| Stores | Variables + Functions | Objects + Attributes |
+| Object Creation | Not Required | Required |
+| Heap Usage | Minimal | Heavy |
+| Reusability | Low | High |
+| Security | Lower | Higher |
+| Suitable For | Small Programs | Large Applications |
+
+---
+
+# 32. Procedural Programming — Complete Summary
+
+```text
+Procedural Programming
+        |
+        ├── Functions
+        ├── Procedures
+        ├── Logic
+        ├── Sequence of Steps
+        ├── Top-to-Bottom Execution
+        ├── Function Based
+        ├── Less Reusability
+        ├── Lower Security
+        ├── Less Memory Usage
+        └── Suitable for Small Applications
+```
+
+---
+
+# 33. Object-Oriented Programming — Complete Summary
+
+```text
+Object-Oriented Programming
+        |
+        ├── Classes
+        ├── Objects
+        ├── Encapsulation
+        ├── Inheritance
+        ├── Polymorphism
+        ├── Abstraction
+        ├── Reusability
+        ├── Security
+        ├── More Memory Usage
+        └── Suitable for Large Applications
+```
+
+---
+
+# 34. Python — Complete Summary
+
+```text
+Python
+   |
+   ├── High Level Language
+   ├── Interpreted Language
+   ├── General Purpose
+   ├── Object-Oriented
+   ├── Open Source
+   ├── Portable
+   ├── Dynamically Typed
+   ├── Easy Syntax
+   ├── Large Community Support
+   └── Huge Library Ecosystem
+```
+
+---
+
+# 35. Python Applications — Complete Summary
+
+```text
+Python
+   |
+   ├── Web Development
+   │      ├── Django
+   │      ├── Flask
+   │      └── FastAPI
+   │
+   ├── Data Science
+   │      ├── NumPy
+   │      ├── Pandas
+   │      └── Matplotlib
+   │
+   ├── Artificial Intelligence
+   │      ├── TensorFlow
+   │      ├── PyTorch
+   │      └── Scikit-Learn
+   │
+   ├── Automation
+   │      ├── Excel Automation
+   │      ├── Email Automation
+   │      ├── Web Scraping
+   │      └── File Handling
+   │
+   ├── Cyber Security
+   │      ├── Network Scanning
+   │      ├── Penetration Testing
+   │      └── Security Automation
+   │
+   ├── Game Development
+   │      └── Pygame
+   │
+   └── Desktop Applications
+          ├── Tkinter
+          └── PyQt
+```
+
+---
+
+# 36. Procedural vs OOP — Quick Comparison
+
+| Feature | Procedural Programming | OOP |
+|---|---|---|
+| Main Focus | Functions | Objects |
+| Structure | Function Based | Class Based |
+| Reusability | Low | High |
+| Security | Low | High |
+| Maintenance | Difficult | Easy |
+| Scalability | Low | High |
+| Memory Usage | Less | More |
+| Object Creation | Not Required | Required |
+| Heap Usage | Minimal | Heavy |
+| Suitable For | Small Applications | Large Applications |
+
+---
+
+# 37. Day 1 Important Points
+
+```text
+1. Programming is the process of writing instructions that tell a computer what to do.
+
+2. A computer cannot understand human language directly.
+   It understands machine-level instructions.
+
+3. Programming languages act as a bridge between humans and computers.
+
+4. A set of instructions written to perform a specific task
+   is called a Program.
+
+5. A Programming Language is a language used to communicate
+   with computers and create software applications.
+
+6. Programming languages generally follow different programming
+   styles called paradigms.
+
+7. The two common paradigms covered are:
+   - Procedural Programming
+   - Object-Oriented Programming
+
+8. Procedural Programming focuses on Functions and Procedures.
+
+9. Procedural Programming executes instructions step-by-step.
+
+10. Procedural Programming is mainly function based.
+
+11. Procedural Programming is easier for small applications.
+
+12. Procedural Programming has less code reusability.
+
+13. Procedural Programming has lower data security.
+
+14. Procedural Programming can be difficult to manage
+    for large projects.
+
+15. OOP organizes code using Objects and Classes.
+
+16. OOP focuses on real-world entities.
+
+17. Important OOP concepts mentioned are:
+    - Encapsulation
+    - Inheritance
+    - Polymorphism
+    - Abstraction
+
+18. OOP provides better code reusability.
+
+19. OOP provides better security.
+
+20. OOP makes maintenance easier.
+
+21. OOP provides better scalability.
+
+22. OOP is suitable for large applications.
+
+23. OOP can use more memory.
+
+24. Python is a high-level, interpreted,
+    general-purpose programming language.
+
+25. Python emphasizes:
+    - Simplicity
+    - Readability
+    - Productivity
+
+26. Python has easy syntax.
+
+27. Python is object-oriented.
+
+28. Python is open source.
+
+29. Python is portable.
+
+30. Python is dynamically typed.
+
+31. Python has large community support.
+
+32. Python has a huge library ecosystem.
+
+33. Python was created by Guido van Rossum.
+
+34. Python development started in 1989.
+
+35. Python was first released in 1991.
+
+36. The name Python was inspired by
+    Monty Python's Flying Circus.
+
+37. Python was not named after the snake.
+
+38. Python 1.0 was released in 1994.
+
+39. Python 2.0 was released in 2000.
+
+40. Python 3.0 was released in 2008.
+
+41. Python 3.x is the current series mentioned in the notes.
+
+42. Python is used in Web Development.
+
+43. Python is used in Data Science.
+
+44. Python is used in Artificial Intelligence.
+
+45. Python is used in Automation.
+
+46. Python is used in Cyber Security.
+
+47. Python is used in Game Development.
+
+48. Python is used in Desktop Applications.
+
+49. Procedural programming memory usage is relatively low.
+
+50. In the simplified memory model in the notes,
+    procedural programming mainly stores variables and functions.
+
+51. In OOP, objects are created in Heap Memory.
+
+52. Objects store their attributes.
+
+53. Stack Memory can contain an object reference.
+
+54. OOP generally consumes more memory because objects
+    store their own state.
+```
+
+---
+
+# 38. Day 1 Quick Revision
+
+```text
+PROGRAMMING
+     |
+     ↓
+Writing instructions for a computer
+     |
+     ↓
+PROGRAM
+     |
+     ↓
+Set of instructions for a specific task
+     |
+     ↓
+PROGRAMMING LANGUAGE
+     |
+     ↓
+Used to communicate with computers
+     |
+     ↓
+PROGRAMMING PARADIGMS
+     |
+     ├── Procedural Programming
+     |
+     └── Object-Oriented Programming
+```
+
+---
+
+# 39. Procedural Programming Quick Revision
+
+```text
+PROCEDURAL PROGRAMMING
+        |
+        ├── Functions
+        ├── Procedures
+        ├── Logic
+        ├── Sequence of Steps
+        ├── Top-to-Bottom Execution
+        ├── Function Based
+        ├── Less Reusability
+        ├── Lower Security
+        ├── Less Memory
+        └── Small Applications
+```
+
+---
+
+# 40. OOP Quick Revision
+
+```text
+OBJECT-ORIENTED PROGRAMMING
+        |
+        ├── Classes
+        ├── Objects
+        ├── Encapsulation
+        ├── Inheritance
+        ├── Polymorphism
+        ├── Abstraction
+        ├── Reusability
+        ├── Security
+        ├── More Memory
+        └── Large Applications
+```
+
+---
+
+# 41. Python Quick Revision
+
+```text
+PYTHON
+   |
+   ├── High Level
+   ├── Interpreted
+   ├── General Purpose
+   ├── Object-Oriented
+   ├── Open Source
+   ├── Portable
+   ├── Dynamically Typed
+   ├── Easy Syntax
+   ├── Large Community
+   └── Huge Library Ecosystem
+```
+
+---
+
+# 42. Memory Allocation Quick Revision
+
+```text
+PROCEDURAL
+     |
+     ├── Variables
+     ├── Functions
+     ├── Less Memory
+     └── Minimal Heap Usage
+
+
+OOP
+     |
+     ├── Objects
+     ├── Attributes
+     ├── Object References
+     ├── More Memory
+     └── Heavy Heap Usage
+```
+
+---
+
+# 43. Day 1 Final Revision
+
+```text
+What is Programming?
+        ↓
+Writing instructions for a computer
+
+What is a Program?
+        ↓
+A set of instructions for a specific task
+
+What is a Programming Language?
+        ↓
+A language used to communicate with computers
+
+What is Procedural Programming?
+        ↓
+Function-based, step-by-step programming
+
+What is OOP?
+        ↓
+Programming using Classes and Objects
+
+What is Python?
+        ↓
+High-level + Interpreted + General-Purpose Language
+
+Who created Python?
+        ↓
+Guido van Rossum
+
+When did Python development start?
+        ↓
+1989
+
+When was Python first released?
+        ↓
+1991
+
+Python 3.0?
+        ↓
+2008
+
+Python Applications?
+        ↓
+Web Development
+Data Science
+Artificial Intelligence
+Automation
+Cyber Security
+Game Development
+Desktop Applications
+
+Procedural Memory?
+        ↓
+Lower memory usage
+
+OOP Memory?
+        ↓
+Higher memory usage
+```
+
+---
+
+# 44. Day 1 Learning Checklist
+
+```text
+[ ] What is Programming?
+
+[ ] What is a Program?
+
+[ ] What is a Programming Language?
+
+[ ] Examples of Programming Languages
+
+[ ] What is a Programming Paradigm?
+
+[ ] Procedural Programming
+
+[ ] Main Focus of Procedural Programming
+
+[ ] Procedural Programming Examples
+
+[ ] Real-Time Food Ordering Example
+
+[ ] Characteristics of Procedural Programming
+
+[ ] Advantages of Procedural Programming
+
+[ ] Disadvantages of Procedural Programming
+
+[ ] Object-Oriented Programming
+
+[ ] Real-World Objects in OOP
+
+[ ] Amazon Product Example
+
+[ ] Attributes
+
+[ ] Methods
+
+[ ] Characteristics of OOP
+
+[ ] Advantages of OOP
+
+[ ] Disadvantages of OOP
+
+[ ] Procedural vs OOP
+
+[ ] What is Python?
+
+[ ] Features of Python
+
+[ ] Why Python?
+
+[ ] Why Companies Use Python
+
+[ ] Companies Using Python
+
+[ ] History of Python
+
+[ ] Guido van Rossum
+
+[ ] Python Development Started — 1989
+
+[ ] Python First Release — 1991
+
+[ ] Python Name Origin
+
+[ ] Python Version Timeline
+
+[ ] Python 1.0
+
+[ ] Python 2.0
+
+[ ] Python 3.0
+
+[ ] Python 3.x
+
+[ ] Web Development
+
+[ ] Django
+
+[ ] Flask
+
+[ ] FastAPI
+
+[ ] Data Science
+
+[ ] NumPy
+
+[ ] Pandas
+
+[ ] Matplotlib
+
+[ ] Artificial Intelligence
+
+[ ] TensorFlow
+
+[ ] PyTorch
+
+[ ] Scikit-Learn
+
+[ ] Automation
+
+[ ] Cyber Security
+
+[ ] Game Development
+
+[ ] Pygame
+
+[ ] Desktop Applications
+
+[ ] Tkinter
+
+[ ] PyQt
+
+[ ] Memory Allocation
+
+[ ] Procedural Memory Allocation
+
+[ ] Stack Memory
+
+[ ] OOP Memory Allocation
+
+[ ] Heap Memory
+
+[ ] Object Reference
+
+[ ] Procedural vs OOP Memory Allocation
+```
+
+---
+
+# 45. Day 1 Conclusion
+
+Today I learned the fundamentals of Programming and Python.
+
+The complete learning flow is:
+
+```text
+Programming
+     ↓
+Program
+     ↓
+Programming Language
+     ↓
+Programming Paradigms
+     ↓
+Procedural Programming
+     ↓
+Object-Oriented Programming
+     ↓
+Python
+     ↓
+Python Features
+     ↓
+Why Python?
+     ↓
+Why Companies Use Python
+     ↓
+Python History
+     ↓
+Python Version Timeline
+     ↓
+Applications of Python
+     ↓
+Memory Allocation
+     ↓
+Procedural vs OOP Memory Allocation
+```
+
+---
+
+# ⭐ Day 1 Status
+
+```text
+DAY 1 — INTRODUCTION TO PROGRAMMING & PYTHON
+
+Status: COMPLETED ✅
+```
