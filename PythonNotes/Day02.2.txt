@@ -1,0 +1,525 @@
+# Day 2 — Python Tokens, Statements, Identifiers, Comments, Variables & Keywords
+---
+
+# 1. Tokens in Python
+
+## Definition
+
+Tokens are the smallest building blocks or units of a Python program.
+
+Everything you write in a Python program (like keywords, identifiers, literals, operators, etc.) is a token.
+
+## Types of Tokens
+
+Python has mainly 5 types of tokens:
+
+| Type | Example | Explanation |
+| --- | --- | --- |
+| 1. Keywords | if, else, for, while, class, import | Predefined reserved words that have special meaning in Python. |
+| 2. Identifiers | x, student_name, calculate_sum | Names given to variables, functions, classes, etc. |
+| 3. Literals | 10, 'Hello', 3.14, True | Fixed values or data given directly in the code. |
+| 4. Operators | +, -, *, /, = | Symbols that perform operations on data. |
+| 5. Punctuators / Delimiters | (), [], {}, ,, : | Used for grouping or separating parts of code. |
+
+### Example — Identifying Tokens
+
+```
+x = 10
+
+# x  → Identifier
+# =  → Operator
+# 10 → Literal
+```
+
+# 2. Statements
+
+## Definition
+
+A statement is an instruction that Python can execute.
+
+## Examples
+
+```
+x = 10       # Assignment statement
+print(x)      # Function call statement
+if x > 5:     # Conditional statement
+    print("x is big")
+```
+
+Each line that performs some action is a statement in Python.
+
+# 3. Identifiers
+
+## Definition
+
+An identifier is the name you give to variables, functions, classes, etc.
+
+## Example
+
+```
+name = "Jani"
+age = 16
+
+def greet():
+    print("Hello")
+```
+
+## Rules for Identifiers
+
+- Must begin with a letter (A-Z, a-z) or underscore `_`
+
+- Can contain letters, digits (0-9), and underscores
+
+- Cannot start with a digit
+
+- Cannot use Python keywords (like `if`, `while`, `class`) as names
+
+- Case sensitive (`name` and `Name` are different)
+
+### Examples
+
+```
+student1 = "Jani"
+student_name = "Jani"
+```
+
+Invalid:
+
+```
+1student = "Jani"
+if = 10
+```
+
+# 4. Comments
+
+Comments are used to describe your code and are not executed by Python.
+
+## Single-Line Comment
+
+Use the `#` symbol.
+
+```
+# This is a single-line comment
+x = 10  # This comment is after code
+```
+
+## Multi-Line Comment
+
+You can use triple quotes (`'''` or `"""`) for multiple lines.
+
+```
+'''
+This is a
+multi-line
+comment
+'''
+```
+
+# 5. Variables
+
+## Definition
+
+Variables are names that store data values. (General)
+
+In Python, a variable is a name that binds to an object.
+
+Objects are stored in heap memory.
+
+## Example
+
+```
+x = 10
+name = "Jani"
+```
+
+When you assign a value to a variable, Python automatically creates it.
+
+## Rules for Variables
+
+- Must start with a letter or underscore `_`
+
+- Can contain letters, digits, and underscores
+
+- Are case-sensitive
+
+- Should not use keywords
+
+- Don’t need explicit declaration (Python assigns type automatically)
+
+# 6. Multiple Assignment
+
+You can assign values to multiple variables at once.
+
+## Example
+
+```
+a, b, c = 10, 20, 30
+print(a, b, c)
+```
+
+You can also assign the same value to multiple variables:
+
+```
+x = y = z = 100
+```
+
+# 7. Reassignment
+
+You can change the value of a variable anytime.
+
+## Example
+
+```
+x = 5
+x = 10   # Reassigned
+print(x) # Output: 10
+```
+
+### Output
+
+```
+10
+```
+
+# 8. Swapping Variables
+
+You can swap the values of two variables easily.
+
+## Example
+
+```
+a = 10
+b = 20
+a, b = b, a
+print(a, b)  # Output: 20 10
+```
+
+Python does this internally without using a temporary variable.
+
+### Before Swapping
+
+```
+a = 10
+b = 20
+```
+
+### After Swapping
+
+```
+a = 20
+b = 10
+```
+
+# 9. Deleting Variables
+
+You can delete a variable using the `del` keyword.
+
+## Example
+
+```
+x = 10
+del x
+print(x)   # Error: NameError, because x no longer exists
+```
+
+### Result
+
+```
+NameError
+```
+
+# 10. Keywords
+
+## Definition
+
+Keywords are predefined words that have special meanings in Python.
+
+You cannot use them as variable names or identifiers.
+
+## Example Keywords
+
+```
+False, True, None, if, else, elif, while, for, break, continue,
+def, return, import, from, as, class, try, except, finally, global,
+nonlocal, lambda, and, or, not, is, in, pass, raise, yield
+```
+
+## Display Keywords in Your Python Version
+
+```
+import keyword
+print(keyword.kwlist)
+```
+
+# 11. Complete Summary
+
+| Concept | Description | Example |
+| --- | --- | --- |
+| Tokens | Smallest parts of code | x = 10 → identifiers, literals, operators |
+| Statements | Executable instructions | print("Hello") |
+| Identifiers | Names for variables, functions, etc. | name = "Jani" |
+| Comments | Notes ignored by Python | # this is a comment |
+| Variables | Containers for storing data | x = 5 |
+| Multiple Assignment | Assigning many values at once | a, b = 1, 2 |
+| Reassignment | Changing a variable’s value | x = 10 |
+| Swapping | Exchanging variable values | a, b = b, a |
+| Deleting Variables | Removing a variable | del x |
+| Keywords | Reserved words | if, else, for, True |
+
+# 12. Tokens vs Statements
+
+### Token
+
+A token is the smallest building block of a Python program.
+
+```
+x = 10
+
+# Tokens:
+# x
+# =
+# 10
+```
+
+### Statement
+
+A statement is an instruction that Python can execute.
+
+```
+x = 10
+```
+
+Therefore:
+
+```
+Tokens     → Building blocks
+Statements → Executable instructions
+```
+
+# 13. Identifier vs Variable
+
+An identifier is a name given to variables, functions, classes, etc.
+
+```
+name = "Jani"
+```
+
+Here:
+
+```
+name → Identifier
+```
+
+The variable `name` binds to the object containing:
+
+```
+"Jani"
+```
+
+# 14. Variable Operations — Quick Revision
+
+```
+VARIABLES
+    |
+    ├── Create
+    │     └── x = 10
+    │
+    ├── Multiple Assignment
+    │     └── a, b = 10, 20
+    │
+    ├── Reassignment
+    │     └── x = 20
+    │
+    ├── Swapping
+    │     └── a, b = b, a
+    │
+    └── Delete
+          └── del x
+```
+
+# 15. Important Rules to Remember
+
+1. Tokens are the smallest building blocks of a Python program.
+
+2. Python has mainly 5 types of tokens: Keywords, Identifiers, Literals, Operators, and Punctuators / Delimiters.
+
+3. A statement is an instruction that Python can execute.
+
+4. An identifier is the name given to variables, functions, classes, etc.
+
+5. Identifiers must begin with a letter or underscore.
+
+6. Identifiers can contain letters, digits and underscores.
+
+7. Identifiers cannot start with a digit.
+
+8. Python keywords cannot be used as identifiers.
+
+9. Identifiers are case-sensitive.
+
+10. Comments are used to describe code and are not executed by Python.
+
+11. Single-line comments use `#`.
+
+12. Triple quotes can be used for multiple-line comments in the notes.
+
+13. A variable is a name that binds to an object.
+
+14. The notes state that objects are stored in heap memory.
+
+15. Python variables do not need explicit declaration.
+
+16. Python assigns the type automatically.
+
+17. Multiple assignment allows multiple values to be assigned at once.
+
+18. The same value can be assigned to multiple variables.
+
+19. Variables can be reassigned.
+
+20. Variables can be swapped without using a temporary variable.
+
+21. The `del` keyword can delete a variable.
+
+22. Using a deleted variable results in a `NameError`.
+
+23. Keywords are predefined words with special meanings.
+
+24. Keywords cannot be used as variable names or identifiers.
+
+25. The `keyword` module can be used to display Python keywords.
+
+26. Use `keyword.kwlist` to display the keyword list.
+
+# 16. Must-Practice Programs
+
+## Program 1 — Multiple Assignment
+
+```
+a, b, c = 10, 20, 30
+
+print(a)
+print(b)
+print(c)
+```
+
+## Program 2 — Same Value Assignment
+
+```
+x = y = z = 100
+
+print(x)
+print(y)
+print(z)
+```
+
+## Program 3 — Reassignment
+
+```
+x = 5
+
+x = 10
+
+print(x)
+```
+
+### Output
+
+```
+10
+```
+
+## Program 4 — Swapping
+
+```
+a = 10
+b = 20
+
+a, b = b, a
+
+print(a, b)
+```
+
+### Output
+
+```
+20 10
+```
+
+## Program 5 — Delete Variable
+
+```
+x = 10
+
+del x
+
+print(x)
+```
+
+### Result
+
+```
+NameError
+```
+
+## Program 6 — Display Python Keywords
+
+```
+import keyword
+
+print(keyword.kwlist)
+```
+
+# 17. Day 2 Quick Revision
+
+```
+TOKEN
+  ↓
+Smallest building block of Python code
+
+5 TOKEN TYPES
+  ↓
+Keywords
+Identifiers
+Literals
+Operators
+Punctuators / Delimiters
+
+STATEMENT
+  ↓
+Instruction Python can execute
+
+IDENTIFIER
+  ↓
+Name given to variable, function, class, etc.
+
+COMMENT
+  ↓
+Used to describe code
+  ↓
+Not executed by Python
+
+VARIABLE
+  ↓
+Name that binds to an object
+
+MULTIPLE ASSIGNMENT
+  ↓
+a, b = 10, 20
+
+REASSIGNMENT
+  ↓
+x = 10
+
+SWAPPING
+  ↓
+a, b = b, a
+
+DELETE
+  ↓
+del x
+
+KEYWORD
+  ↓
+Predefined reserved word
+```

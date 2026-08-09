@@ -1,437 +1,236 @@
-# Day 2 — Python Tokens, Statements, Identifiers, Comments, Variables & Keywords
+# Day 3 — Comments, Swapping Variables & Python Data Types
+
 ---
 
-# 1. Tokens in Python
+# 1. Comments in Python
 
-## Definition
+## What are Comments?
 
-Tokens are the smallest building blocks or units of a Python program.
+A comment is a line of text in a Python program that is ignored by the Python interpreter.
 
-Everything you write in a Python program (like keywords, identifiers, literals, operators, etc.) is a token.
+Comments are used to:
 
-## Types of Tokens
+- Explain the code
+- Improve readability
+- Add notes for developers
+- Temporarily disable code during testing
 
-Python has mainly 5 types of tokens:
+---
 
-| Type | Example | Explanation |
-| --- | --- | --- |
-| 1. Keywords | if, else, for, while, class, import | Predefined reserved words that have special meaning in Python. |
-| 2. Identifiers | x, student_name, calculate_sum | Names given to variables, functions, classes, etc. |
-| 3. Literals | 10, 'Hello', 3.14, True | Fixed values or data given directly in the code. |
-| 4. Operators | +, -, *, /, = | Symbols that perform operations on data. |
-| 5. Punctuators / Delimiters | (), [], {}, ,, : | Used for grouping or separating parts of code. |
+# 2. Types of Comments
 
-### Example — Identifying Tokens
+Python mainly uses two types of comments:
 
+1. Single-line Comment
+2. Multi-line Comment (using triple-quoted strings as documentation or multi-line text)
+
+---
+
+# 3. Single-Line Comment
+
+A single-line comment starts with the hash (`#`) symbol.
+
+## Syntax
+
+```python
+# This is a comment
 ```
-x = 10
-
-# x  → Identifier
-# =  → Operator
-# 10 → Literal
-```
-
-# 2. Statements
-
-## Definition
-
-A statement is an instruction that Python can execute.
-
-## Examples
-
-```
-x = 10       # Assignment statement
-print(x)      # Function call statement
-if x > 5:     # Conditional statement
-    print("x is big")
-```
-
-Each line that performs some action is a statement in Python.
-
-# 3. Identifiers
-
-## Definition
-
-An identifier is the name you give to variables, functions, classes, etc.
 
 ## Example
 
-```
-name = "Jani"
-age = 16
-
-def greet():
-    print("Hello")
-```
-
-## Rules for Identifiers
-
-- Must begin with a letter (A-Z, a-z) or underscore `_`
-
-- Can contain letters, digits (0-9), and underscores
-
-- Cannot start with a digit
-
-- Cannot use Python keywords (like `if`, `while`, `class`) as names
-
-- Case sensitive (`name` and `Name` are different)
-
-### Examples
-
-```
-student1 = "Jani"
-student_name = "Jani"
-```
-
-Invalid:
-
-```
-1student = "Jani"
-if = 10
-```
-
-# 4. Comments
-
-Comments are used to describe your code and are not executed by Python.
-
-## Single-Line Comment
-
-Use the `#` symbol.
-
-```
-# This is a single-line comment
-x = 10  # This comment is after code
-```
-
-## Multi-Line Comment
-
-You can use triple quotes (`'''` or `"""`) for multiple lines.
-
-```
-'''
-This is a
-multi-line
-comment
-'''
-```
-
-# 5. Variables
-
-## Definition
-
-Variables are names that store data values. (General)
-
-In Python, a variable is a name that binds to an object.
-
-Objects are stored in heap memory.
-
-## Example
-
-```
-x = 10
-name = "Jani"
-```
-
-When you assign a value to a variable, Python automatically creates it.
-
-## Rules for Variables
-
-- Must start with a letter or underscore `_`
-
-- Can contain letters, digits, and underscores
-
-- Are case-sensitive
-
-- Should not use keywords
-
-- Don’t need explicit declaration (Python assigns type automatically)
-
-# 6. Multiple Assignment
-
-You can assign values to multiple variables at once.
-
-## Example
-
-```
-a, b, c = 10, 20, 30
-print(a, b, c)
-```
-
-You can also assign the same value to multiple variables:
-
-```
-x = y = z = 100
-```
-
-# 7. Reassignment
-
-You can change the value of a variable anytime.
-
-## Example
-
-```
-x = 5
-x = 10   # Reassigned
-print(x) # Output: 10
+```python
+# Printing a welcome message
+print("Welcome to Python")
 ```
 
 ### Output
 
+```text
+Welcome to Python
 ```
-10
+
+---
+
+# 4. Multiple Single-Line Comments
+
+```python
+# Student Information
+# Name : Rahul
+# Course : Python
+# Batch : PFS-101
+
+print("Student Registered")
 ```
 
-# 8. Swapping Variables
+---
 
-You can swap the values of two variables easily.
+# 5. Multi-Line Comment
 
-## Example
+Python does not have a special multi-line comment syntax.
 
+However, programmers often use triple-quoted strings (`'''...'''` or `"""..."""`) as documentation strings (docstrings) or for multi-line text.
+
+## Using Triple Double Quotes
+
+```python
+"""
+This program
+demonstrates
+multi-line text.
+"""
+
+print("Python")
 ```
+
+## Using Triple Single Quotes
+
+```python
+'''
+This is another
+multi-line text block.
+'''
+
+print("Hello")
+```
+
+## Important Note
+
+According to the Python documentation, triple-quoted strings are actually string literals.
+
+When placed at the beginning of a module, function, or class, they become docstrings.
+
+---
+
+# 6. Swapping Two Variables
+
+## Definition
+
+Swapping means exchanging the values of two variables.
+
+Suppose:
+
+```python
 a = 10
 b = 20
-a, b = b, a
-print(a, b)  # Output: 20 10
 ```
 
-Python does this internally without using a temporary variable.
+After swapping:
 
-### Before Swapping
-
-```
-a = 10
-b = 20
-```
-
-### After Swapping
-
-```
+```python
 a = 20
 b = 10
 ```
 
-# 9. Deleting Variables
+Three methods:
 
-You can delete a variable using the `del` keyword.
+1. Using a Third Variable
+2. Without Using a Third Variable (Arithmetic Method)
+3. Pythonic Swapping (Recommended)
+
+---
+
+# 7. Method 1 — Using a Third Variable
+
+## Algorithm
+
+```python
+temp = a
+a = b
+b = temp
+```
 
 ## Example
 
-```
-x = 10
-del x
-print(x)   # Error: NameError, because x no longer exists
-```
-
-### Result
-
-```
-NameError
-```
-
-# 10. Keywords
-
-## Definition
-
-Keywords are predefined words that have special meanings in Python.
-
-You cannot use them as variable names or identifiers.
-
-## Example Keywords
-
-```
-False, True, None, if, else, elif, while, for, break, continue,
-def, return, import, from, as, class, try, except, finally, global,
-nonlocal, lambda, and, or, not, is, in, pass, raise, yield
-```
-
-## Display Keywords in Your Python Version
-
-```
-import keyword
-print(keyword.kwlist)
-```
-
-# 11. Complete Summary
-
-| Concept | Description | Example |
-| --- | --- | --- |
-| Tokens | Smallest parts of code | x = 10 → identifiers, literals, operators |
-| Statements | Executable instructions | print("Hello") |
-| Identifiers | Names for variables, functions, etc. | name = "Jani" |
-| Comments | Notes ignored by Python | # this is a comment |
-| Variables | Containers for storing data | x = 5 |
-| Multiple Assignment | Assigning many values at once | a, b = 1, 2 |
-| Reassignment | Changing a variable’s value | x = 10 |
-| Swapping | Exchanging variable values | a, b = b, a |
-| Deleting Variables | Removing a variable | del x |
-| Keywords | Reserved words | if, else, for, True |
-
-# 12. Tokens vs Statements
-
-### Token
-
-A token is the smallest building block of a Python program.
-
-```
-x = 10
-
-# Tokens:
-# x
-# =
-# 10
-```
-
-### Statement
-
-A statement is an instruction that Python can execute.
-
-```
-x = 10
-```
-
-Therefore:
-
-```
-Tokens     → Building blocks
-Statements → Executable instructions
-```
-
-# 13. Identifier vs Variable
-
-An identifier is a name given to variables, functions, classes, etc.
-
-```
-name = "Jani"
-```
-
-Here:
-
-```
-name → Identifier
-```
-
-The variable `name` binds to the object containing:
-
-```
-"Jani"
-```
-
-# 14. Variable Operations — Quick Revision
-
-```
-VARIABLES
-    |
-    ├── Create
-    │     └── x = 10
-    │
-    ├── Multiple Assignment
-    │     └── a, b = 10, 20
-    │
-    ├── Reassignment
-    │     └── x = 20
-    │
-    ├── Swapping
-    │     └── a, b = b, a
-    │
-    └── Delete
-          └── del x
-```
-
-# 15. Important Rules to Remember
-
-1. Tokens are the smallest building blocks of a Python program.
-
-2. Python has mainly 5 types of tokens: Keywords, Identifiers, Literals, Operators, and Punctuators / Delimiters.
-
-3. A statement is an instruction that Python can execute.
-
-4. An identifier is the name given to variables, functions, classes, etc.
-
-5. Identifiers must begin with a letter or underscore.
-
-6. Identifiers can contain letters, digits and underscores.
-
-7. Identifiers cannot start with a digit.
-
-8. Python keywords cannot be used as identifiers.
-
-9. Identifiers are case-sensitive.
-
-10. Comments are used to describe code and are not executed by Python.
-
-11. Single-line comments use `#`.
-
-12. Triple quotes can be used for multiple-line comments in the notes.
-
-13. A variable is a name that binds to an object.
-
-14. The notes state that objects are stored in heap memory.
-
-15. Python variables do not need explicit declaration.
-
-16. Python assigns the type automatically.
-
-17. Multiple assignment allows multiple values to be assigned at once.
-
-18. The same value can be assigned to multiple variables.
-
-19. Variables can be reassigned.
-
-20. Variables can be swapped without using a temporary variable.
-
-21. The `del` keyword can delete a variable.
-
-22. Using a deleted variable results in a `NameError`.
-
-23. Keywords are predefined words with special meanings.
-
-24. Keywords cannot be used as variable names or identifiers.
-
-25. The `keyword` module can be used to display Python keywords.
-
-26. Use `keyword.kwlist` to display the keyword list.
-
-# 16. Must-Practice Programs
-
-## Program 1 — Multiple Assignment
-
-```
-a, b, c = 10, 20, 30
-
-print(a)
-print(b)
-print(c)
-```
-
-## Program 2 — Same Value Assignment
-
-```
-x = y = z = 100
-
-print(x)
-print(y)
-print(z)
-```
-
-## Program 3 — Reassignment
-
-```
-x = 5
-
-x = 10
-
-print(x)
+```python
+a = 10
+b = 20
+
+temp = a
+a = b
+b = temp
+
+print(a, b)
 ```
 
 ### Output
 
-```
-10
+```text
+20 10
 ```
 
-## Program 4 — Swapping
+## Memory Representation
 
+### Before
+
+```text
+a → 10
+b → 20
 ```
+
+### After
+
+```text
+a → 20
+b → 10
+```
+
+---
+
+# 8. Method 2 — Without Using a Third Variable
+
+## Arithmetic Method
+
+```python
+a = a + b
+b = a - b
+a = a - b
+```
+
+## Example
+
+```python
+a = 10
+b = 20
+
+a = a + b
+b = a - b
+a = a - b
+
+print(a, b)
+```
+
+### Output
+
+```text
+20 10
+```
+
+## Step-by-Step
+
+| Step | Operation | a | b |
+| --- | --- | ---: | ---: |
+| Initial | — | 10 | 20 |
+| 1 | `a = a + b` | 30 | 20 |
+| 2 | `b = a - b` | 30 | 10 |
+| 3 | `a = a - b` | 20 | 10 |
+
+---
+
+# 9. Method 3 — Pythonic Swapping
+
+## Recommended Method
+
+Python provides a simple way to swap variables without using a third variable.
+
+## Syntax
+
+```python
+a, b = b, a
+```
+
+## Example
+
+```python
 a = 10
 b = 20
 
@@ -442,84 +241,1132 @@ print(a, b)
 
 ### Output
 
-```
+```text
 20 10
 ```
 
-## Program 5 — Delete Variable
+This is the recommended and most commonly used method in Python.
 
+---
+
+# 10. Swapping Methods — Quick Comparison
+
+| Method | Extra Variable | Main Idea | Recommendation |
+| --- | --- | --- | --- |
+| Third Variable | Yes | Use `temp` | Basic method |
+| Arithmetic | No | Use `+` and `-` | Understand the logic |
+| Pythonic | No | `a, b = b, a` | Recommended |
+
+---
+
+# 11. Variables
+
+## Definition
+
+A variable is a name that refers (binds) to an object (value).
+
+## Syntax
+
+```python
+variable_name = value
 ```
-x = 10
 
-del x
+## Examples
+
+```python
+a = 10
+name = "Raju"
+temperature = 37.5
+```
+
+---
+
+# 12. Example Program Using Variables
+
+```python
+age = 22
+name = "Harish"
+percentage = 95.5
+
+print(age)
+print(name)
+print(percentage)
+```
+
+### Output
+
+```text
+22
+Harish
+95.5
+```
+
+---
+
+# 13. Python Data Types
+
+## Definition
+
+A data type specifies the type of value stored in a variable.
+
+Python automatically determines the data type based on the assigned value.
+
+## Example
+
+```python
+a = 10
+```
+
+Python recognizes that `10` is an integer.
+
+---
+
+# 14. Main Built-in Data Types
+
+| Category | Data Types |
+| --- | --- |
+| Text Type | `str` |
+| Numeric Types | `int`, `float`, `complex` |
+| Sequence Types | `list`, `tuple`, `range` |
+| Mapping Type | `dict` |
+| Set Types | `set`, `frozenset` |
+| Boolean Type | `bool` |
+| None Type | `NoneType` |
+
+---
+
+# 15. Text Type — `str`
+
+A string is a sequence of characters enclosed in quotes.
+
+Strings are immutable, meaning they cannot be modified after creation.
+
+## Syntax
+
+```python
+name = "Raju"
+```
+
+or
+
+```python
+name = 'Raju'
+```
+
+## Examples
+
+```python
+name = "Harish"
+country = "India"
+institute = "Codegnan"
+
+print(name)
+print(country)
+```
+
+### Output
+
+```text
+Harish
+India
+```
+
+---
+
+# 16. String Properties
+
+Strings:
+
+- Store text
+- Are immutable
+- Are ordered
+- Support indexing
+
+## Example
+
+```python
+name = "Python"
+
+print(name[0])
+```
+
+### Output
+
+```text
+P
+```
+
+## Indexing
+
+```text
+P  y  t  h  o  n
+0  1  2  3  4  5
+```
+
+---
+
+# 17. Numeric Types
+
+Python supports three numeric types:
+
+1. `int`
+2. `float`
+3. `complex`
+
+---
+
+# 18. Integer — `int`
+
+## Definition
+
+`int` represents whole numbers:
+
+- Positive numbers
+- Negative numbers
+- Zero
+
+## Examples
+
+```python
+age = 23
+marks = 500
+temperature = -10
+```
+
+## Example Program
+
+```python
+x = 100
 
 print(x)
+print(type(x))
 ```
 
-### Result
+### Output
 
-```
-NameError
-```
-
-## Program 6 — Display Python Keywords
-
-```
-import keyword
-
-print(keyword.kwlist)
+```text
+100
+<class 'int'>
 ```
 
-# 17. Day 2 Quick Revision
+---
 
+# 19. Float — `float`
+
+## Definition
+
+`float` represents decimal numbers.
+
+## Examples
+
+```python
+percentage = 97.5
+temperature = 40.5
+salary = 25000.75
 ```
-TOKEN
-  ↓
-Smallest building block of Python code
 
-5 TOKEN TYPES
-  ↓
-Keywords
-Identifiers
-Literals
-Operators
-Punctuators / Delimiters
+## Example
 
-STATEMENT
-  ↓
-Instruction Python can execute
+```python
+price = 199.99
 
-IDENTIFIER
-  ↓
-Name given to variable, function, class, etc.
+print(type(price))
+```
 
-COMMENT
-  ↓
-Used to describe code
-  ↓
-Not executed by Python
+### Output
 
-VARIABLE
-  ↓
-Name that binds to an object
+```text
+<class 'float'>
+```
 
-MULTIPLE ASSIGNMENT
-  ↓
-a, b = 10, 20
+---
 
-REASSIGNMENT
-  ↓
-x = 10
+# 20. Complex Numbers — `complex`
 
-SWAPPING
-  ↓
+Complex numbers contain:
+
+- Real part
+- Imaginary part
+
+## Mathematical Form
+
+```text
+x + yi
+```
+
+## In Python
+
+```text
+x + yj
+```
+
+Python uses `j` instead of `i`.
+
+## Example
+
+```python
+z = 4 + 5j
+
+print(z)
+```
+
+### Output
+
+```text
+(4+5j)
+```
+
+---
+
+# 21. Real Part of a Complex Number
+
+```python
+z = 4 + 5j
+
+print(z.real)
+```
+
+### Output
+
+```text
+4.0
+```
+
+---
+
+# 22. Imaginary Part of a Complex Number
+
+```python
+z = 4 + 5j
+
+print(z.imag)
+```
+
+### Output
+
+```text
+5.0
+```
+
+---
+
+# 23. Sequence Types
+
+Sequence data types store multiple values.
+
+Python provides:
+
+- `list`
+- `tuple`
+- `range`
+
+---
+
+# 24. List
+
+## Definition
+
+A list stores multiple values in a single variable.
+
+Lists are represented using square brackets `[]`.
+
+## Syntax
+
+```python
+list_name = [item1, item2, item3]
+```
+
+## Example
+
+```python
+cart = ["Shoes", "Shirt", "Watch"]
+```
+
+---
+
+# 25. Printing a List
+
+```python
+cart = ["Shoes", "Shirt", "Watch"]
+
+print(cart)
+```
+
+### Output
+
+```text
+['Shoes', 'Shirt', 'Watch']
+```
+
+---
+
+# 26. List Indexing
+
+List indexing starts from `0`.
+
+## Example
+
+```python
+cart = ["Shoes", "Shirt", "Watch"]
+```
+
+| Index | Value |
+| ---: | --- |
+| 0 | Shoes |
+| 1 | Shirt |
+| 2 | Watch |
+
+## Accessing an Element
+
+```python
+print(cart[0])
+```
+
+### Output
+
+```text
+Shoes
+```
+
+---
+
+# 27. List Properties
+
+Lists are:
+
+- Ordered
+- Mutable
+- Indexed
+- Allow duplicate values
+- Can store different data types
+
+## Example
+
+```python
+numbers = [10, 20, 30]
+
+numbers.append(40)
+
+print(numbers)
+```
+
+### Output
+
+```text
+[10, 20, 30, 40]
+```
+
+---
+
+# 28. Tuple
+
+## Definition
+
+A tuple is a collection of ordered items enclosed in parentheses `()`.
+
+## Syntax
+
+```python
+tuple_name = (item1, item2, item3)
+```
+
+## Example
+
+```python
+dimensions = (10, 30, 40, 50)
+```
+
+---
+
+# 29. Tuple Properties
+
+Tuples are:
+
+- Ordered
+- Indexed
+- Immutable
+- Allow duplicate values
+
+## Example
+
+```python
+colors = ("Red", "Blue", "Green")
+
+print(colors[1])
+```
+
+### Output
+
+```text
+Blue
+```
+
+---
+
+# 30. Single-Item Tuple
+
+A single-item tuple is a common beginner mistake in Python.
+
+## Incorrect Example
+
+```python
+student = ("Raju")
+
+print(type(student))
+```
+
+### Output
+
+```text
+<class 'str'>
+```
+
+Python treats `("Raju")` as a string inside parentheses.
+
+It is not a tuple.
+
+---
+
+# 31. Correct Single-Item Tuple
+
+```python
+student = ("Raju",)
+
+print(student)
+print(type(student))
+```
+
+### Output
+
+```text
+('Raju',)
+<class 'tuple'>
+```
+
+The comma tells Python that this is a tuple.
+
+---
+
+# 32. More Single-Item Tuple Examples
+
+## Integer
+
+```python
+number = (10,)
+
+print(number)
+print(type(number))
+```
+
+### Output
+
+```text
+(10,)
+<class 'tuple'>
+```
+
+## Float
+
+```python
+price = (99.5,)
+
+print(price)
+print(type(price))
+```
+
+### Output
+
+```text
+(99.5,)
+<class 'tuple'>
+```
+
+## Boolean
+
+```python
+status = (True,)
+
+print(status)
+print(type(status))
+```
+
+### Output
+
+```text
+(True,)
+<class 'tuple'>
+```
+
+---
+
+# 33. Why Is the Comma Required?
+
+Python identifies a tuple by the comma, not by the parentheses.
+
+## Without Comma
+
+```python
+x = (5)
+
+print(type(x))
+```
+
+### Output
+
+```text
+<class 'int'>
+```
+
+## With Comma
+
+```python
+x = (5,)
+
+print(type(x))
+```
+
+### Output
+
+```text
+<class 'tuple'>
+```
+
+---
+
+# 34. Interview Question — Single-Item Tuple
+
+### Question
+
+How do you create a tuple with only one element?
+
+### Answer
+
+A single-item tuple must end with a comma.
+
+```python
+student = ("Raju",)
+```
+
+Without the comma, Python treats it as a normal value enclosed in parentheses, not as a tuple.
+
+---
+
+# 35. Difference Between List and Tuple
+
+| List | Tuple |
+| --- | --- |
+| Uses `[]` | Uses `()` |
+| Mutable | Immutable |
+| Slower | Faster |
+| Can be modified | Cannot be modified |
+
+---
+
+# 36. Range
+
+## Definition
+
+A `range` object generates a sequence of numbers.
+
+It is commonly used with loops.
+
+---
+
+# 37. Range — One Argument
+
+## Syntax
+
+```python
+range(stop)
+```
+
+## Example
+
+```python
+range(5)
+```
+
+### Sequence
+
+```text
+0 1 2 3 4
+```
+
+---
+
+# 38. Range — Two Arguments
+
+## Syntax
+
+```python
+range(start, stop)
+```
+
+## Example
+
+```python
+range(2, 8)
+```
+
+### Sequence
+
+```text
+2 3 4 5 6 7
+```
+
+---
+
+# 39. Range — Three Arguments
+
+## Syntax
+
+```python
+range(start, stop, step)
+```
+
+## Example
+
+```python
+range(0, 10, 2)
+```
+
+### Sequence
+
+```text
+0 2 4 6 8
+```
+
+---
+
+# 40. Printing a Range
+
+```python
+print(list(range(5)))
+```
+
+### Output
+
+```text
+[0, 1, 2, 3, 4]
+```
+
+---
+
+# 41. Data Type Checking
+
+Use the built-in `type()` function to check the data type of a variable.
+
+## Example
+
+```python
+name = "Raju"
+age = 23
+marks = 97.5
+
+print(type(name))
+print(type(age))
+print(type(marks))
+```
+
+### Output
+
+```text
+<class 'str'>
+<class 'int'>
+<class 'float'>
+```
+
+---
+
+# 42. Complete Python Data Type Classification
+
+```text
+PYTHON DATA TYPES
+        |
+        ├── Text
+        │     └── str
+        │
+        ├── Numeric
+        │     ├── int
+        │     ├── float
+        │     └── complex
+        │
+        ├── Sequence
+        │     ├── list
+        │     ├── tuple
+        │     └── range
+        │
+        ├── Mapping
+        │     └── dict
+        │
+        ├── Set
+        │     ├── set
+        │     └── frozenset
+        │
+        ├── Boolean
+        │     └── bool
+        │
+        └── None
+              └── NoneType
+```
+
+---
+
+# 43. Mutable vs Immutable
+
+## Mutable Objects
+
+Objects whose contents can change after creation.
+
+Examples:
+
+- list
+- dictionary
+- set
+- bytearray
+
+## Immutable Objects
+
+Objects that cannot be changed after creation.
+
+Examples:
+
+- int
+- float
+- complex
+- bool
+- str
+- tuple
+- bytes
+- frozenset
+
+---
+
+# 44. Complete Summary Table
+
+| Topic | Description |
+| --- | --- |
+| Comments | Notes ignored by the Python interpreter |
+| Single-line Comment | Starts with `#` |
+| Triple-Quoted Strings | Used for docstrings or multi-line text |
+| Variable | Name that refers to an object |
+| Swapping | Exchange values between variables |
+| Swapping with Third Variable | Uses a temporary variable |
+| Swapping without Third Variable | Uses arithmetic operations |
+| Pythonic Swapping | `a, b = b, a` (recommended) |
+| `str` | Text data type (immutable) |
+| `int` | Whole numbers |
+| `float` | Decimal numbers |
+| `complex` | Numbers with real and imaginary parts |
+| `list` | Ordered, mutable collection |
+| `tuple` | Ordered, immutable collection |
+| `range` | Generates a sequence of numbers |
+| `type()` | Returns the data type of an object |
+
+---
+
+# 45. Key Interview Questions
+
+## 1. What is a comment in Python?
+
+A comment is explanatory text ignored by the Python interpreter.
+
+Single-line comments use:
+
+```python
+#
+```
+
+Triple-quoted strings are commonly used for documentation.
+
+## 2. What is the difference between a list and a tuple?
+
+### List
+
+- Mutable
+- Uses `[]`
+
+### Tuple
+
+- Immutable
+- Uses `()`
+
+## 3. What are the three numeric data types in Python?
+
+```text
+int
+float
+complex
+```
+
+## 4. What is the recommended way to swap two variables in Python?
+
+Using tuple unpacking:
+
+```python
+a, b = b, a
+```
+
+## 5. What does `range(5)` return?
+
+It generates:
+
+```text
+0, 1, 2, 3, 4
+```
+
+## 6. How do you check the data type of a variable?
+
+```python
+print(type(variable))
+```
+
+---
+
+# 46. Must-Practice Programs
+
+## Program 1 — Single-Line Comment
+
+```python
+# Printing a welcome message
+print("Welcome to Python")
+```
+
+## Program 2 — Swapping Using Third Variable
+
+```python
+a = 10
+b = 20
+
+temp = a
+a = b
+b = temp
+
+print(a, b)
+```
+
+Output:
+
+```text
+20 10
+```
+
+## Program 3 — Swapping Using Arithmetic
+
+```python
+a = 10
+b = 20
+
+a = a + b
+b = a - b
+a = a - b
+
+print(a, b)
+```
+
+Output:
+
+```text
+20 10
+```
+
+## Program 4 — Pythonic Swapping
+
+```python
+a = 10
+b = 20
+
 a, b = b, a
 
-DELETE
-  ↓
-del x
+print(a, b)
+```
 
-KEYWORD
-  ↓
-Predefined reserved word
+Output:
+
+```text
+20 10
+```
+
+## Program 5 — Check Data Types
+
+```python
+name = "Raju"
+age = 23
+marks = 97.5
+
+print(type(name))
+print(type(age))
+print(type(marks))
+```
+
+## Program 6 — List
+
+```python
+numbers = [10, 20, 30]
+
+numbers.append(40)
+
+print(numbers)
+```
+
+Output:
+
+```text
+[10, 20, 30, 40]
+```
+
+## Program 7 — Tuple
+
+```python
+colors = ("Red", "Blue", "Green")
+
+print(colors[1])
+```
+
+Output:
+
+```text
+Blue
+```
+
+## Program 8 — Single-Item Tuple
+
+```python
+student = ("Raju",)
+
+print(student)
+print(type(student))
+```
+
+Output:
+
+```text
+('Raju',)
+<class 'tuple'>
+```
+
+## Program 9 — Range
+
+```python
+print(list(range(5)))
+```
+
+Output:
+
+```text
+[0, 1, 2, 3, 4]
+```
+
+## Program 10 — Complex Number
+
+```python
+z = 4 + 5j
+
+print(z)
+print(z.real)
+print(z.imag)
+```
+
+Output:
+
+```text
+(4+5j)
+4.0
+5.0
+```
+
+---
+
+# 47. Day 3 Quick Revision
+
+```text
+COMMENTS
+   |
+   ├── Single-line
+   │     └── # comment
+   │
+   └── Triple-quoted strings
+         └── Documentation / multi-line text
+```
+
+```text
+SWAPPING
+   |
+   ├── Third Variable
+   │     └── temp = a
+   │
+   ├── Arithmetic
+   │     └── a = a + b
+   │
+   └── Pythonic
+         └── a, b = b, a
+```
+
+```text
+DATA TYPES
+   |
+   ├── str
+   ├── int
+   ├── float
+   ├── complex
+   ├── list
+   ├── tuple
+   ├── range
+   ├── dict
+   ├── set
+   ├── frozenset
+   ├── bool
+   └── NoneType
+```
+# 49. Important Points to Remember
+
+```text
+1. Comments are ignored by the Python interpreter.
+
+2. Single-line comments start with #.
+
+3. Python does not have a special multi-line comment syntax.
+
+4. Triple-quoted strings are actually string literals.
+
+5. Triple-quoted strings can become docstrings when placed
+   at the beginning of a module, function, or class.
+
+6. Swapping means exchanging values between variables.
+
+7. Pythonic swapping is:
+   a, b = b, a
+
+8. A variable is a name that refers to / binds to an object.
+
+9. Python automatically determines the data type based on
+   the assigned value.
+
+10. str stores text and is immutable.
+
+11. int represents whole numbers.
+
+12. float represents decimal numbers.
+
+13. complex contains real and imaginary parts.
+
+14. Python uses j for the imaginary part of a complex number.
+
+15. list is ordered and mutable.
+
+16. tuple is ordered and immutable.
+
+17. List indexing starts from 0.
+
+18. A single-item tuple requires a comma.
+
+19. range() generates a sequence of numbers.
+
+20. range(stop) starts from 0 and excludes stop.
+
+21. range(start, stop) excludes stop.
+
+22. range(start, stop, step) uses the specified step.
+
+23. type() is used to check the data type of an object.
 ```

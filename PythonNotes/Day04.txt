@@ -1,1210 +1,1420 @@
-# Day 3 — Comments, Swapping Variables & Python Data Types
+# Day 4 — Set, Dictionary, Boolean, None & Type Casting
 
 ---
 
-# 1. Comments in Python
+# 1. Set (`set`)
 
-## What are Comments?
+## What is a Set?
 
-A comment is a line of text in a Python program that is ignored by the Python interpreter.
+A set is a built-in Python data type used to store unique elements.
 
-Comments are used to:
+### Properties of Set
 
-- Explain the code
-- Improve readability
-- Add notes for developers
-- Temporarily disable code during testing
-
----
-
-# 2. Types of Comments
-
-Python mainly uses two types of comments:
-
-1. Single-line Comment
-2. Multi-line Comment (using triple-quoted strings as documentation or multi-line text)
+- Does not allow duplicate values
+- Mutable — elements can be added or removed
+- Unordered — items do not have a fixed position
+- Represented using curly braces `{}` 
+- Set elements must be immutable, such as `int`, `float`, `string`, and `tuple`
 
 ---
-
-# 3. Single-Line Comment
-
-A single-line comment starts with the hash (`#`) symbol.
 
 ## Syntax
 
 ```python
-# This is a comment
+set_name = {item1, item2, item3}
 ```
 
 ## Example
 
 ```python
-# Printing a welcome message
-print("Welcome to Python")
+student_ids = {101, 102, 103, 104}
+
+print(student_ids)
+```
+
+### Possible Output
+
+```text
+{104, 101, 102, 103}
+```
+
+### Important Note
+
+The order may change because sets are unordered.
+
+---
+
+# 2. Checking the Data Type of a Set
+
+```python
+student_ids = {101, 102, 103, 104}
+
+print(type(student_ids))
 ```
 
 ### Output
 
 ```text
-Welcome to Python
+<class 'set'>
 ```
 
 ---
 
-# 4. Multiple Single-Line Comments
+# 3. Duplicate Values are Automatically Removed
+
+Sets do not allow duplicate values.
+
+## Example
 
 ```python
-# Student Information
-# Name : Rahul
-# Course : Python
-# Batch : PFS-101
+student_ids = {101, 102, 103, 101}
 
-print("Student Registered")
+print(student_ids)
+```
+
+### Output
+
+```text
+{101, 102, 103}
+```
+
+The duplicate value `101` is removed automatically.
+
+---
+
+# 4. Empty Set
+
+Many beginners make this mistake.
+
+## Incorrect
+
+```python
+s = {}
+
+print(type(s))
+```
+
+### Output
+
+```text
+<class 'dict'>
+```
+
+`{}` creates an empty dictionary, not an empty set.
+
+---
+
+## Correct
+
+```python
+s = set()
+
+print(s)
+print(type(s))
+```
+
+### Output
+
+```text
+set()
+<class 'set'>
 ```
 
 ---
 
-# 5. Multi-Line Comment
+# 5. Set Properties
 
-Python does not have a special multi-line comment syntax.
-
-However, programmers often use triple-quoted strings (`'''...'''` or `"""..."""`) as documentation strings (docstrings) or for multi-line text.
-
-## Using Triple Double Quotes
-
-```python
-"""
-This program
-demonstrates
-multi-line text.
-"""
-
-print("Python")
-```
-
-## Using Triple Single Quotes
-
-```python
-'''
-This is another
-multi-line text block.
-'''
-
-print("Hello")
-```
-
-## Important Note
-
-According to the Python documentation, triple-quoted strings are actually string literals.
-
-When placed at the beginning of a module, function, or class, they become docstrings.
+| Property | Description |
+| --- | --- |
+| Ordered | ❌ No |
+| Indexed | ❌ No |
+| Mutable | ✅ Yes |
+| Duplicate Values | ❌ Not Allowed |
+| Representation | `{}` |
 
 ---
 
-# 6. Swapping Two Variables
+# 6. Adding an Element to a Set
 
-## Definition
+Use the `add()` method.
 
-Swapping means exchanging the values of two variables.
+## Example
+
+```python
+fruits = {"Apple", "Mango"}
+
+fruits.add("Orange")
+
+print(fruits)
+```
+
+### Output
+
+```text
+{'Apple', 'Mango', 'Orange'}
+```
+
+---
+
+# 7. Dictionary (`dict`)
+
+## What is a Dictionary?
+
+A dictionary stores data in the form of key-value pairs.
+
+Each key is associated with a value.
+
+## Example
+
+```text
+Name → Raju
+Age  → 21
+City → Hyderabad
+```
+
+---
+
+# 8. Dictionary Syntax
+
+```python
+dictionary_name = {
+    key1: value1,
+    key2: value2
+}
+```
+
+## Example
+
+```python
+student = {
+    "name": "Raju",
+    "age": 21,
+    "city": "Hyderabad"
+}
+```
+
+---
+
+# 9. Dictionary Properties
+
+- Ordered in Python 3.7+
+- Mutable
+- Keys must be unique
+- Values may be duplicated
+- Represented using `{}`
+
+---
+
+# 10. Accessing Dictionary Values
+
+## Example
+
+```python
+student = {
+    "name": "Raju",
+    "age": 21,
+    "city": "Hyd"
+}
+
+print(student["name"])
+```
+
+### Output
+
+```text
+Raju
+```
+
+---
+
+## Accessing Another Value
+
+```python
+print(student["age"])
+```
+
+### Output
+
+```text
+21
+```
+
+---
+
+# 11. Accessing a Non-Existing Dictionary Key
 
 Suppose:
 
 ```python
-a = 10
-b = 20
+student = {
+    "name": "Raju",
+    "age": 21,
+    "city": "Hyd"
+}
 ```
 
-After swapping:
+If we try:
 
 ```python
-a = 20
-b = 10
-```
-
-Three methods:
-
-1. Using a Third Variable
-2. Without Using a Third Variable (Arithmetic Method)
-3. Pythonic Swapping (Recommended)
-
----
-
-# 7. Method 1 — Using a Third Variable
-
-## Algorithm
-
-```python
-temp = a
-a = b
-b = temp
-```
-
-## Example
-
-```python
-a = 10
-b = 20
-
-temp = a
-a = b
-b = temp
-
-print(a, b)
+print(student["marks"])
 ```
 
 ### Output
 
 ```text
-20 10
+KeyError: 'marks'
 ```
 
-## Memory Representation
-
-### Before
-
-```text
-a → 10
-b → 20
-```
-
-### After
-
-```text
-a → 20
-b → 10
-```
+The key `"marks"` does not exist.
 
 ---
 
-# 8. Method 2 — Without Using a Third Variable
+# 12. Using the `get()` Method
 
-## Arithmetic Method
-
-```python
-a = a + b
-b = a - b
-a = a - b
-```
+The `get()` method safely returns the value if the key exists.
 
 ## Example
 
 ```python
-a = 10
-b = 20
-
-a = a + b
-b = a - b
-a = a - b
-
-print(a, b)
+print(student.get("name"))
 ```
 
 ### Output
 
 ```text
-20 10
+Raju
 ```
-
-## Step-by-Step
-
-| Step | Operation | a | b |
-| --- | --- | ---: | ---: |
-| Initial | — | 10 | 20 |
-| 1 | `a = a + b` | 30 | 20 |
-| 2 | `b = a - b` | 30 | 10 |
-| 3 | `a = a - b` | 20 | 10 |
 
 ---
 
-# 9. Method 3 — Pythonic Swapping
-
-## Recommended Method
-
-Python provides a simple way to swap variables without using a third variable.
-
-## Syntax
+## If the Key Does Not Exist
 
 ```python
-a, b = b, a
-```
-
-## Example
-
-```python
-a = 10
-b = 20
-
-a, b = b, a
-
-print(a, b)
+print(student.get("marks"))
 ```
 
 ### Output
 
 ```text
-20 10
+None
 ```
 
-This is the recommended and most commonly used method in Python.
+No error is generated.
 
 ---
 
-# 10. Swapping Methods — Quick Comparison
-
-| Method | Extra Variable | Main Idea | Recommendation |
-| --- | --- | --- | --- |
-| Third Variable | Yes | Use `temp` | Basic method |
-| Arithmetic | No | Use `+` and `-` | Understand the logic |
-| Pythonic | No | `a, b = b, a` | Recommended |
-
----
-
-# 11. Variables
-
-## Definition
-
-A variable is a name that refers (binds) to an object (value).
-
-## Syntax
+# 13. Dictionary Example
 
 ```python
-variable_name = value
-```
+student = {
+    "name": "Raju",
+    "age": 21,
+    "city": "Hyd"
+}
 
-## Examples
-
-```python
-a = 10
-name = "Raju"
-temperature = 37.5
-```
-
----
-
-# 12. Example Program Using Variables
-
-```python
-age = 22
-name = "Harish"
-percentage = 95.5
-
-print(age)
-print(name)
-print(percentage)
+print(student["name"])
+print(student["city"])
 ```
 
 ### Output
 
 ```text
-22
-Harish
-95.5
+Raju
+Hyd
 ```
 
 ---
 
-# 13. Python Data Types
+# 14. Dictionary Representation
 
-## Definition
-
-A data type specifies the type of value stored in a variable.
-
-Python automatically determines the data type based on the assigned value.
-
-## Example
-
-```python
-a = 10
+```text
+Key      Value
+----------------
+name  →  Raju
+age   →  21
+city  →  Hyd
 ```
 
-Python recognizes that `10` is an integer.
+Conceptually:
+
+```text
+student
+   |
+   ├── "name" → "Raju"
+   ├── "age"  → 21
+   └── "city" → "Hyd"
+```
 
 ---
 
-# 14. Main Built-in Data Types
+# 15. Set vs Dictionary
 
-| Category | Data Types |
+| Set | Dictionary |
 | --- | --- |
-| Text Type | `str` |
-| Numeric Types | `int`, `float`, `complex` |
-| Sequence Types | `list`, `tuple`, `range` |
-| Mapping Type | `dict` |
-| Set Types | `set`, `frozenset` |
-| Boolean Type | `bool` |
-| None Type | `NoneType` |
+| Stores only values | Stores key-value pairs |
+| Duplicate values not allowed | Duplicate keys not allowed |
+| Uses `{}` | Uses `{}` |
+| Empty set → `set()` | Empty dictionary → `{}` |
 
 ---
 
-# 15. Text Type — `str`
+# 16. Boolean (`bool`)
 
-A string is a sequence of characters enclosed in quotes.
+## What is Boolean?
 
-Strings are immutable, meaning they cannot be modified after creation.
+Boolean data type represents only two values:
 
-## Syntax
-
-```python
-name = "Raju"
+```text
+True
+False
 ```
 
-or
+---
+
+# 17. Boolean Example
 
 ```python
-name = 'Raju'
-```
-
-## Examples
-
-```python
-name = "Harish"
-country = "India"
-institute = "Codegnan"
-
-print(name)
-print(country)
+print(True)
+print(False)
 ```
 
 ### Output
 
 ```text
-Harish
-India
+True
+False
 ```
 
 ---
 
-# 16. String Properties
+# 18. Comparison Operators Return Boolean Values
 
-Strings:
+Comparison expressions produce `True` or `False`.
 
-- Store text
-- Are immutable
-- Are ordered
-- Support indexing
+## Example 1
+
+```python
+print(10 == 10)
+```
+
+### Output
+
+```text
+True
+```
+
+---
+
+## Example 2
+
+```python
+print(10 > 5)
+```
+
+### Output
+
+```text
+True
+```
+
+---
+
+## Example 3
+
+```python
+print(10 < 20)
+```
+
+### Output
+
+```text
+True
+```
+
+---
+
+## Example 4
+
+```python
+print(10 < 5)
+```
+
+### Output
+
+```text
+False
+```
+
+---
+
+# 19. Boolean Variables
+
+Boolean values can be stored in variables.
+
+```python
+is_logged_in = True
+is_admin = False
+
+print(is_logged_in)
+```
+
+### Output
+
+```text
+True
+```
+
+---
+
+# 20. None (`NoneType`)
+
+## What is `None`?
+
+`None` represents the absence of a value or no value.
+
+It is the only value of the `NoneType` data type.
+
+---
+
+# 21. None Example
+
+```python
+payment_status = None
+order_confirmation = None
+
+print(payment_status)
+```
+
+### Output
+
+```text
+None
+```
+
+---
+
+# 22. Checking `None` Data Type
+
+```python
+x = None
+
+print(type(x))
+```
+
+### Output
+
+```text
+<class 'NoneType'>
+```
+
+---
+
+# 23. Real-Time Example of `None`
+
+Initially:
+
+```python
+employee_name = None
+```
+
+The variable does not contain an actual employee name.
+
+Later:
+
+```python
+employee_name = "Raju"
+```
+
+Now the variable contains an actual value.
+
+---
+
+# 24. Type Casting
+
+## What is Type Casting?
+
+Type casting is the process of converting one data type into another.
+
+## Examples
+
+```text
+Integer → Float
+String  → Integer
+Float   → String
+```
+
+---
+
+# 25. Types of Type Casting
+
+There are two types:
+
+```text
+1. Implicit Type Casting
+2. Explicit Type Casting
+```
+
+---
+
+# 26. Implicit Type Casting
+
+## Definition
+
+Implicit type casting is automatic conversion performed by Python during an operation.
+
+Python automatically converts a smaller compatible type into a larger compatible type during an operation.
+
+---
 
 ## Example
+
+```python
+a = 10       # int
+b = 12.5     # float
+
+print(a + b)
+```
+
+### Output
+
+```text
+22.5
+```
+
+Python converts:
+
+```text
+10 → 10.0
+```
+
+before performing the addition.
+
+Conceptually:
+
+```text
+10 + 12.5
+ ↓
+10.0 + 12.5
+ ↓
+22.5
+```
+
+---
+
+# 27. Another Example of Implicit Conversion
+
+```python
+a = True
+b = 5
+
+print(a + b)
+```
+
+### Output
+
+```text
+6
+```
+
+Because:
+
+```text
+True  = 1
+False = 0
+```
+
+Therefore:
+
+```text
+True + 5
+1 + 5
+6
+```
+
+---
+
+# 28. Explicit Type Casting
+
+## Definition
+
+Explicit type casting is manual conversion performed by the programmer.
+
+The programmer uses built-in functions to convert one data type into another.
+
+---
+
+# 29. Common Type Conversion Functions
+
+| Function | Purpose |
+| --- | --- |
+| `int()` | Convert to integer |
+| `float()` | Convert to float |
+| `str()` | Convert to string |
+| `bool()` | Convert to boolean |
+| `list()` | Convert to list |
+| `tuple()` | Convert to tuple |
+| `set()` | Convert to set |
+| `dict()` | Convert to dictionary |
+
+---
+
+# 30. Integer Conversion
+
+## Original Integer
+
+```python
+a = 10
+
+print(a, type(a))
+```
+
+### Output
+
+```text
+10 <class 'int'>
+```
+
+---
+
+## Integer to Float
+
+```python
+b = float(a)
+
+print(b, type(b))
+```
+
+### Output
+
+```text
+10.0 <class 'float'>
+```
+
+---
+
+## Integer to String
+
+```python
+c = str(a)
+
+print(c, type(c))
+```
+
+### Output
+
+```text
+10 <class 'str'>
+```
+
+---
+
+## Integer to Boolean
+
+```python
+d = bool(a)
+
+print(d, type(d))
+```
+
+### Output
+
+```text
+True <class 'bool'>
+```
+
+---
+
+# 31. Float Conversion
+
+## Original Float
+
+```python
+a = 10.5
+```
+
+---
+
+## Float to Integer
+
+```python
+print(int(a))
+```
+
+### Output
+
+```text
+10
+```
+
+### Important Note
+
+`int()` truncates the decimal part; it does not round the value.
+
+For example:
+
+```text
+10.5 → 10
+```
+
+---
+
+## Float to String
+
+```python
+print(str(a))
+```
+
+### Output
+
+```text
+'10.5'
+```
+
+---
+
+## Float to Boolean
+
+```python
+print(bool(a))
+```
+
+### Output
+
+```text
+True
+```
+
+---
+
+# 32. String Conversion
+
+Suppose:
+
+```python
+x = "10"
+```
+
+---
+
+## String to Integer
+
+```python
+print(int(x))
+```
+
+### Output
+
+```text
+10
+```
+
+---
+
+## String to Float
+
+```python
+print(float(x))
+```
+
+### Output
+
+```text
+10.0
+```
+
+---
+
+## String to Boolean
+
+```python
+print(bool(x))
+```
+
+### Output
+
+```text
+True
+```
+
+Because the string is not empty.
+
+---
+
+# 33. Boolean Conversion
+
+## Boolean to Integer
+
+```python
+print(int(True))
+print(int(False))
+```
+
+### Output
+
+```text
+1
+0
+```
+
+---
+
+## Boolean to Float
+
+```python
+print(float(True))
+```
+
+### Output
+
+```text
+1.0
+```
+
+---
+
+## Boolean to String
+
+```python
+print(str(False))
+```
+
+### Output
+
+```text
+False
+```
+
+---
+
+# 34. Converting Sequence Types
+
+Python allows conversion between several sequence/collection types.
+
+---
+
+# 35. List to Tuple
+
+```python
+numbers = [10, 20, 30]
+
+print(tuple(numbers))
+```
+
+### Output
+
+```text
+(10, 20, 30)
+```
+
+---
+
+# 36. Tuple to List
+
+```python
+numbers = (10, 20, 30)
+
+print(list(numbers))
+```
+
+### Output
+
+```text
+[10, 20, 30]
+```
+
+---
+
+# 37. List to Set
+
+```python
+numbers = [10, 20, 20, 30]
+
+print(set(numbers))
+```
+
+### Output
+
+```text
+{10, 20, 30}
+```
+
+Duplicate values are removed.
+
+---
+
+# 38. String to List
 
 ```python
 name = "Python"
 
-print(name[0])
+print(list(name))
 ```
 
 ### Output
 
 ```text
-P
+['P', 'y', 't', 'h', 'o', 'n']
 ```
 
-## Indexing
-
-```text
-P  y  t  h  o  n
-0  1  2  3  4  5
-```
+The string is converted into a list of individual characters.
 
 ---
 
-# 17. Numeric Types
-
-Python supports three numeric types:
-
-1. `int`
-2. `float`
-3. `complex`
-
----
-
-# 18. Integer — `int`
-
-## Definition
-
-`int` represents whole numbers:
-
-- Positive numbers
-- Negative numbers
-- Zero
-
-## Examples
+# 39. String to Tuple
 
 ```python
-age = 23
-marks = 500
-temperature = -10
-```
+name = "Python"
 
-## Example Program
-
-```python
-x = 100
-
-print(x)
-print(type(x))
+print(tuple(name))
 ```
 
 ### Output
 
 ```text
-100
-<class 'int'>
+('P', 'y', 't', 'h', 'o', 'n')
 ```
 
 ---
 
-# 19. Float — `float`
-
-## Definition
-
-`float` represents decimal numbers.
-
-## Examples
+# 40. String to Set
 
 ```python
-percentage = 97.5
-temperature = 40.5
-salary = 25000.75
+name = "Python"
+
+print(set(name))
 ```
 
-## Example
-
-```python
-price = 199.99
-
-print(type(price))
-```
-
-### Output
+### Possible Output
 
 ```text
-<class 'float'>
+{'P', 'y', 't', 'h', 'o', 'n'}
 ```
+
+The order may vary because a set is unordered.
 
 ---
 
-# 20. Complex Numbers — `complex`
+# 41. Dictionary Conversion
 
-Complex numbers contain:
+A dictionary requires an iterable containing key-value pairs.
 
-- Real part
-- Imaginary part
-
-## Mathematical Form
+Each item must contain exactly two values:
 
 ```text
-x + yi
-```
-
-## In Python
-
-```text
-x + yj
-```
-
-Python uses `j` instead of `i`.
-
-## Example
-
-```python
-z = 4 + 5j
-
-print(z)
-```
-
-### Output
-
-```text
-(4+5j)
+key
+value
 ```
 
 ---
 
-# 21. Real Part of a Complex Number
+# 42. Correct Dictionary Conversion
 
 ```python
-z = 4 + 5j
-
-print(z.real)
-```
-
-### Output
-
-```text
-4.0
-```
-
----
-
-# 22. Imaginary Part of a Complex Number
-
-```python
-z = 4 + 5j
-
-print(z.imag)
-```
-
-### Output
-
-```text
-5.0
-```
-
----
-
-# 23. Sequence Types
-
-Sequence data types store multiple values.
-
-Python provides:
-
-- `list`
-- `tuple`
-- `range`
-
----
-
-# 24. List
-
-## Definition
-
-A list stores multiple values in a single variable.
-
-Lists are represented using square brackets `[]`.
-
-## Syntax
-
-```python
-list_name = [item1, item2, item3]
-```
-
-## Example
-
-```python
-cart = ["Shoes", "Shirt", "Watch"]
-```
-
----
-
-# 25. Printing a List
-
-```python
-cart = ["Shoes", "Shirt", "Watch"]
-
-print(cart)
-```
-
-### Output
-
-```text
-['Shoes', 'Shirt', 'Watch']
-```
-
----
-
-# 26. List Indexing
-
-List indexing starts from `0`.
-
-## Example
-
-```python
-cart = ["Shoes", "Shirt", "Watch"]
-```
-
-| Index | Value |
-| ---: | --- |
-| 0 | Shoes |
-| 1 | Shirt |
-| 2 | Watch |
-
-## Accessing an Element
-
-```python
-print(cart[0])
-```
-
-### Output
-
-```text
-Shoes
-```
-
----
-
-# 27. List Properties
-
-Lists are:
-
-- Ordered
-- Mutable
-- Indexed
-- Allow duplicate values
-- Can store different data types
-
-## Example
-
-```python
-numbers = [10, 20, 30]
-
-numbers.append(40)
-
-print(numbers)
-```
-
-### Output
-
-```text
-[10, 20, 30, 40]
-```
-
----
-
-# 28. Tuple
-
-## Definition
-
-A tuple is a collection of ordered items enclosed in parentheses `()`.
-
-## Syntax
-
-```python
-tuple_name = (item1, item2, item3)
-```
-
-## Example
-
-```python
-dimensions = (10, 30, 40, 50)
-```
-
----
-
-# 29. Tuple Properties
-
-Tuples are:
-
-- Ordered
-- Indexed
-- Immutable
-- Allow duplicate values
-
-## Example
-
-```python
-colors = ("Red", "Blue", "Green")
-
-print(colors[1])
-```
-
-### Output
-
-```text
-Blue
-```
-
----
-
-# 30. Single-Item Tuple
-
-A single-item tuple is a common beginner mistake in Python.
-
-## Incorrect Example
-
-```python
-student = ("Raju")
-
-print(type(student))
-```
-
-### Output
-
-```text
-<class 'str'>
-```
-
-Python treats `("Raju")` as a string inside parentheses.
-
-It is not a tuple.
-
----
-
-# 31. Correct Single-Item Tuple
-
-```python
-student = ("Raju",)
+data = [
+    ("name", "Raju"),
+    ("age", 23)
+]
+
+student = dict(data)
 
 print(student)
-print(type(student))
 ```
 
 ### Output
 
 ```text
-('Raju',)
-<class 'tuple'>
+{'name': 'Raju', 'age': 23}
 ```
-
-The comma tells Python that this is a tuple.
 
 ---
 
-# 32. More Single-Item Tuple Examples
+# 43. Understanding Dictionary Conversion
 
-## Integer
+The input:
 
 ```python
-number = (10,)
+[
+    ("name", "Raju"),
+    ("age", 23)
+]
+```
 
-print(number)
-print(type(number))
+contains pairs:
+
+```text
+("name", "Raju")
+("age", 23)
+```
+
+The `dict()` function converts them into:
+
+```text
+"name" → "Raju"
+"age"  → 23
+```
+
+Result:
+
+```python
+{
+    "name": "Raju",
+    "age": 23
+}
+```
+
+---
+
+# 44. Incorrect Dictionary Conversion
+
+```python
+dict([1, 2])
+```
+
+### Result
+
+```text
+TypeError
+```
+
+### Why?
+
+Each element must contain exactly two values:
+
+```text
+(key, value)
+```
+
+But:
+
+```text
+1
+2
+```
+
+are individual integers, not key-value pairs.
+
+---
+
+# 45. Important Conversion Error — Integer Is Not Iterable
+
+This is invalid:
+
+```python
+list(10)
 ```
 
 ### Output
 
 ```text
-(10,)
-<class 'tuple'>
+TypeError: 'int' object is not iterable
 ```
 
-## Float
+Similarly:
 
 ```python
-price = (99.5,)
-
-print(price)
-print(type(price))
+tuple(10)
+set(10)
 ```
 
-### Output
+also produce a `TypeError`.
+
+---
+
+# 46. Why Does This Error Occur?
+
+Functions such as:
+
+```python
+list()
+tuple()
+set()
+```
+
+expect an iterable.
+
+Examples of iterable objects include:
 
 ```text
-(99.5,)
-<class 'tuple'>
+String
+List
+Tuple
+Set
+Range
 ```
 
-## Boolean
-
-```python
-status = (True,)
-
-print(status)
-print(type(status))
-```
-
-### Output
+An integer such as:
 
 ```text
-(True,)
-<class 'tuple'>
+10
 ```
+
+is not iterable.
+
+Therefore:
+
+```python
+list(10)
+```
+
+is invalid.
 
 ---
 
-# 33. Why Is the Comma Required?
-
-Python identifies a tuple by the comma, not by the parentheses.
-
-## Without Comma
-
-```python
-x = (5)
-
-print(type(x))
-```
-
-### Output
+# 47. Type Casting Flow
 
 ```text
-<class 'int'>
+TYPE CASTING
+      |
+      ├── Implicit
+      │     |
+      │     └── Automatic
+      │
+      └── Explicit
+            |
+            └── Manual
+                  |
+                  ├── int()
+                  ├── float()
+                  ├── str()
+                  ├── bool()
+                  ├── list()
+                  ├── tuple()
+                  ├── set()
+                  └── dict()
 ```
 
-## With Comma
+---
 
-```python
-x = (5,)
-
-print(type(x))
-```
-
-### Output
+# 48. Set vs Dictionary vs Boolean vs None
 
 ```text
-<class 'tuple'>
+SET
+ ↓
+Unique values
+ ↓
+Mutable
+ ↓
+Unordered
+ ↓
+{}
+
+DICTIONARY
+ ↓
+Key-value pairs
+ ↓
+Mutable
+ ↓
+Keys are unique
+ ↓
+{}
+
+BOOLEAN
+ ↓
+True / False
+
+NONE
+ ↓
+Absence of a value
+ ↓
+NoneType
 ```
 
 ---
 
-# 34. Interview Question — Single-Item Tuple
-
-### Question
-
-How do you create a tuple with only one element?
-
-### Answer
-
-A single-item tuple must end with a comma.
-
-```python
-student = ("Raju",)
-```
-
-Without the comma, Python treats it as a normal value enclosed in parentheses, not as a tuple.
-
----
-
-# 35. Difference Between List and Tuple
-
-| List | Tuple |
-| --- | --- |
-| Uses `[]` | Uses `()` |
-| Mutable | Immutable |
-| Slower | Faster |
-| Can be modified | Cannot be modified |
-
----
-
-# 36. Range
-
-## Definition
-
-A `range` object generates a sequence of numbers.
-
-It is commonly used with loops.
-
----
-
-# 37. Range — One Argument
-
-## Syntax
-
-```python
-range(stop)
-```
-
-## Example
-
-```python
-range(5)
-```
-
-### Sequence
-
-```text
-0 1 2 3 4
-```
-
----
-
-# 38. Range — Two Arguments
-
-## Syntax
-
-```python
-range(start, stop)
-```
-
-## Example
-
-```python
-range(2, 8)
-```
-
-### Sequence
-
-```text
-2 3 4 5 6 7
-```
-
----
-
-# 39. Range — Three Arguments
-
-## Syntax
-
-```python
-range(start, stop, step)
-```
-
-## Example
-
-```python
-range(0, 10, 2)
-```
-
-### Sequence
-
-```text
-0 2 4 6 8
-```
-
----
-
-# 40. Printing a Range
-
-```python
-print(list(range(5)))
-```
-
-### Output
-
-```text
-[0, 1, 2, 3, 4]
-```
-
----
-
-# 41. Data Type Checking
-
-Use the built-in `type()` function to check the data type of a variable.
-
-## Example
-
-```python
-name = "Raju"
-age = 23
-marks = 97.5
-
-print(type(name))
-print(type(age))
-print(type(marks))
-```
-
-### Output
-
-```text
-<class 'str'>
-<class 'int'>
-<class 'float'>
-```
-
----
-
-# 42. Complete Python Data Type Classification
-
-```text
-PYTHON DATA TYPES
-        |
-        ├── Text
-        │     └── str
-        │
-        ├── Numeric
-        │     ├── int
-        │     ├── float
-        │     └── complex
-        │
-        ├── Sequence
-        │     ├── list
-        │     ├── tuple
-        │     └── range
-        │
-        ├── Mapping
-        │     └── dict
-        │
-        ├── Set
-        │     ├── set
-        │     └── frozenset
-        │
-        ├── Boolean
-        │     └── bool
-        │
-        └── None
-              └── NoneType
-```
-
----
-
-# 43. Mutable vs Immutable
-
-## Mutable Objects
-
-Objects whose contents can change after creation.
-
-Examples:
-
-- list
-- dictionary
-- set
-- bytearray
-
-## Immutable Objects
-
-Objects that cannot be changed after creation.
-
-Examples:
-
-- int
-- float
-- complex
-- bool
-- str
-- tuple
-- bytes
-- frozenset
-
----
-
-# 44. Complete Summary Table
+# 49. Complete Day 4 Summary Table
 
 | Topic | Description |
 | --- | --- |
-| Comments | Notes ignored by the Python interpreter |
-| Single-line Comment | Starts with `#` |
-| Triple-Quoted Strings | Used for docstrings or multi-line text |
-| Variable | Name that refers to an object |
-| Swapping | Exchange values between variables |
-| Swapping with Third Variable | Uses a temporary variable |
-| Swapping without Third Variable | Uses arithmetic operations |
-| Pythonic Swapping | `a, b = b, a` (recommended) |
-| `str` | Text data type (immutable) |
-| `int` | Whole numbers |
-| `float` | Decimal numbers |
-| `complex` | Numbers with real and imaginary parts |
-| `list` | Ordered, mutable collection |
-| `tuple` | Ordered, immutable collection |
-| `range` | Generates a sequence of numbers |
-| `type()` | Returns the data type of an object |
+| Set | Unordered collection of unique elements |
+| Empty Set | `set()` |
+| Dictionary | Collection of key-value pairs |
+| Dictionary Keys | Must be unique |
+| Dictionary Values | Can be duplicated |
+| Boolean | `True` or `False` |
+| None | Represents absence of a value |
+| Type Casting | Converting one data type into another |
+| Implicit Casting | Automatic conversion by Python |
+| Explicit Casting | Manual conversion using built-in functions |
+| `int()` | Convert to integer |
+| `float()` | Convert to float |
+| `str()` | Convert to string |
+| `bool()` | Convert to boolean |
+| `list()` | Convert to list |
+| `tuple()` | Convert to tuple |
+| `set()` | Convert to set |
+| `dict()` | Convert to dictionary |
 
 ---
 
-# 45. Key Interview Questions
+# 50. Set vs Dictionary
 
-## 1. What is a comment in Python?
+| Set | Dictionary |
+| --- | --- |
+| Stores only unique values | Stores key-value pairs |
+| No duplicate values | No duplicate keys |
+| Unordered | Ordered in Python 3.7+ |
+| Mutable | Mutable |
+| `{1, 2, 3}` | `{"name": "Raju"}` |
+| Empty set → `set()` | Empty dictionary → `{}` |
 
-A comment is explanatory text ignored by the Python interpreter.
+---
 
-Single-line comments use:
-
-```python
-#
-```
-
-Triple-quoted strings are commonly used for documentation.
-
-## 2. What is the difference between a list and a tuple?
-
-### List
-
-- Mutable
-- Uses `[]`
-
-### Tuple
-
-- Immutable
-- Uses `()`
-
-## 3. What are the three numeric data types in Python?
+# 51. `[]` vs `{}` vs `set()`
 
 ```text
-int
-float
-complex
+[] 
+ ↓
+Empty List
+
+{}
+ ↓
+Empty Dictionary
+
+set()
+ ↓
+Empty Set
 ```
 
-## 4. What is the recommended way to swap two variables in Python?
-
-Using tuple unpacking:
+## Important
 
 ```python
-a, b = b, a
+type([])
 ```
 
-## 5. What does `range(5)` return?
-
-It generates:
+gives:
 
 ```text
-0, 1, 2, 3, 4
+<class 'list'>
 ```
 
-## 6. How do you check the data type of a variable?
+```python
+type({})
+```
+
+gives:
+
+```text
+<class 'dict'>
+```
 
 ```python
-print(type(variable))
+type(set())
+```
+
+gives:
+
+```text
+<class 'set'>
 ```
 
 ---
 
-# 46. Must-Practice Programs
+# 52. Dictionary Access — `[]` vs `get()`
 
-## Program 1 — Single-Line Comment
-
-```python
-# Printing a welcome message
-print("Welcome to Python")
-```
-
-## Program 2 — Swapping Using Third Variable
+Suppose:
 
 ```python
-a = 10
-b = 20
-
-temp = a
-a = b
-b = temp
-
-print(a, b)
+student = {
+    "name": "Raju",
+    "age": 21
+}
 ```
 
-Output:
+## Using `[]`
+
+```python
+print(student["marks"])
+```
+
+Result:
 
 ```text
-20 10
+KeyError
 ```
 
-## Program 3 — Swapping Using Arithmetic
+## Using `get()`
 
 ```python
-a = 10
-b = 20
-
-a = a + b
-b = a - b
-a = a - b
-
-print(a, b)
+print(student.get("marks"))
 ```
 
-Output:
+Result:
 
 ```text
-20 10
+None
 ```
 
-## Program 4 — Pythonic Swapping
-
-```python
-a = 10
-b = 20
-
-a, b = b, a
-
-print(a, b)
-```
-
-Output:
+### Quick Difference
 
 ```text
-20 10
+student["marks"]
+       ↓
+Key does not exist
+       ↓
+KeyError
+
+student.get("marks")
+       ↓
+Key does not exist
+       ↓
+None
 ```
 
-## Program 5 — Check Data Types
+---
 
-```python
-name = "Raju"
-age = 23
-marks = 97.5
+# 53. Type Casting Quick Examples
 
-print(type(name))
-print(type(age))
-print(type(marks))
+```text
+int → float
+10 → 10.0
+
+int → str
+10 → "10"
+
+int → bool
+10 → True
+
+float → int
+10.5 → 10
+
+float → str
+10.5 → "10.5"
+
+str → int
+"10" → 10
+
+str → float
+"10" → 10.0
+
+str → bool
+"10" → True
+
+True → int
+True → 1
+
+False → int
+False → 0
 ```
 
-## Program 6 — List
+---
+
+# 54. Must-Practice Programs
+
+## Program 1 — Create a Set
 
 ```python
-numbers = [10, 20, 30]
+student_ids = {101, 102, 103, 104}
 
-numbers.append(40)
+print(student_ids)
+print(type(student_ids))
+```
+
+---
+
+## Program 2 — Remove Duplicates Using Set
+
+```python
+numbers = {10, 20, 20, 30}
 
 print(numbers)
 ```
@@ -1212,161 +1422,695 @@ print(numbers)
 Output:
 
 ```text
-[10, 20, 30, 40]
-```
-
-## Program 7 — Tuple
-
-```python
-colors = ("Red", "Blue", "Green")
-
-print(colors[1])
-```
-
-Output:
-
-```text
-Blue
-```
-
-## Program 8 — Single-Item Tuple
-
-```python
-student = ("Raju",)
-
-print(student)
-print(type(student))
-```
-
-Output:
-
-```text
-('Raju',)
-<class 'tuple'>
-```
-
-## Program 9 — Range
-
-```python
-print(list(range(5)))
-```
-
-Output:
-
-```text
-[0, 1, 2, 3, 4]
-```
-
-## Program 10 — Complex Number
-
-```python
-z = 4 + 5j
-
-print(z)
-print(z.real)
-print(z.imag)
-```
-
-Output:
-
-```text
-(4+5j)
-4.0
-5.0
+{10, 20, 30}
 ```
 
 ---
 
-# 47. Day 3 Quick Revision
+## Program 3 — Empty Set
+
+```python
+s = set()
+
+print(s)
+print(type(s))
+```
+
+Output:
 
 ```text
-COMMENTS
-   |
-   ├── Single-line
-   │     └── # comment
-   │
-   └── Triple-quoted strings
-         └── Documentation / multi-line text
+set()
+<class 'set'>
+```
+
+---
+
+## Program 4 — Add to Set
+
+```python
+fruits = {"Apple", "Mango"}
+
+fruits.add("Orange")
+
+print(fruits)
+```
+
+---
+
+## Program 5 — Dictionary
+
+```python
+student = {
+    "name": "Raju",
+    "age": 21,
+    "city": "Hyderabad"
+}
+
+print(student)
+```
+
+---
+
+## Program 6 — Dictionary Access
+
+```python
+student = {
+    "name": "Raju",
+    "age": 21,
+    "city": "Hyd"
+}
+
+print(student["name"])
+print(student["city"])
+```
+
+---
+
+## Program 7 — Dictionary `get()`
+
+```python
+student = {
+    "name": "Raju",
+    "age": 21
+}
+
+print(student.get("marks"))
+```
+
+Output:
+
+```text
+None
+```
+
+---
+
+## Program 8 — Boolean
+
+```python
+is_logged_in = True
+is_admin = False
+
+print(is_logged_in)
+print(is_admin)
+```
+
+---
+
+## Program 9 — None
+
+```python
+payment_status = None
+
+print(payment_status)
+print(type(payment_status))
+```
+
+---
+
+## Program 10 — Implicit Casting
+
+```python
+a = 10
+b = 12.5
+
+print(a + b)
+```
+
+Output:
+
+```text
+22.5
+```
+
+---
+
+## Program 11 — Explicit Casting
+
+```python
+a = 10
+
+b = float(a)
+c = str(a)
+d = bool(a)
+
+print(b)
+print(c)
+print(d)
+```
+
+---
+
+## Program 12 — List to Tuple
+
+```python
+numbers = [10, 20, 30]
+
+print(tuple(numbers))
+```
+
+Output:
+
+```text
+(10, 20, 30)
+```
+
+---
+
+## Program 13 — Tuple to List
+
+```python
+numbers = (10, 20, 30)
+
+print(list(numbers))
+```
+
+Output:
+
+```text
+[10, 20, 30]
+```
+
+---
+
+## Program 14 — List to Set
+
+```python
+numbers = [10, 20, 20, 30]
+
+print(set(numbers))
+```
+
+Output:
+
+```text
+{10, 20, 30}
+```
+
+---
+
+## Program 15 — String to List
+
+```python
+name = "Python"
+
+print(list(name))
+```
+
+Output:
+
+```text
+['P', 'y', 't', 'h', 'o', 'n']
+```
+
+---
+
+## Program 16 — String to Tuple
+
+```python
+name = "Python"
+
+print(tuple(name))
+```
+
+---
+
+## Program 17 — String to Set
+
+```python
+name = "Python"
+
+print(set(name))
+```
+
+The order may vary.
+
+---
+
+## Program 18 — List of Pairs to Dictionary
+
+```python
+data = [
+    ("name", "Raju"),
+    ("age", 23)
+]
+
+student = dict(data)
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Raju', 'age': 23}
+```
+
+---
+
+# 55. Key Interview Questions
+
+## 1. What is a Set?
+
+A set is an unordered collection of unique elements.
+
+---
+
+## 2. Does a Set allow duplicate values?
+
+No.
+
+```python
+numbers = {10, 20, 20, 30}
+```
+
+becomes:
+
+```text
+{10, 20, 30}
+```
+
+---
+
+## 3. How do you create an empty Set?
+
+```python
+s = set()
+```
+
+---
+
+## 4. Why does `{}` create a dictionary instead of a Set?
+
+Because `{}` is the literal syntax for an empty dictionary.
+
+Use:
+
+```python
+set()
+```
+
+to create an empty set.
+
+---
+
+## 5. What is a Dictionary?
+
+A dictionary stores data as key-value pairs.
+
+Example:
+
+```python
+student = {
+    "name": "Raju",
+    "age": 21
+}
+```
+
+---
+
+## 6. Are Dictionary Keys unique?
+
+Yes.
+
+Dictionary keys must be unique.
+
+---
+
+## 7. Can Dictionary values be duplicated?
+
+Yes.
+
+---
+
+## 8. What happens with `student["marks"]` if the key does not exist?
+
+It raises:
+
+```text
+KeyError
+```
+
+---
+
+## 9. What happens with `student.get("marks")` if the key does not exist?
+
+It returns:
+
+```text
+None
+```
+
+without raising an error.
+
+---
+
+## 10. What is Boolean?
+
+Boolean represents:
+
+```text
+True
+False
+```
+
+---
+
+## 11. What is `None`?
+
+`None` represents the absence of a value or no value.
+
+Its type is:
+
+```text
+NoneType
+```
+
+---
+
+## 12. What is Type Casting?
+
+Type casting is the process of converting one data type into another.
+
+---
+
+## 13. What is Implicit Type Casting?
+
+It is automatic type conversion performed by Python.
+
+Example:
+
+```python
+10 + 12.5
+```
+
+Python converts the integer appropriately during the operation and produces:
+
+```text
+22.5
+```
+
+---
+
+## 14. What is Explicit Type Casting?
+
+It is manual conversion performed by the programmer.
+
+Examples:
+
+```python
+int()
+float()
+str()
+bool()
+list()
+tuple()
+set()
+dict()
+```
+
+---
+
+## 15. What is the difference between Implicit and Explicit Casting?
+
+```text
+Implicit
+   ↓
+Automatic
+   ↓
+Python performs conversion
+
+Explicit
+   ↓
+Manual
+   ↓
+Programmer performs conversion
+```
+
+---
+
+## 16. What happens when `int(10.5)` is used?
+
+Output:
+
+```text
+10
+```
+
+`int()` truncates the decimal part; it does not round it.
+
+---
+
+## 17. Why does `list(10)` give TypeError?
+
+Because `list()` expects an iterable, and an integer is not iterable.
+
+---
+
+## 18. Why does `dict([1, 2])` give TypeError?
+
+Because dictionary conversion requires key-value pairs, with exactly two values in each item.
+
+---
+
+# 56. Day 4 Quick Revision
+
+```text
+SET
+  ↓
+Unique values
+  ↓
+Unordered
+  ↓
+Mutable
+  ↓
+{}
+
+EMPTY SET
+  ↓
+set()
+
+DICTIONARY
+  ↓
+Key-value pairs
+  ↓
+Keys must be unique
+  ↓
+Mutable
+  ↓
+{}
+
+BOOLEAN
+  ↓
+True / False
+
+NONE
+  ↓
+Absence of a value
+  ↓
+NoneType
 ```
 
 ```text
-SWAPPING
-   |
-   ├── Third Variable
-   │     └── temp = a
-   │
-   ├── Arithmetic
-   │     └── a = a + b
-   │
-   └── Pythonic
-         └── a, b = b, a
+TYPE CASTING
+       |
+       ├── Implicit
+       │     └── Automatic
+       │
+       └── Explicit
+             └── Manual
+                    |
+                    ├── int()
+                    ├── float()
+                    ├── str()
+                    ├── bool()
+                    ├── list()
+                    ├── tuple()
+                    ├── set()
+                    └── dict()
 ```
 
 ```text
-DATA TYPES
-   |
-   ├── str
-   ├── int
-   ├── float
-   ├── complex
-   ├── list
-   ├── tuple
-   ├── range
-   ├── dict
-   ├── set
-   ├── frozenset
-   ├── bool
-   └── NoneType
+DICTIONARY ACCESS
+       |
+       ├── student["key"]
+       │       ↓
+       │   Missing key
+       │       ↓
+       │   KeyError
+       │
+       └── student.get("key")
+               ↓
+           Missing key
+               ↓
+             None
 ```
-# 49. Important Points to Remember
+
+---
+
+# 57. Day 4 Final Revision
 
 ```text
-1. Comments are ignored by the Python interpreter.
+What is a Set?
+        ↓
+An unordered collection of unique elements
 
-2. Single-line comments start with #.
+Does a Set allow duplicate values?
+        ↓
+No
 
-3. Python does not have a special multi-line comment syntax.
+Is a Set mutable?
+        ↓
+Yes
 
-4. Triple-quoted strings are actually string literals.
+How do you create an empty Set?
+        ↓
+set()
 
-5. Triple-quoted strings can become docstrings when placed
-   at the beginning of a module, function, or class.
+What does {} create?
+        ↓
+Empty dictionary
 
-6. Swapping means exchanging values between variables.
+What is a Dictionary?
+        ↓
+A collection of key-value pairs
 
-7. Pythonic swapping is:
-   a, b = b, a
+Are Dictionary keys unique?
+        ↓
+Yes
 
-8. A variable is a name that refers to / binds to an object.
+Can Dictionary values be duplicated?
+        ↓
+Yes
 
-9. Python automatically determines the data type based on
-   the assigned value.
+What happens when a missing key is accessed using []?
+        ↓
+KeyError
 
-10. str stores text and is immutable.
+What does get() return for a missing key?
+        ↓
+None
 
-11. int represents whole numbers.
+What are Boolean values?
+        ↓
+True and False
 
-12. float represents decimal numbers.
+What is None?
+        ↓
+Absence of a value
 
-13. complex contains real and imaginary parts.
+What is the type of None?
+        ↓
+NoneType
 
-14. Python uses j for the imaginary part of a complex number.
+What is Type Casting?
+        ↓
+Converting one data type into another
 
-15. list is ordered and mutable.
+What are the two types of Type Casting?
+        ↓
+Implicit and Explicit
 
-16. tuple is ordered and immutable.
+What is Implicit Casting?
+        ↓
+Automatic conversion by Python
 
-17. List indexing starts from 0.
+What is Explicit Casting?
+        ↓
+Manual conversion by the programmer
 
-18. A single-item tuple requires a comma.
+What functions are commonly used for explicit casting?
+        ↓
+int()
+float()
+str()
+bool()
+list()
+tuple()
+set()
+dict()
 
-19. range() generates a sequence of numbers.
+What happens with int(10.5)?
+        ↓
+10
 
-20. range(stop) starts from 0 and excludes stop.
+Does int() round the decimal value?
+        ↓
+No, it truncates the decimal part
 
-21. range(start, stop) excludes stop.
+Why does list(10) give TypeError?
+        ↓
+10 is not iterable
 
-22. range(start, stop, step) uses the specified step.
-
-23. type() is used to check the data type of an object.
+Why does dict([1,2]) give TypeError?
+        ↓
+Dictionary conversion requires key-value pairs
 ```
+
+---
+
+# 58. Important Points to Remember
+
+```text
+1. A Set stores unique elements.
+
+2. A Set does not allow duplicate values.
+
+3. A Set is mutable.
+
+4. A Set is unordered.
+
+5. Set elements must be immutable.
+
+6. {} creates an empty dictionary, not an empty set.
+
+7. Use set() to create an empty set.
+
+8. A Dictionary stores key-value pairs.
+
+9. Dictionary keys must be unique.
+
+10. Dictionary values can be duplicated.
+
+11. Dictionaries are ordered in Python 3.7+.
+
+12. student["key"] raises KeyError when the key does not exist.
+
+13. student.get("key") returns None when the key does not exist,
+    unless a default value is specified.
+
+14. Boolean has only True and False.
+
+15. None represents absence of a value.
+
+16. The type of None is NoneType.
+
+17. Type casting means converting one data type into another.
+
+18. Implicit casting is automatic.
+
+19. Explicit casting is manual.
+
+20. int() converts to integer.
+
+21. float() converts to float.
+
+22. str() converts to string.
+
+23. bool() converts to boolean.
+
+24. list() converts an iterable to a list.
+
+25. tuple() converts an iterable to a tuple.
+
+26. set() converts an iterable to a set.
+
+27. dict() converts appropriate key-value pairs to a dictionary.
+
+28. int(10.5) gives 10 because int() truncates the decimal part.
+
+29. list(10), tuple(10), and set(10) produce TypeError because
+    an integer is not iterable.
+
+30. Dictionary conversion requires each item to contain exactly
+    two values: a key and a value.
