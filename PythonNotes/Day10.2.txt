@@ -1,0 +1,265 @@
+# Day 10.1 — Conditional Statements in Python
+
+---
+
+Python Conditional Statements
+
+Conditional Statements
+Definition
+Conditional Statements are used to check a condition.
+They execute different blocks of code based on whether the condition is True or False.
+Types of Conditional Statements
+if
+if-else
+elif
+Nested if
+
+Flow of Execution
+Condition
+    |
+    |
+  True -----------------> Execute If Block
+    |
+ False -----------------> Skip If Block / Execute Else Block
+
+1. if Statement
+Definition
+The if statement executes a block of code only when the condition is True.
+If the condition is False, the block is skipped.
+
+Syntax
+if condition:
+    statements
+
+Flow Diagram
+          Condition
+             |
+      ----------------
+      |              |
+    True          False
+      |              |
+ Execute Block      Skip
+
+Example 1
+a = 10
+
+if a > 5:
+    print("Hello")
+
+print("End")
+Output
+Hello
+End
+Explanation
+a = 10
+
+10 > 5
+
+True
+
+↓
+
+Hello
+End
+
+Example 2
+a = 20
+
+if a > 20:
+    print("Hello")
+
+print("End")
+Output
+End
+Explanation
+20 > 20
+
+False
+
+↓
+
+Hello is skipped
+
+↓
+
+End
+
+Real-Time Example
+ATM Minimum Balance
+balance = 5000
+
+if balance >= 1000:
+    print("Transaction Allowed")
+
+print("Thank You")
+
+2. if-else Statement
+Definition
+The if-else statement checks a condition.
+If the condition is True, the if block executes.
+Otherwise, the else block executes.
+Only one block is executed.
+
+Syntax
+if condition:
+    statements
+else:
+    statements
+
+Flow Diagram
+            Condition
+                |
+        ------------------
+        |                |
+      True            False
+        |                |
+   If Block         Else Block
+
+Example 1
+stock = 5
+
+if stock > 0:
+    print("Product Stock Available")
+else:
+    print("Product Stock Not Available")
+Output
+Product Stock Available
+
+Example 2
+stock = 0
+
+if stock > 0:
+    print("Product Stock Available")
+else:
+    print("Product Stock Not Available")
+Output
+Product Stock Not Available
+
+Program 1: Voting Eligibility
+Problem
+Check whether a person is eligible to vote.
+Logic
+Age >= 18
+
+True  → Eligible
+
+False → Not Eligible
+
+Program
+age = int(input("Enter Age: "))
+
+if age >= 18:
+    print("Eligible for Vote")
+else:
+    print("Not Eligible")
+
+print("End")
+
+Sample Output 1
+Enter Age: 20
+Eligible for Vote
+End
+
+Sample Output 2
+Enter Age: 16
+Not Eligible
+End
+
+Program 2: Even or Odd
+Logic
+Number % 2
+
+Remainder = 0 → Even
+
+Otherwise → Odd
+
+Program
+num = int(input("Enter Number: "))
+
+if num % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+Sample Output
+Enter Number: 10
+
+Even
+
+Sample Output
+Enter Number: 17
+
+Odd
+
+How Modulus (%) Works
+10 % 2 = 0
+
+15 % 2 = 1
+
+100 % 5 = 0
+
+17 % 2 = 1
+If the remainder is 0, the number is Even.
+Otherwise, it is Odd.
+
+Program 3: Largest of Two Numbers
+Logic
+a > b
+
+True  → a is largest
+
+False → b is largest
+
+Program
+a = int(input("Enter First Number: "))
+b = int(input("Enter Second Number: "))
+
+if a > b:
+    print("a is Largest")
+else:
+    print("b is Largest")
+
+Sample Output
+Enter First Number: 20
+Enter Second Number: 10
+
+a is Largest
+
+Sample Output
+Enter First Number: 10
+Enter Second Number: 50
+
+b is Largest
+
+Important Notes
+Condition Always Returns
+True
+False
+Examples
+10 > 5      # True
+
+20 > 20     # False
+
+10 == 10    # True
+
+5 != 5      # False
+
+7 <= 10     # True
+
+Comparison Operators Used in Conditions
+
+Summary
+
+Operator | Meaning | Example
+> | Greater than | a > b
+< | Less than | a < b
+>= | Greater than or Equal | age >= 18
+<= | Less than or Equal | marks <= 35
+== | Equal to | num == 10
+!= | Not Equal to | a != b
+
+Statement | Description
+if | Executes the block only when the condition is True.
+if-else | Executes one block if the condition is True; otherwise executes the else block.
+Condition | Always evaluates to either True or False.
+% (Modulus) | Returns the remainder after division; commonly used to check even or odd numbers.
